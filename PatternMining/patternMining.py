@@ -8,19 +8,6 @@ class PatternMining:
         self.tokensFilename = tokensFilename
         self.corpusFilename = corpusFilename
         self.corpusTokenized = list()
-        pass
-
-    # def getTokenizedCorpus(self):
-    #     if len(self.corpusTokenized) == 0:
-    #         corpus = ''
-    #         with open(self.corpusFilename, 'r') as file:
-    #             for line in file:
-    #                 # corpus += line.lower()
-    #                 # self.corpusTokenized.extend()
-    #                 tokens_list = nltk.word_tokenize(line.lower())
-    #
-    #                 self.extractPattern()
-    #     return self.corpusTokenized
 
     def extractPatternOnFly(self, token, extract=True):
 
@@ -41,15 +28,19 @@ class PatternMining:
 
     def extractPattern(self, token, tokens_list, n=3):
         resList = set()
-        pattern = ''
+        pattern = list()
         for t in range(len(tokens_list)):
             if tokens_list[t] == token:
-                for p in range(t-n, t):
-                    print('{0} '.format(tokens_list[p]), end='')
-                    pattern += '{0} '.format(tokens_list[p])
-                print(token)
-                resList.add(pattern)
-                pattern = ''
+
+                for p in range(t+1, t+n+1):
+                    if p < len(tokens_list):
+                        pattern.append('{0}'.format(tokens_list[p].strip()))
+                    else:
+                        pattern.append('omega')
+
+                print(pattern)
+                resList.add(tuple(pattern))
+                pattern = list()
         return resList
 
 if __name__ == '__main__':
@@ -58,5 +49,24 @@ if __name__ == '__main__':
     # corpus = 'testCorpus.txt'#sys.argv[1]
 
     pm = PatternMining(tokens, corpus)
-    patterns = pm.extractPatternOnFly(tokens, extract=False)
+    patterns = pm.extractPatternOnFly(tokens, extract=True)
 
+    with open('patterns.txt', 'w') as file:
+        for pattern in patterns:
+            file.write('{0}\n'.format(pattern))
+
+    print('*'*50)
+
+    # To check if other hypernyms exist with same patterns fournd for endodontics
+    # n = 3
+    # tokens = list()
+    # with open(corpus, 'r') as file:
+    #     for line in file:
+    #         tokens_list = line.split(' ')
+    #
+    #         threeGrams = nltk.ngrams(line.split(), n)
+    #
+    #         for gram in threeGrams:
+    #
+    #             if gram in patterns:
+    #                 print(gram)
