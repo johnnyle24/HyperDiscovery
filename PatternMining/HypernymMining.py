@@ -15,29 +15,89 @@ class HypernymMining:
         else:
             with open(file_name, 'r') as file:
                 for line in file:
+
                     str_split = line.lower().split(' ')
+
                     split_len = len(str_split)
                     for word_index in range(0, split_len):
                         one_gram = str_split[word_index]
 
+                        one_gram = one_gram.rstrip()
+
                         if self.check_patterns(one_gram):
 
-                            self.add_hypernym_to_hash(str_split[word_index-1], 1)
-                            self.add_hypernym_to_hash(str_split[word_index+1], 1)
+                            self.pos(line)
+
+                            # check left
+                            if self.check_hyps(left_phrase):
+                                # self.add_hypernym_to_hash(str_split[word_index + 3], 1)
+                                self.add_hypernym_to_hash(right_phrase, 1)
+                                self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
+
+                            # check right
+                            if self.check_hyps(right_phrase):
+                                # self.add_hypernym_to_hash(str_split[word_index - 1], 1)
+                                self.add_hypernym_to_hash(left_phrase, 1)
+                                self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
 
                         if (word_index+1) < split_len:
                             two_gram = str_split[word_index] + " " + str_split[word_index+1]
 
+                            two_gram = two_gram.rstrip()
+
                             if self.check_patterns(two_gram):
-                                self.add_hypernym_to_hash(str_split[word_index - 1], 1)
-                                self.add_hypernym_to_hash(str_split[word_index + 2], 1)
+
+                                self.pos(line)
+
+                                # check left
+                                if self.check_hyps(left_phrase):
+                                    #self.add_hypernym_to_hash(str_split[word_index + 3], 1)
+                                    self.add_hypernym_to_hash(right_phrase, 1)
+                                    self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
+
+
+                                # check right
+                                if self.check_hyps(right_phrase):
+                                    #self.add_hypernym_to_hash(str_split[word_index - 1], 1)
+                                    self.add_hypernym_to_hash(left_phrase, 1)
+                                    self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
 
                         if (word_index+2) < split_len:
                             three_gram = str_split[word_index] + " " + str_split[word_index + 1] + " " + str_split[word_index + 2]
 
+                            three_gram = three_gram.rstrip()
+
                             if self.check_patterns(three_gram):
-                                self.add_hypernym_to_hash(str_split[word_index - 1], 1)
-                                self.add_hypernym_to_hash(str_split[word_index + 3], 1)
+
+                                self.pos(line)
+
+                                # check left
+                                if self.check_hyps(left_phrase):
+                                    #self.add_hypernym_to_hash(str_split[word_index + 3], 1)
+                                    self.add_hypernym_to_hash(right_phrase, 1)
+                                    self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
+
+
+                                # check right
+                                if self.check_hyps(right_phrase):
+                                    #self.add_hypernym_to_hash(str_split[word_index - 1], 1)
+                                    self.add_hypernym_to_hash(left_phrase, 1)
+                                    self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
+
+
+        # self.rank_nodes
+        # evaluations
+
+    def pos(self, phrase):
+        print("Not done")
+
+
+    def check_hyps(self, phrase):
+        if phrase in self.hyp_hashes:
+            return True
+        else:
+            return False
+
 
     # Checks if the gram matches a pattern
     def check_patterns(self, phrase):
