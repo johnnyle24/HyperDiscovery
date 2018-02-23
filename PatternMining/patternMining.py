@@ -32,8 +32,7 @@ class PatternMining:
 
         orderedPatterns = self.sortPatterns(patterns)
 
-        with open(outputFile, 'w') as outfile:
-            json.dump(orderedPatterns, outfile, ensure_ascii=False)
+        self.writeToJsonFile(orderedPatterns, outputFile)
 
     def getSentencePattern(self, sent, hashes, patterns, maxn=3, closeness=3):
         """
@@ -57,7 +56,7 @@ class PatternMining:
                     tup = tuple(nGram)
                     if tup in hashes:
                         if last is not None:
-                            if wc - i - last[1] <= 3:  # Must be close to the previous token found 3 away in this case
+                            if wc - i - last[1] <= closeness:  # Must be close to the previous token found 3 away in this case
                                 pattern = self.getPattern(last[1], wc - i + 1, line)
                                 self.addPattern(pattern, patterns)
                             last = None
@@ -97,6 +96,11 @@ class PatternMining:
         ordered = list()
         while q:
             ordered.insert(0, heapq.heappop(q))
+        return ordered
+
+    def writeToJsonFile(self, data, outputFile):
+        with open(outputFile, 'w') as outfile:
+            json.dump(data, outfile, ensure_ascii=False)
 
     def jsonToOurFormat(self, filename, outputFile):
         """
@@ -110,13 +114,17 @@ class PatternMining:
             for l in data:
                 file.write('{0} = {1}\n'.format(l[1], l[0]))
 
+    def pos(self, sent):
+        tokenized = nltk.word_tokenize(sent)
+        return nltk.pos_tag(tokenized)
 
-if __name__ == '__main__':
-    tokenFile = '../SemEval2018-Task9/training/data/2A.medical.training.data.txt'
-    corpusFile = '../Data/2A_med_pubmed_tokenized.txt'
-    # corpusFile = 'testCorpus.txt'
 
-    pm = PatternMining()
-
-    pm.getPairs(tokenFile, corpusFile, 'test.json')
-    pm.jsonToOurFormat('patterns.json', 'patterns.txt')
+# if __name__ == '__main__':
+#     tokenFile = '../SemEval2018-Task9/training/data/2A.medical.training.data.txt'
+#     corpusFile = '../Data/2A_med_pubmed_tokenized.txt'
+#     # corpusFile = 'testCorpus.txt'
+#
+#     pm = PatternMining()
+#
+#     pm.getPairs(tokenFile, corpusFile, 'test.json')
+#     pm.jsonToOurFormat('patterns.json', 'patterns.txt')
