@@ -1,9 +1,10 @@
 import nltk
 import json
+import heapq
 
 class PatternMining:
 
-    def getPairs(self, tokenFile, corpusFile):
+    def getPairs(self, tokenFile, corpusFile, outputFile='patterns.json'):
         f = open(tokenFile, 'rU')
 
         lines = f.readlines()
@@ -21,8 +22,18 @@ class PatternMining:
         for line in corpusLines:
             self.getSentencePattern(line, hashes, patterns, mx)
 
-        with open('patterns.txt', 'w') as outfile:
-            json.dump(patterns, outfile, ensure_ascii=False)
+
+        q = []
+        for k, v in patterns.items():
+            heapq.heappush(q, (v, k))
+
+        ordered = list()
+        while q:
+            ordered.insert(0, heapq.heappop(q))
+
+
+        with open(outputFile, 'w') as outfile:
+            json.dump(ordered, outfile, ensure_ascii=False)
 
         # for key, val in patterns.items():
         #     print('Pattern: {0}'.format(key))
@@ -45,16 +56,11 @@ class PatternMining:
                             if wc-i - last[1] < 4: # Must be close to the previous token found 3 away in this case
                                 pattern = self.getPattern(last[1], wc-i + 1, line)
                                 self.addPattern(pattern, patterns)
-                                # if pattern not in patterns:
-                                #     patterns[pattern] = 0
-                                # patterns[pattern] += 1
                             last = None
                         last = (tup, wc + i + 1)
 
     def getPattern(self, lower, upper, lst):
-        #return ' '.join([s.lower() for s in line[last[1]: wc-i + 1]])
         return ' '.join([s.lower() for s in lst[lower : upper]])
-
 
     def addPattern(self, pattern, patterns):
         if pattern not in patterns:
@@ -73,4 +79,4 @@ if __name__ == '__main__':
     corpusFile = '../Data/2A_med_pubmed_tokenized.txt'
     # corpusFile = 'testCorpus.txt'
 
-    PatternMining().getPairs(tokenFile, corpusFile)
+    PatternMining().getPairs(tokenFile, corpusFile, 'test.json')
