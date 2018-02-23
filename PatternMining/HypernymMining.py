@@ -22,24 +22,24 @@ class HypernymMining:
 
                         if self.check_patterns(one_gram):
 
-                            self.add_hypernym(str_split[word_index-1], 1)
-                            self.add_hypernym(str_split[word_index+1], 1)
+                            self.add_hypernym_to_hash(str_split[word_index-1], 1)
+                            self.add_hypernym_to_hash(str_split[word_index+1], 1)
 
                         if (word_index+1) < split_len:
                             two_gram = str_split[word_index] + " " + str_split[word_index+1]
 
                             if self.check_patterns(two_gram):
-                                self.add_hypernym(str_split[word_index - 1], 1)
-                                self.add_hypernym(str_split[word_index + 2], 1)
+                                self.add_hypernym_to_hash(str_split[word_index - 1], 1)
+                                self.add_hypernym_to_hash(str_split[word_index + 2], 1)
 
                         if (word_index+2) < split_len:
                             three_gram = str_split[word_index] + " " + str_split[word_index + 1] + " " + str_split[word_index + 2]
 
                             if self.check_patterns(three_gram):
-                                self.add_hypernym(str_split[word_index - 1], 1)
-                                self.add_hypernym(str_split[word_index + 3], 1)
+                                self.add_hypernym_to_hash(str_split[word_index - 1], 1)
+                                self.add_hypernym_to_hash(str_split[word_index + 3], 1)
 
-
+    # Checks if the gram matches a pattern
     def check_patterns(self, phrase):
         if phrase in self.pat_hashes:
             return True
@@ -63,7 +63,7 @@ class HypernymMining:
         else:
             self.pat_hashes[phrase] = frequency
 
-    # Extracts the hypernyms STORED in a hypernyms.txt file tagged with concept
+    # Extracts the hypernyms STORED in a hypernyms.txt file tagged with 'concept'
     def hash_hypernyms(self, file_name):
         with open(file_name, 'r') as file:
             for line in file:
@@ -101,11 +101,16 @@ class HypernymMining:
 
     def check_for_circular_dep(self, phrase):
 
+        print("Not implemented yet")
+
         searching = False
 
         while searching:
 
             current = self.node_map[phrase]
+
+    def rank_nodes(self):
+        print("Not implemented yet")
 
 
 
