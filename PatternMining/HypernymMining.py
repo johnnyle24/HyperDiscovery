@@ -1,4 +1,4 @@
-
+import nltk
 
 class HypernymMining:
 
@@ -26,7 +26,10 @@ class HypernymMining:
 
                         if self.check_patterns(one_gram):
 
-                            self.pos(line)
+                            pos_list = self.pos(line)
+
+                            left_phrase = pos_list[word_index-1]
+                            right_phrase = pos_list[word_index+1]
 
                             # check left
                             if self.check_hyps(left_phrase):
@@ -47,7 +50,10 @@ class HypernymMining:
 
                             if self.check_patterns(two_gram):
 
-                                self.pos(line)
+                                pos_list = self.pos(line)
+
+                                left_phrase = pos_list[word_index - 1]
+                                right_phrase = pos_list[word_index + 2]
 
                                 # check left
                                 if self.check_hyps(left_phrase):
@@ -69,7 +75,10 @@ class HypernymMining:
 
                             if self.check_patterns(three_gram):
 
-                                self.pos(line)
+                                pos_list = self.pos(line)
+
+                                left_phrase = pos_list[word_index - 1]
+                                right_phrase = pos_list[word_index + 3]
 
                                 # check left
                                 if self.check_hyps(left_phrase):
@@ -88,8 +97,9 @@ class HypernymMining:
         # self.rank_nodes
         # evaluations
 
-    def pos(self, phrase):
-        print("Not done")
+    def pos(self, sentence):
+        tokenized = nltk.word_tokenize(sentence)
+        return nltk.pos_tag(tokenized)
 
 
     def check_hyps(self, phrase):
@@ -161,13 +171,34 @@ class HypernymMining:
 
     def check_for_circular_dep(self, phrase):
 
-        print("Not implemented yet")
+        parent_set = set()
 
-        searching = False
+        child_stack = []
 
-        while searching:
+        parent_set.add(phrase.phrase)
 
-            current = self.node_map[phrase]
+        for parent in self.node_map[phrase].parent_set:
+            parent_set.add(parent.phrase)
+
+        for child in self.node_map[phrase].child_set:
+            if child.phrase in parent_set:
+                return True
+            else:
+                child_stack.append(child)
+
+        while len(child_stack) != 0:
+
+            current_child = child_stack.pop()
+
+            for child in self.node_map[current_child].child_set:
+                if child.phrase in parent_set:
+                    return True
+                else:
+                    parent_set.add(child.phrase)
+                    child_stack.append(child)
+
+        return False
+
 
     def rank_nodes(self):
         print("Not implemented yet")
