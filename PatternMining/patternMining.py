@@ -73,10 +73,23 @@ class PatternMining:
             result[k] = list(v)
         return result
 
+    def jsonToOurFormat(self, filename, outputFile):
+        data = json.load(open(filename))
+        with open(outputFile, 'w') as file:
+            for l in data:
+                file.write('{0} = {1}\n'.format(l[1], l[0]))
+
+
+
+
 if __name__ == '__main__':
 
     tokenFile = '../SemEval2018-Task9/training/data/2A.medical.training.data.txt'
     corpusFile = '../Data/2A_med_pubmed_tokenized.txt'
     # corpusFile = 'testCorpus.txt'
 
-    PatternMining().getPairs(tokenFile, corpusFile, 'test.json')
+    pm = PatternMining()
+
+    # pm.getPairs(tokenFile, corpusFile, 'test.json')
+
+    pm.jsonToOurFormat('patterns.json', 'patterns.txt')
