@@ -5,8 +5,8 @@ class HypernymMining:
     def __init__(self):
         self.hyp_hashes = dict()
         self.pat_hashes = dict()
-        
-        self.hyp_nodes = dict()
+
+        self.node_map = dict()
 
     # Extracts hypernym phrases from a body of text such as PubMed
     def extract_hypernyms(self, file_name):
@@ -46,22 +46,6 @@ class HypernymMining:
         else:
             return False
 
-
-    # Extracts the hypernyms STORED in a hypernyms.txt file tagged with concept
-    def hash_hypernyms(self, file_name):
-        with open(file_name, 'r') as file:
-            for line in file:
-                str_split = line.lower().split('concept')
-                phrase = str_split[0].rstrip()
-                self.add_hypernym(phrase, 1)
-
-    # Adds the hypernyms to the hashmap and adjusts number of times found if necessary
-    def add_hypernym(self, phrase, frequency):
-        if phrase in self.hyp_hashes:
-            self.hyp_hashes[phrase] += frequency
-        else:
-            self.hyp_hashes[phrase] = frequency
-
     # Extracts the patterns STORED in a patterns.txt file paired with its frequency
     def hash_patterns(self, file_name):
         with open(file_name, 'r') as file:
@@ -72,15 +56,61 @@ class HypernymMining:
                 self.add_pattern(phrase, frequency)
 
     # Add the patterns to the hashmap and adjusts the number of times found if necessary
+    # This is done to check if the gram is a pattern in constant time
     def add_pattern(self, phrase, frequency):
         if phrase in self.pat_hashes:
             self.pat_hashes[phrase] += frequency
         else:
             self.pat_hashes[phrase] = frequency
 
+    # Extracts the hypernyms STORED in a hypernyms.txt file tagged with concept
+    def hash_hypernyms(self, file_name):
+        with open(file_name, 'r') as file:
+            for line in file:
+                str_split = line.lower().split('concept')
+                phrase = str_split[0].rstrip()
+                self.add_hypernym_to_hash(phrase, 1)
+
+    # Adds the hypernyms to the hashmap and adjusts number of times found if necessary
+    # This is done for checking if the gram is a known hypernym in constant time
+    def add_hypernym_to_hash(self, phrase, frequency):
+        if phrase in self.hyp_hashes:
+            self.hyp_hashes[phrase] += frequency
+        else:
+            self.hyp_hashes[phrase] = frequency
+            self.add_hypernym_to_nodes(phrase, "", "")
+
+    # Creates a hypernym node and adds it to the hashmap/dictionary
+    # Used for ranking the hypernyms
+    def add_hypernym_to_nodes(self, phrase, parent, child):
+        if phrase in self.node_map:
+            if child != "":
+                self.node_map[phrase].add_child(child)
+                self.node_map[phrase].rank += 1
+            if parent != "":
+                self.node_map[phrase].add_parent(parent)
+        else:
+            node = HyperNode(phrase)
+            if child != "":
+                node.add_child(child)
+                node.rank += 1
+            if parent != "":
+                node.add_parent(parent)
+
+            self.node_map[phrase] = node
+
+    def check_for_circular_dep(self, phrase):
+
+        searching = False
+
+        while searching:
+
+            current = self.node_map[phrase]
+
+
 
 # Used for ranking hypernyms found in text
-class HyperNodes:
+class HyperNode:
 
     def __init__(self, phrase):
         self.rank = 0
