@@ -154,12 +154,10 @@ class HypernymMining:
         with open(file_name, 'r') as file:
             for line in file:
                 str_split = line.lower().split('=')
-                print(str_split[0])
-                phrase = str_split[0].rstrip()
-                print(str_split[1])
-                print(str_split[1].rstrip('\n'))
-                frequency = int(str_split[1].rstrip('\n'))
-                self.add_pattern(phrase, frequency)
+                if len(str_split) == 2:
+                    phrase = str_split[0].rstrip()
+                    frequency = int(str_split[1].rstrip('\n'))
+                    self.add_pattern(phrase, frequency)
 
     # Add the patterns to the hashmap and adjusts the number of times found if necessary
     # This is done to check if the gram is a pattern in constant time
