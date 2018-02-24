@@ -15,7 +15,7 @@ def main():
     # pattern_mining.GetPairs()
 
     print("Hypernym hashing...")
-    hyp = HypernymMining()
+    hyp = HypernymMining("../SemEval2018-Task9/test/data/2A.medical.test.data.txt")
     print("...")
     hyp.hash_patterns("../MinedData/Patterns.txt")
     print("...")
@@ -23,6 +23,8 @@ def main():
 
     print("Hypernym extraction...")
     hyp.extract_hypernyms(file_name)
+
+    hyp.ordered_score("../SemEval2018-Task9/test/gold/2A.medical.test.gold.txt")
 
     print("Extraction Complete.")
 
