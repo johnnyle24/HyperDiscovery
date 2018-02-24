@@ -4,7 +4,9 @@ from patternMining import PatternMining
 
 def main():
 
-    file_name = "../Data/2A_med_pubmed_POITagged1.txt"
+    # file_name = "../Data/2A_med_pubmed2/2A_med_pubmed_POITagged1.txt"
+
+    file_name = "../Data/2A_med_pubmed2/2A_med_pubmed_2_0.txt"
 
     print("Pattern mining...")
     # pattern_mining = PatternMining()
