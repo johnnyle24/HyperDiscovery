@@ -40,6 +40,9 @@ class HypernymMining:
                                         left_phrase = self.find_phrase_left(pos_list, index)
                                         right_phrase = self.find_phrase_right(pos_list, index)
 
+                                        if left_phrase == "" or right_phrase == "":
+                                            continue
+
                                         # check left
                                         if self.check_hyps(left_phrase):
                                             self.add_hypernym_to_hash(right_phrase, 1)
@@ -71,6 +74,9 @@ class HypernymMining:
                                             if (pos_list[index][0]+" "+pos_list[index+1][0]) == two_gram:
                                                 left_phrase = self.find_phrase_left(pos_list, index)
                                                 right_phrase = self.find_phrase_right(pos_list, index)
+
+                                                if left_phrase == "" or right_phrase == "":
+                                                    continue
 
                                                 # check left
                                                 if self.check_hyps(left_phrase):
@@ -105,6 +111,9 @@ class HypernymMining:
                                         if (pos_list[index][0]+" "+pos_list[index+1][0]+" "+pos_list[index+2][0]) == three_gram:
                                             left_phrase = self.find_phrase_left(pos_list, index)
                                             right_phrase = self.find_phrase_right(pos_list, index)
+
+                                            if left_phrase == "" or right_phrase == "":
+                                                continue
 
                                             # check left
                                             if self.check_hyps(left_phrase):
@@ -142,6 +151,8 @@ class HypernymMining:
         sorted_nodes = sorted(unsorted_nodes, key=lambda node: node.rank, reverse=True)
 
         for node in sorted_nodes:
+            print(node.phrase)
+            print(node.rank)
             print("Phrase: " + node.phrase + ", Rank: ", + node.rank)
 
         print("\n\n\n-------------------------------------------------\n\n\n")
@@ -174,6 +185,8 @@ class HypernymMining:
 
                 return np
 
+        return ""
+
     def find_phrase_right(self, pos_list, index):
         for i in range(index, len(pos_list)):
             if not isinstance(pos_list[i], tuple):
@@ -183,6 +196,8 @@ class HypernymMining:
                 np = np.rstrip()
 
                 return np
+
+        return ""
 
     def pos(self, sentence):
         tokenized = nltk.word_tokenize(sentence)
@@ -311,7 +326,10 @@ class HypernymMining:
                 else:
                     self.node_map[parent].rank += current_node.rank
 
-                node_stack.insert(0, self.node_map[parent])
+                current_node.visited_rank = True
+
+                if not self.node_map[parent].visited_rank:
+                    node_stack.insert(0, self.node_map[parent])
 
 
 # Used for ranking hypernyms found in text
@@ -322,6 +340,7 @@ class HyperNode:
         self.phrase = phrase
         self.child_set = set() # A set of phrases
         self.parent_set = set() # A set of phrases
+        self.visited_rank = False
 
     # Takes in a child node and will append its phrase to the current's children
     # Additionally, will add the current's phrase to the child's parents
