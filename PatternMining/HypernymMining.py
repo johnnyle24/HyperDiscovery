@@ -144,7 +144,6 @@ class HypernymMining:
         for node in sorted_nodes:
             print("Phrase: " + node.phrase + ", Rank: ", + node.rank)
 
-
         print("\n\n\n-------------------------------------------------\n\n\n")
 
         for node in sorted_nodes:
@@ -312,7 +311,7 @@ class HypernymMining:
                 else:
                     self.node_map[parent].rank += current_node.rank
 
-                node_stack.insert(0, parent)
+                node_stack.insert(0, self.node_map[parent])
 
 
 # Used for ranking hypernyms found in text
