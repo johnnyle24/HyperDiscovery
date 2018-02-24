@@ -22,6 +22,9 @@ class HypernymMining:
 
                     print(count)
 
+                    if count == 100:
+                        break
+
                     str_split = line.lower().split(' ')
 
                     split_len = len(str_split)
@@ -133,11 +136,11 @@ class HypernymMining:
                                             break
 
             self.rank_nodes()
-            self.print_hypernyms()
+            self.print_found_hypernyms()
             self.print_ordered_hypernyms()
         # evaluations
 
-    def print_hypernyms(self):
+    def print_found_hypernyms(self):
         print("\n\n\n")
         for hyp in self.found_hypernyms:
             print(hyp)
@@ -146,6 +149,7 @@ class HypernymMining:
         unsorted_nodes = []
 
         for key in self.node_map:
+            self.node_map[key].visited_rank = False
             unsorted_nodes.append(self.node_map[key])
 
         sorted_nodes = sorted(unsorted_nodes, key=lambda node: node.rank, reverse=True)
@@ -160,17 +164,19 @@ class HypernymMining:
         for node in sorted_nodes:
             hypernym_string = ""
 
-            hypernym_string += node.phrase
-
             self.print_hypernym_recursively(node, hypernym_string)
 
     def print_hypernym_recursively(self, current_node, string):
 
-        if len(current_node.child_set) == 0:
-            print(string)
+        if len(current_node.child_set) == 0 or current_node.visited_rank:
+            string = string.rstrip()
+            if len(string) != 0:
+                print(string)
             return
 
-        string += (" " + current_node.phrase)
+        string += (current_node.phrase + " ")
+
+        current_node.visited_rank = True
 
         for child in current_node.child_set:
             self.print_hypernym_recursively(self.node_map[child], string)
