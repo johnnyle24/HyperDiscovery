@@ -538,7 +538,7 @@ ajcc cancer = 4
 ? eur j cancer = 4
 ; moh = 4
 ; headache = 4
-; ch = = 4
+; ch = 4
 ; abd : acquired = 4
 : results from cancer = 4
 : relationship to = 4

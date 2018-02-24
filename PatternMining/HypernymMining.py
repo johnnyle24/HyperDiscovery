@@ -128,7 +128,12 @@ class HypernymMining:
 
     def pos(self, sentence):
         tokenized = nltk.word_tokenize(sentence)
-        return nltk.pos_tag(tokenized)
+
+        taggedSent = nltk.pos_tag(tokenized)
+        grammar = 'NP: {<DT>?<JJ>*<NNS>*<NN>*(<NNS>|<NN>)+}'
+        cp = nltk.RegexpParser(grammar)
+        result = cp.parse(taggedSent)
+        return result
 
 
     def check_hyps(self, phrase):
@@ -149,8 +154,11 @@ class HypernymMining:
         with open(file_name, 'r') as file:
             for line in file:
                 str_split = line.lower().split('=')
+                print(str_split[0])
                 phrase = str_split[0].rstrip()
-                frequency = int(str_split[1])
+                print(str_split[1])
+                print(str_split[1].rstrip('\n'))
+                frequency = int(str_split[1].rstrip('\n'))
                 self.add_pattern(phrase, frequency)
 
     # Add the patterns to the hashmap and adjusts the number of times found if necessary
