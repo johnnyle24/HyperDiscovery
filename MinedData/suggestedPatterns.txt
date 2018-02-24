@@ -1,5 +1,5 @@
-such as
-including
-especially
-or other
-and other
+such as = 0
+including = 0
+especially = 0
+or other = 0
+and other = 0
