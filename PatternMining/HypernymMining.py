@@ -13,6 +13,7 @@ class HypernymMining:
 
     # Extracts hypernym phrases from a body of text such as PubMed
     def extract_hypernyms(self, file_name):
+
         if len(self.pat_hashes) == 0:
             print("No patterns have been added.")
         else:
@@ -123,7 +124,46 @@ class HypernymMining:
                                             break
 
             self.rank_nodes()
+            self.print_hypernyms()
+            self.print_ordered_hypernyms()
         # evaluations
+
+    def print_hypernyms(self):
+        print("\n\n\n")
+        for hyp in self.found_hypernyms:
+            print(hyp)
+
+    def print_ordered_hypernyms(self):
+        unsorted_nodes = []
+
+        for key in self.node_map:
+            unsorted_nodes.append(self.node_map[key])
+
+        sorted_nodes = sorted(unsorted_nodes, key=lambda node: node.rank, reverse=True)
+
+        for node in sorted_nodes:
+            print("Phrase: " + node.phrase + ", Rank: ", + node.rank)
+
+
+        print("\n\n\n-------------------------------------------------\n\n\n")
+
+        for node in sorted_nodes:
+            hypernym_string = ""
+
+            hypernym_string += node.phrase
+
+            self.print_hypernym_recursively(node, hypernym_string)
+
+    def print_hypernym_recursively(self, current_node, string):
+
+        if len(current_node.child_set) == 0:
+            print(string)
+            return
+
+        string += (" " + current_node.phrase)
+
+        for child in current_node.child_set:
+            self.print_hypernym_recursively(self.node_map[child], string)
 
     def find_phrase_left(self, pos_list, index):
         for i in range(1, index+1):
@@ -257,22 +297,22 @@ class HypernymMining:
         # Finds all nodes with 0 rank and adds to stack
         node_stack = []
 
-        for node in self.node_map:
-            if node.rank == 0:
-                node_stack.append(node)
+        for phrase in self.node_map:
+            if self.node_map[phrase].rank == 0:
+                node_stack.append(self.node_map[phrase])
 
         while len(node_stack) != 0:
 
             current_node = node_stack.pop()
 
-            for parent in current_node.parent_set():
+            for parent in current_node.parent_set:
 
                 if current_node.rank == 0:
-                    parent.rank += 1
+                    self.node_map[parent].rank += 1
                 else:
-                    parent.rank += current_node.rank
+                    self.node_map[parent].rank += current_node.rank
 
-                node_stack.append(parent)
+                node_stack.insert(0, parent)
 
 
 # Used for ranking hypernyms found in text
