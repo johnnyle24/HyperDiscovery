@@ -22,8 +22,8 @@ class HypernymMining:
 
                     print(count)
 
-                    if count == 100:
-                        break
+                    # if count == 100:
+                    #     break
 
                     str_split = line.lower().split(' ')
 
