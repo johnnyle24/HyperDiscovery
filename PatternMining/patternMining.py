@@ -122,19 +122,19 @@ class PatternMining:
         result = cp.parse(taggedSent)
         return result
 
-# sent = 'Previous studies in endodontics have used micro-CT for evaluation of root canal anatomy . The relation between the external and internal macro-morphology , shape of the root complex and the number of canals has been investigated and an agreement between external root macrostructures'
-sent = 'The use of NIV in ARF of different etiologies in immunocompromised patients ( patients receiving immunosuppressive therapy for bone spur such as bone marrow transplant110,111 ) is well supported in terms of significant reduction of EI and in-hospital mortality rates . The benefits of NIV compared with other ventilatory approaches in patients who have hematological malignancies is controversial , and further research is needed to clarify the role of NIV as respiratory support in ARF in hematologic patients.112–116'
-# sent = 'This might require a contribution from the disciplines of endodontics , periodontics , orthodontics and prosthodontics for predictable results'
-# p = PatternMining().pos('hello world how are you doing this morning this very snowy mornning. or should I say afternoon')
-p = PatternMining().pos(sent)
-print(p)
+# # sent = 'Previous studies in endodontics have used micro-CT for evaluation of root canal anatomy . The relation between the external and internal macro-morphology , shape of the root complex and the number of canals has been investigated and an agreement between external root macrostructures'
+# sent = 'The use of NIV in ARF of different etiologies in immunocompromised patients ( patients receiving immunosuppressive therapy for bone spur such as bone marrow transplant110,111 ) is well supported in terms of significant reduction of EI and in-hospital mortality rates . The benefits of NIV compared with other ventilatory approaches in patients who have hematological malignancies is controversial , and further research is needed to clarify the role of NIV as respiratory support in ARF in hematologic patients.112–116'
+# # sent = 'This might require a contribution from the disciplines of endodontics , periodontics , orthodontics and prosthodontics for predictable results'
+# # p = PatternMining().pos('hello world how are you doing this morning this very snowy mornning. or should I say afternoon')
+# p = PatternMining().pos(sent)
+# print(p)
 
-# if __name__ == '__main__':
-#     tokenFile = '../SemEval2018-Task9/training/data/2A.medical.training.data.txt'
-#     corpusFile = '../Data/2A_med_pubmed_tokenized.txt'
-#     # corpusFile = 'testCorpus.txt'
-#
-#     pm = PatternMining()
-#
-#     pm.getPairs(tokenFile, corpusFile, 'test.json')
-#     pm.jsonToOurFormat('patterns.json', 'patterns.txt')
+if __name__ == '__main__':
+    tokenFile = '../SemEval2018-Task9/training/data/2B.music.training.data.txt'
+    corpusFile = '../Data/2A_med_pubmed_tokenized.txt'
+    # corpusFile = 'testCorpus.txt'
+
+    pm = PatternMining()
+
+    # pm.getPairs(tokenFile, corpusFile, 'musc_patterns.json')
+    pm.jsonToOurFormat('../MinedData/musc_patterns.json', '../MinedData/musc_patterns.txt')
