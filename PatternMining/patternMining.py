@@ -129,6 +129,9 @@ class PatternMining:
 # p = PatternMining().pos(sent)
 # print(p)
 
+# Due to lack of computing power
+# right now are projections base
+
 if __name__ == '__main__':
     tokenFile = '../SemEval2018-Task9/training/data/2B.music.training.data.txt'
     corpusFile = '../Data/2A_med_pubmed_tokenized.txt'
