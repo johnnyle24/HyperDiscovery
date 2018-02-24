@@ -9,13 +9,17 @@ class HypernymMining:
 
         self.node_map = dict()
 
+        self.found_hypernyms = set()
+
     # Extracts hypernym phrases from a body of text such as PubMed
     def extract_hypernyms(self, file_name):
         if len(self.pat_hashes) == 0:
             print("No patterns have been added.")
         else:
             with open(file_name, 'r') as file:
-                for line in file:
+                for count, line in enumerate(file):
+
+                    print(count)
 
                     str_split = line.lower().split(' ')
 
@@ -40,10 +44,14 @@ class HypernymMining:
                                             self.add_hypernym_to_hash(right_phrase, 1)
                                             self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
 
+                                            self.found_hypernyms.add(right_phrase)
+
                                         # check right
                                         if self.check_hyps(right_phrase):
                                             self.add_hypernym_to_hash(left_phrase, 1)
                                             self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
+
+                                            self.found_hypernyms.add(left_phrase)
 
                                         break
 
@@ -56,24 +64,31 @@ class HypernymMining:
 
                                 pos_list = self.pos(line)
 
-                                for index in range(0, len(pos_list)):
-                                    if isinstance(pos_list[index], tuple):
-                                        if (pos_list[index][0]+" "+pos_list[index+1][0]) == two_gram:
-                                            left_phrase = self.find_phrase_left(pos_list, index)
-                                            right_phrase = self.find_phrase_right(pos_list, index)
+                                for index in range(0, len(pos_list)-1):
+                                    if isinstance(pos_list[index], tuple) and isinstance(pos_list[index+1], tuple):
+                                        try:
+                                            if (pos_list[index][0]+" "+pos_list[index+1][0]) == two_gram:
+                                                left_phrase = self.find_phrase_left(pos_list, index)
+                                                right_phrase = self.find_phrase_right(pos_list, index)
 
-                                            # check left
-                                            if self.check_hyps(left_phrase):
-                                                self.add_hypernym_to_hash(right_phrase, 1)
-                                                self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
+                                                # check left
+                                                if self.check_hyps(left_phrase):
+                                                    self.add_hypernym_to_hash(right_phrase, 1)
+                                                    self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
+
+                                                    self.found_hypernyms.add(right_phrase)
 
 
-                                            # check right
-                                            if self.check_hyps(right_phrase):
-                                                self.add_hypernym_to_hash(left_phrase, 1)
-                                                self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
+                                                # check right
+                                                if self.check_hyps(right_phrase):
+                                                    self.add_hypernym_to_hash(left_phrase, 1)
+                                                    self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
 
-                                            break
+                                                    self.found_hypernyms.add(left_phrase)
+
+                                                break
+                                        except:
+                                            pass
 
                         if (word_index+2) < split_len:
                             three_gram = str_split[word_index] + " " + str_split[word_index + 1] + " " + str_split[word_index + 2]
@@ -84,8 +99,8 @@ class HypernymMining:
 
                                 pos_list = self.pos(line)
 
-                                for index in range(0, len(pos_list)):
-                                    if isinstance(pos_list[index], tuple):
+                                for index in range(0, len(pos_list)-2):
+                                    if isinstance(pos_list[index], tuple) and isinstance(pos_list[index+1], tuple) and isinstance(pos_list[index+2], tuple):
                                         if (pos_list[index][0]+" "+pos_list[index+1][0]+" "+pos_list[index+2][0]) == three_gram:
                                             left_phrase = self.find_phrase_left(pos_list, index)
                                             right_phrase = self.find_phrase_right(pos_list, index)
@@ -95,11 +110,15 @@ class HypernymMining:
                                                 self.add_hypernym_to_hash(right_phrase, 1)
                                                 self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
 
+                                                self.found_hypernyms.add(right_phrase)
+
 
                                             # check right
                                             if self.check_hyps(right_phrase):
                                                 self.add_hypernym_to_hash(left_phrase, 1)
                                                 self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
+
+                                                self.found_hypernyms.add(left_phrase)
 
                                             break
 
@@ -110,7 +129,7 @@ class HypernymMining:
         for i in range(1, index+1):
             if not isinstance(pos_list[index - i], tuple):
                 np = ''
-                for j in range(0, pos_list[index - i].__len__):
+                for j in range(0, len(pos_list[index - i])):
                     np += (pos_list[index-i][j][0] + ' ')
                 np = np.rstrip()
 
@@ -120,7 +139,7 @@ class HypernymMining:
         for i in range(index, len(pos_list)):
             if not isinstance(pos_list[i], tuple):
                 np = ''
-                for j in range(0, pos_list[i].__len__):
+                for j in range(0, len(pos_list[i])):
                     np += (pos_list[i][j][0] + ' ')
                 np = np.rstrip()
 
@@ -189,32 +208,32 @@ class HypernymMining:
     def add_hypernym_to_nodes(self, phrase, parent, child):
         if phrase in self.node_map:
             if child != "":
-                self.node_map[phrase].add_child(child)
+                self.node_map[phrase].add_child(self.node_map[child])
                 self.node_map[phrase].rank += 1
             if parent != "":
-                self.node_map[phrase].add_parent(parent)
+                self.node_map[phrase].add_parent(self.node_map[parent])
         else:
             node = HyperNode(phrase)
             if child != "":
-                node.add_child(child)
+                node.add_child(self.node_map[child])
                 node.rank += 1
             if parent != "":
-                node.add_parent(parent)
+                node.add_parent(self.node_map[parent])
 
             self.node_map[phrase] = node
 
-    def check_for_circular_dep(self, phrase):
+    def check_for_circular_dep(self, node):
 
         parent_set = set()
 
         child_stack = []
 
-        parent_set.add(phrase.phrase)
+        parent_set.add(node.phrase)
 
-        for parent in self.node_map[phrase].parent_set:
+        for parent in self.node_map[node].parent_set:
             parent_set.add(parent.phrase)
 
-        for child in self.node_map[phrase].child_set:
+        for child in self.node_map[node].child_set:
             if child.phrase in parent_set:
                 return True
             else:

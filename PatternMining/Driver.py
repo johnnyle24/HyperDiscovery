@@ -4,7 +4,7 @@ from patternMining import PatternMining
 
 def main():
 
-    file_name = "2A_med_pubmed_POITagged1.txt"
+    file_name = "../Data/2A_med_pubmed_POITagged1.txt"
 
     print("Pattern mining...")
     # pattern_mining = PatternMining()
@@ -17,10 +17,10 @@ def main():
     print("...")
     hyp.hash_patterns("../MinedData/Patterns.txt")
     print("...")
-    hyp.hash_hypernyms("../SemEval2018-Task9/training/2A.medical.training.data.txt")
+    hyp.hash_hypernyms("../SemEval2018-Task9/training/data/2A.medical.training.data.txt")
 
     print("Hypernym extraction...")
-    hyp.extractHypernyms(file_name)
+    hyp.extract_hypernyms(file_name)
 
     print("Extraction Complete.")
 
