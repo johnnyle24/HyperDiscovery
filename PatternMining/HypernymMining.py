@@ -1,5 +1,6 @@
 import nltk
 
+
 class HypernymMining:
 
     def __init__(self):
@@ -28,20 +29,23 @@ class HypernymMining:
 
                             pos_list = self.pos(line)
 
-                            left_phrase = pos_list[word_index-1]
-                            right_phrase = pos_list[word_index+1]
+                            for index in range(0, len(pos_list)):
+                                if isinstance(pos_list[index], tuple):
+                                    if pos_list[index][0] == one_gram:
+                                        left_phrase = self.find_phrase_left(pos_list, index)
+                                        right_phrase = self.find_phrase_right(pos_list, index)
 
-                            # check left
-                            if self.check_hyps(left_phrase):
-                                # self.add_hypernym_to_hash(str_split[word_index + 3], 1)
-                                self.add_hypernym_to_hash(right_phrase, 1)
-                                self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
+                                        # check left
+                                        if self.check_hyps(left_phrase):
+                                            self.add_hypernym_to_hash(right_phrase, 1)
+                                            self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
 
-                            # check right
-                            if self.check_hyps(right_phrase):
-                                # self.add_hypernym_to_hash(str_split[word_index - 1], 1)
-                                self.add_hypernym_to_hash(left_phrase, 1)
-                                self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
+                                        # check right
+                                        if self.check_hyps(right_phrase):
+                                            self.add_hypernym_to_hash(left_phrase, 1)
+                                            self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
+
+                                        break
 
                         if (word_index+1) < split_len:
                             two_gram = str_split[word_index] + " " + str_split[word_index+1]
@@ -52,21 +56,24 @@ class HypernymMining:
 
                                 pos_list = self.pos(line)
 
-                                left_phrase = pos_list[word_index - 1]
-                                right_phrase = pos_list[word_index + 2]
+                                for index in range(0, len(pos_list)):
+                                    if isinstance(pos_list[index], tuple):
+                                        if (pos_list[index][0]+" "+pos_list[index+1][0]) == two_gram:
+                                            left_phrase = self.find_phrase_left(pos_list, index)
+                                            right_phrase = self.find_phrase_right(pos_list, index)
 
-                                # check left
-                                if self.check_hyps(left_phrase):
-                                    #self.add_hypernym_to_hash(str_split[word_index + 3], 1)
-                                    self.add_hypernym_to_hash(right_phrase, 1)
-                                    self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
+                                            # check left
+                                            if self.check_hyps(left_phrase):
+                                                self.add_hypernym_to_hash(right_phrase, 1)
+                                                self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
 
 
-                                # check right
-                                if self.check_hyps(right_phrase):
-                                    #self.add_hypernym_to_hash(str_split[word_index - 1], 1)
-                                    self.add_hypernym_to_hash(left_phrase, 1)
-                                    self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
+                                            # check right
+                                            if self.check_hyps(right_phrase):
+                                                self.add_hypernym_to_hash(left_phrase, 1)
+                                                self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
+
+                                            break
 
                         if (word_index+2) < split_len:
                             three_gram = str_split[word_index] + " " + str_split[word_index + 1] + " " + str_split[word_index + 2]
@@ -77,25 +84,47 @@ class HypernymMining:
 
                                 pos_list = self.pos(line)
 
-                                left_phrase = pos_list[word_index - 1]
-                                right_phrase = pos_list[word_index + 3]
+                                for index in range(0, len(pos_list)):
+                                    if isinstance(pos_list[index], tuple):
+                                        if (pos_list[index][0]+" "+pos_list[index+1][0]+" "+pos_list[index+2][0]) == three_gram:
+                                            left_phrase = self.find_phrase_left(pos_list, index)
+                                            right_phrase = self.find_phrase_right(pos_list, index)
 
-                                # check left
-                                if self.check_hyps(left_phrase):
-                                    #self.add_hypernym_to_hash(str_split[word_index + 3], 1)
-                                    self.add_hypernym_to_hash(right_phrase, 1)
-                                    self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
-
-
-                                # check right
-                                if self.check_hyps(right_phrase):
-                                    #self.add_hypernym_to_hash(str_split[word_index - 1], 1)
-                                    self.add_hypernym_to_hash(left_phrase, 1)
-                                    self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
+                                            # check left
+                                            if self.check_hyps(left_phrase):
+                                                self.add_hypernym_to_hash(right_phrase, 1)
+                                                self.add_hypernym_to_nodes(right_phrase, left_phrase, "")
 
 
-        # self.rank_nodes
+                                            # check right
+                                            if self.check_hyps(right_phrase):
+                                                self.add_hypernym_to_hash(left_phrase, 1)
+                                                self.add_hypernym_to_nodes(left_phrase, "", right_phrase)
+
+                                            break
+
+            self.rank_nodes()
         # evaluations
+
+    def find_phrase_left(self, pos_list, index):
+        for i in range(1, index+1):
+            if not isinstance(pos_list[index - i], tuple):
+                np = ''
+                for j in range(0, pos_list[index - i].__len__):
+                    np += (pos_list[index-i][j][0] + ' ')
+                np = np.rstrip()
+
+                return np
+
+    def find_phrase_right(self, pos_list, index):
+        for i in range(index, len(pos_list)):
+            if not isinstance(pos_list[i], tuple):
+                np = ''
+                for j in range(0, pos_list[i].__len__):
+                    np += (pos_list[i][j][0] + ' ')
+                np = np.rstrip()
+
+                return np
 
     def pos(self, sentence):
         tokenized = nltk.word_tokenize(sentence)
@@ -107,7 +136,6 @@ class HypernymMining:
             return True
         else:
             return False
-
 
     # Checks if the gram matches a pattern
     def check_patterns(self, phrase):
@@ -201,8 +229,25 @@ class HypernymMining:
 
 
     def rank_nodes(self):
-        print("Not implemented yet")
+        # Finds all nodes with 0 rank and adds to stack
+        node_stack = []
 
+        for node in self.node_map:
+            if node.rank == 0:
+                node_stack.append(node)
+
+        while len(node_stack) != 0:
+
+            current_node = node_stack.pop()
+
+            for parent in current_node.parent_set():
+
+                if current_node.rank == 0:
+                    parent.rank += 1
+                else:
+                    parent.rank += current_node.rank
+
+                node_stack.append(parent)
 
 
 # Used for ranking hypernyms found in text
@@ -211,18 +256,22 @@ class HyperNode:
     def __init__(self, phrase):
         self.rank = 0
         self.phrase = phrase
-        self.child_set = set()
-        self.parent_set = set()
+        self.child_set = set() # A set of phrases
+        self.parent_set = set() # A set of phrases
 
+    # Takes in a child node and will append its phrase to the current's children
+    # Additionally, will add the current's phrase to the child's parents
     def add_child(self, child):
-        if child in self.child_set:
+        if child.phrase in self.child_set:
             return
         else:
-            self.child_set.add(child)
+            self.child_set.add(child.phrase)
+            child.add_parent(self)
+            self.rank += 1
 
     def add_parent(self, parent):
-        if parent in self.parent_set:
+        if parent.phrase in self.parent_set:
             return
         else:
-            self.parent_set.add(parent)
+            self.parent_set.add(parent.phrase)
 
