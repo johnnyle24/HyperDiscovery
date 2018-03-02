@@ -43,11 +43,12 @@ if __name__ == '__main__':
 
     for corpus in corpuses:
 
-        if os.path.isfile(corpus):
-            continue
-
         head, tail = os.path.split(corpus)
-        f=open(corpus,'rU')
+        f = ''
+        try:
+            f=open(corpus,'rU')
+        except:
+            continue
 
         # filename = tail.replace('', '.txt')
         filename, ext = os.path.splitext(tail)
