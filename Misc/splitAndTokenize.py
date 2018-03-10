@@ -1,5 +1,6 @@
 import nltk
 import os
+from PatternMining import patternMining as pm
 
 def read_in_chunks(file_object, chunk_size=1024):
     """
@@ -39,6 +40,7 @@ if __name__ == '__main__':
     # corpus = '../Data/2A_med_pubmed_tokenized.txt'#sys.argv[1]
 
     corpuses = ['../Data/2B_music_bioreviews_tokenized.txt', '../Data/2A_med_pubmed_tokenized.txt']
+    corpuses = ['../Data/2A_med_pubmed_tokenized.txt']
 
 
     for corpus in corpuses:
@@ -50,11 +52,12 @@ if __name__ == '__main__':
         except:
             continue
 
-        # filename = tail.replace('', '.txt')
         filename, ext = os.path.splitext(tail)
         head = corpusDirectoryExist(head, filename)
 
 
         for i, chunk in enumerate(read_in_chunks(f, 1000000)):
-            newFilename = os.path.join(head, '{0}_{1}.txt'.format(filename, i))
-            write(pos(chunk), filename=newFilename)
+            if i == 0:
+                newFilename = os.path.join(head, '{0}_{1}.txt'.format(filename, i))
+                pm.writeToJsonFile(pos(chunk), 'posChunk.json')
+                # write(pos(chunk), filename=newFilename)

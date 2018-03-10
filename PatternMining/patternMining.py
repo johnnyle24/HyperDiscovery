@@ -1,9 +1,29 @@
 import nltk
 import json
 import heapq
+from operator import itemgetter
 
+
+def writeToJsonFile(data, outputFile):
+    with open(outputFile, 'w') as outfile:
+        json.dump(data, outfile, ensure_ascii=False)
+
+
+def readJsonFile(filename):
+    return json.load(open(filename))
+
+class Item:
+    def __init__(self, pattern):
+        self.pattern = list()
+        self.pattern = pattern
 
 class PatternMining:
+
+    def __init__(self, filename):
+        self.VALID_POS_TAGS = ['DT', 'JJ', 'NN', 'NNS']
+        self.data = None
+        self.data = readJsonFile(filename)
+
     def getPairs(self, tokenFile, corpusFile, outputFile='patterns.json'):
         """
         Get patterns of every matched pair from tokenFile in the corpusFile
@@ -56,7 +76,8 @@ class PatternMining:
                     tup = tuple(nGram)
                     if tup in hashes:
                         if last is not None:
-                            if wc - i - last[1] <= closeness:  # Must be close to the previous token found 3 away in this case
+                            if wc - i - last[
+                                1] <= closeness:  # Must be close to the previous token found 3 away in this case
                                 pattern = self.getPattern(last[1], wc - i + 1, line)
                                 self.addPattern(pattern, patterns)
                             last = None
@@ -98,10 +119,6 @@ class PatternMining:
             ordered.insert(0, heapq.heappop(q))
         return ordered
 
-    def writeToJsonFile(self, data, outputFile):
-        with open(outputFile, 'w') as outfile:
-            json.dump(data, outfile, ensure_ascii=False)
-
     def jsonToOurFormat(self, filename, outputFile):
         """
         Transforms json format: <pattern> = <frequency>
@@ -122,22 +139,209 @@ class PatternMining:
         result = cp.parse(taggedSent)
         return result
 
-# # sent = 'Previous studies in endodontics have used micro-CT for evaluation of root canal anatomy . The relation between the external and internal macro-morphology , shape of the root complex and the number of canals has been investigated and an agreement between external root macrostructures'
-# sent = 'The use of NIV in ARF of different etiologies in immunocompromised patients ( patients receiving immunosuppressive therapy for bone spur such as bone marrow transplant110,111 ) is well supported in terms of significant reduction of EI and in-hospital mortality rates . The benefits of NIV compared with other ventilatory approaches in patients who have hematological malignancies is controversial , and further research is needed to clarify the role of NIV as respiratory support in ARF in hematologic patients.112–116'
-# # sent = 'This might require a contribution from the disciplines of endodontics , periodontics , orthodontics and prosthodontics for predictable results'
-# # p = PatternMining().pos('hello world how are you doing this morning this very snowy mornning. or should I say afternoon')
-# p = PatternMining().pos(sent)
-# print(p)
+    def isList(self, items):
+        if isinstance(items, list):
+            for item in items:
+                if isinstance(item, list):
+                    return True
+        return False
 
-# Due to lack of computing power
-# right now are projections base
+    def isNounPhrase(self, items):
+        return self.isList(items)
+
+    def hypeIsValid(self, hypernymToken):
+        if hypernymToken[0].isalpha():
+            for validToken in self.VALID_POS_TAGS:
+                if hypernymToken[1] != validToken:
+                    return False
+        return True
+
+    def getHypernim(self, i, data):
+        for j in range(i, 0, -1):
+            item = data[j]
+            if self.isList(item):
+                return item
+        return None
+
+    def getHyponim(self, i, data):
+        for j in range(i, len(data)):
+            item = data[j]
+
+            if self.isList(item):
+                return item
+        return None
+
+    def getNNS(self, item):
+        str = ''
+        for i in item:
+            if i[1] == 'NN' or i[1] == 'NNS':
+                str += i[0] + ' '
+        return str
+
+    def isPatternMatch(self, items, patterns):
+
+        for pattern in patterns:
+            l = len(pattern)
+
+            #asd += [item for item in items]
+            # lst = ' '.join(map(str, items))
+            # 2 3
+            t = tuple(items[:l])
+
+            if pattern == t:
+                return True
+            # for i in range(len(items)):
+            #     if len(items) != len(patterns):
+            #         continue
+            #
+            #     if items[i].lower() == patterns[i].lower():
+            #         return True
+        return False
+
+
+    def getHyperHypo(self, patterns):
+        maxLen = 0
+        for p in patterns:
+            maxLen = max(maxLen, len(p))
+
+        data = self.data
+
+        tups = set()
+        for i, item in enumerate(self.data[:-maxLen]):
+
+            items = [ self.data[j][0] for j in range(i, i+maxLen)]
+
+            if not self.isNounPhrase(items):
+                if self.isPatternMatch(items, patterns):
+                    item = self.getHypernim(i - 1, self.data)
+                    item4 = self.getHyponim(i + maxLen, self.data)
+                    print('{0} -> {1} '.format(item, item4))
+
+                    nn1 = self.getNNS(item)
+                    nn2 = self.getNNS(item4)
+
+                    print('{0} -> {1}'.format(nn1, nn2))
+                    print()
+
+                    tups.add((nn1.strip(), nn2.strip()))
+        return tups
+
+    def getHypernimOfConcept(self, concept, patterns):
+        maxLen = 0
+        for p in patterns:
+            maxLen = max(maxLen, len(p))
+
+        data = self.data
+
+        tups = set()
+        for i, item in enumerate(self.data[:-maxLen]):
+
+            items = [ self.data[j][0] for j in range(i, i+maxLen)]
+
+            if not self.isNounPhrase(items):
+                if self.isPatternMatch(items, patterns):
+                    item = self.getHypernim(i - 1, self.data)
+                    hyponim = self.getHyponim(i + maxLen, self.data)
+                    # print('{0} -> {1} '.format(item, hyponim))
+
+                    nn1 = self.getNNS(item)
+                    nn2 = self.getNNS(hyponim)
+
+                    if concept in hyponim:
+                        print('Hypernim: {0}'.format(item))
+
+                    # print('{0} -> {1}'.format(nn1, nn2))
+                    # print()
+
+                    tups.add((nn1.strip(), nn2.strip()))
+        return tups
+
+
+
+    def extractPattern(self, i):
+
+        pattern = []
+        count = 0
+        for j in range(i, len(self.data)):
+
+            if count >= 4:
+                return -1, None
+
+            p = self.data[j][0]
+            if self.isList([p]):
+                pattern.append(p)
+                return self.data[j], pattern
+
+            pattern.append(self.data[j])
+            count += 1
+        return -1, None
+
+    def createTupleValue(self, item):
+        one = ''
+        for i in item:
+            one += i[0] + ' '
+        return one.strip()
+
+    def tupleContains(self, item, tuples):
+        for tup in tuples:
+            if tup[0] == item:
+                return tup
+        return None
+
+    def getPatterns(self, tups):
+
+        patterns = dict()
+        for it in range(len(self.data)):
+            item = self.data[it]
+            if self.isNounPhrase([item[0]]):
+                tup = self.tupleContains(self.createTupleValue(item), tups)
+                if tup is not None:
+                    next, pattern = self.extractPattern(it + 1)
+                    if pattern is not None and self.tupleContains(self.createTupleValue(next), tups) is not None:
+                        prt = ''
+                        for p in pattern:
+                            if p[1].isalpha():
+                                prt += p[0] + ' '
+                        print(tup[0] + ',' + tup[1] + '->' + prt)
+                        if prt.lower() not in patterns:
+                            patterns[prt.lower()] = 0
+                        patterns[prt.lower()] += 1
+        return patterns
+
+
+def formatTuples(tuples):
+    s = set()
+    for t in tuples:
+        newTup = tuple
+        s.add(tuple(t[1].split()))
+        # for sa in strArr:
+        #     newTup += sa
+        # s.add(newTup)
+    return s
 
 if __name__ == '__main__':
-    tokenFile = '../SemEval2018-Task9/training/data/2B.music.training.data.txt'
-    corpusFile = '../Data/2A_med_pubmed_tokenized.txt'
-    # corpusFile = 'testCorpus.txt'
+    # tokenFile = '../SemEval2018-Task9/training/data/2B.music.training.data.txt'
+    # corpusFile = '../Data/2A_med_pubmed_tokenized.txt'
+    # # corpusFile = 'testCorpus.txt'
+    #
+    pm = PatternMining('../Misc/posChunk.json')
+    #
+    # # pm.getPairs(tokenFile, corpusFile, 'musc_patterns.json')
+    # pm.jsonToOurFormat('../MinedData/musc_patterns.json', '../MinedData/musc_patterns.txt')
 
-    pm = PatternMining()
+    tups = pm.getHyperHypo({('such', 'as'), ('especially',)})
 
-    # pm.getPairs(tokenFile, corpusFile, 'musc_patterns.json')
-    pm.jsonToOurFormat('../MinedData/musc_patterns.json', '../MinedData/musc_patterns.txt')
+    pts = pm.getPatterns(tups)
+
+    pts = pm.sortPatterns(pts)
+    newTups = formatTuples(pts)
+
+    tups = pm.getHyperHypo(newTups)
+
+    print(tups)
+
+    print('Hypernim of endodontics')
+    # tups = pm.getHypernimOfConcept('cancer', {('such', 'as'), ('especially',)})
+
+    # Find endodontics
+
