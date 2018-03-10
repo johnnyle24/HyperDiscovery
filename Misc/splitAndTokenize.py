@@ -33,6 +33,11 @@ def corpusDirectoryExist(head, dirname):
 
     return fullPath
 
+def writeToJsonFile(data, outputFile):
+    with open(outputFile, 'w') as outfile:
+        json.dump(data, outfile, ensure_ascii=False)
+
+
 if __name__ == '__main__':
     # corpus = '../Data/2B_music_bioreviews_tokenized.txt'
     # corpus = '../Data/2A_med_pubmed_tokenized.txt'
@@ -41,7 +46,6 @@ if __name__ == '__main__':
 
     corpuses = ['../Data/2B_music_bioreviews_tokenized.txt', '../Data/2A_med_pubmed_tokenized.txt']
     corpuses = ['../Data/2A_med_pubmed_tokenized.txt']
-
 
     for corpus in corpuses:
 
@@ -59,5 +63,8 @@ if __name__ == '__main__':
         for i, chunk in enumerate(read_in_chunks(f, 1000000)):
             if i == 0:
                 newFilename = os.path.join(head, '{0}_{1}.txt'.format(filename, i))
-                pm.writeToJsonFile(pos(chunk), 'posChunk.json')
+                # pm.writeToJsonFile(pos(chunk), 'posChunk.json')
                 # write(pos(chunk), filename=newFilename)
+                print('Processing {0}'.format(newFilename))
+                writeToJsonFile(pos(chunk), newFilename)
+                print('Finished Processing {0}'.format(newFilename))
