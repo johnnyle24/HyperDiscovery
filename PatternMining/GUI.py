@@ -43,8 +43,8 @@ class Dialog:
 
         corpus_entry = ttk.Entry(mainframe, width=15, textvariable=self.corpus_filename)
         corpus_entry.grid(column=2, row=4, sticky=(W, E))
-
-        hypernym_entry = ttk.Entry(mainframe, width=15, textvariable=self.hypernym_query)
+        
+	hypernym_entry = ttk.Entry(mainframe, width=15, textvariable=self.hypernym_query)
         hypernym_entry.grid(column=3, row=2, sticky=(W, E))
 
         ttk.Label(mainframe, textvariable=self.fscore).grid(column=2, row=7, sticky=(W, E))
