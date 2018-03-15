@@ -92,108 +92,89 @@ class HypernymMining:
             print("D")
 
         if direction == "L":
-            if noun_phrase_left not in self.domain_nps:
-                self.gen_nps[noun_phrase_left].parent = self.gen_nps[noun_phrase_right].parent
-                self.gen_nps[noun_phrase_right].parent = noun_phrase_left
-                self.gen_nps[noun_phrase_left].has_children = True
-            else:
-                # check for parent above child
-                not_found = True
-
-                present_set = set()
-
-                current = self.gen_nps[noun_phrase_right].parent
-                present_set.add(current)
-                last = noun_phrase_right
-
-
-                while not_found:
-                    if current == "":
-                        break
-
-                    if current == noun_phrase_left:
-                        not_found = False
-                    else:
-                        last = current
-                        current = self.gen_nps[current].parent
-                        if current != "":
-                            present_set.add(current)
-
-                # check if child is above parent
-                if not_found:
-
-                    hidden_set = []
-                    checked = set()
-                    current = self.gen_nps[noun_phrase_left].parent
-                    while not_found:
-
-                        if current in checked:
-                            print(current)
-                            hidden_set.append(current)
-                        else:
-                            checked.add(current)
-
-                        if current == "":
-                            temp_node_last = self.gen_nps[last]
-                            order_last = self.get_order(last)
-                            temp_node_left = self.gen_nps[noun_phrase_left]
-                            order_right = self.get_order(noun_phrase_right)
-                            order_left = self.get_order(noun_phrase_left)
-                            break
-
-                        if current == noun_phrase_right or current in present_set:
-                            not_found = False
-                        else:
-                            current = self.gen_nps[current].parent
-
-                    # if not found, take current path and connect it
-                    if not_found:
-                        if noun_phrase_left == "disseminated cryptococcal infection":
-                            print("Check")
-                        self.gen_nps[last].parent = noun_phrase_left
-                        self.gen_nps[noun_phrase_left].has_children = True
+            parent = noun_phrase_left
+            child = noun_phrase_right
         else:
-            if noun_phrase_right not in self.domain_nps:
-                self.gen_nps[noun_phrase_right].parent = self.gen_nps[noun_phrase_left].parent
-                self.gen_nps[noun_phrase_left].parent = noun_phrase_right
-                self.gen_nps[noun_phrase_right].has_children = True
-            else:
-                # check for parent above child
-                not_found = True
-                current = self.gen_nps[noun_phrase_left].parent
-                last = noun_phrase_left
+            parent = noun_phrase_right
+            child = noun_phrase_left
+
+        if parent not in self.domain_nps:
+            self.gen_nps[parent].parent = self.gen_nps[child].parent
+            self.gen_nps[child].parent = parent
+            self.gen_nps[parent].has_children = True
+        else:
+            # check for parent above child
+            not_found = True
+
+            present_set = set()
+
+            current = self.gen_nps[child].parent
+            present_set.add(current)
+            last = child
+
+
+            while not_found:
+                if current == "":
+                    break
+
+                if current == parent:
+                    not_found = False
+                else:
+                    last = current
+                    current = self.gen_nps[current].parent
+                    if current != "":
+                        present_set.add(current)
+
+            # check if child is above parent
+            if not_found:
+
+                hidden_set = []
+                checked = set()
+                current = self.gen_nps[parent].parent
                 while not_found:
+
+                    if current in checked:
+                        print(current)
+                        hidden_set.append(current)
+                    else:
+                        checked.add(current)
+
                     if current == "":
+                        # temp_node_last = self.gen_nps[last]
+                        # order_last = self.get_order(last)
+                        # temp_node_left = self.gen_nps[parent]
+                        # order_right = self.get_order(child)
+                        # order_left = self.get_order(parent)
                         break
 
-                    if current == noun_phrase_right:
+                    if current == child:
                         not_found = False
+                    elif current in present_set:
+                        not_found = False
+                        # change last
+                        last = self.gen_nps[child].phrase
+
+                        while self.gen_nps[last].parent != current:
+                            last = self.gen_nps[last].parent
+
+                        self.gen_nps[last].parent = parent
+                        self.gen_nps[parent].has_children = True
                     else:
-                        last = current
                         current = self.gen_nps[current].parent
 
-                # check if child is above parent
+                # if not found, take current path and connect it
                 if not_found:
-                    current = self.gen_nps[noun_phrase_right].parent
-                    while not_found:
-                        if current == "":
-                            break
+                    if parent == "disseminated cryptococcal infection":
+                        print("Check")
+                    self.gen_nps[last].parent = parent
+                    self.gen_nps[parent].has_children = True
 
-                        if current == noun_phrase_left:
-                            not_found = False
-                        else:
-                            current = self.gen_nps[current].parent
+        if parent not in self.domain_nps:
+            self.domain_nps[parent] = self.gen_nps[parent]
 
-                    # if not found, take current path and connect it
-                    if not_found:
-                        self.gen_nps[last].parent = noun_phrase_right
-                        self.gen_nps[noun_phrase_right].has_children = True
+        if child not in self.domain_nps:
+            self.domain_nps[child] = self.gen_nps[child]
 
-        if noun_phrase_left not in self.domain_nps:
-            self.domain_nps[noun_phrase_left] = self.gen_nps[noun_phrase_left]
-
-        if noun_phrase_right not in self.domain_nps:
-            self.domain_nps[noun_phrase_right] = self.gen_nps[noun_phrase_right]
 
     def discover(self, corpus_filename):
 
