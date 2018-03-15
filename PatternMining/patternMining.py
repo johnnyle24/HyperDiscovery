@@ -2,6 +2,7 @@ import nltk
 import json
 import heapq
 from operator import itemgetter
+from PatternMining import HypernymMiningPhase2 as hmp
 
 
 def writeToJsonFile(data, outputFile):
@@ -63,10 +64,12 @@ class Item:
 
 class PatternMining2:
 
-    def __init__(self, filename):
+    def __init__(self, filename=None):
         self.VALID_POS_TAGS = ['DT', 'JJ', 'NN', 'NNS']
         self.data = None
-        self.data = readJsonFile(filename)
+
+        if filename is not None:
+            self.data = readJsonFile(filename)
 
     def loadData(self, filename):
         self.data = readJsonFile(filename)
@@ -86,23 +89,26 @@ class PatternMining2:
                         map[itm].add(Item(h.split()))
         return map
 
-    def getPatterns(self, concepts):
+    def getPatterns(self, concepts, concepts2):
 
         pats = dict()
         for i, token in enumerate(self.data):
             if self.isNounPhrase(token):
-                itm = Item([item[0] for item in token])
-                if itm in concepts:
-                    frm = self.findNextNounPhrase(i)
+                right = Item([item[0] for item in token])
+                if right in concepts:
+                    frm, frmToken = self.findNextNounPhrase(i)
                     to = i
 
                     if frm >= 0 and to <= len(self.data):
                         w = (self.getPattern(frm + 1, to))
 
-                        if w is not None:
+                        left = Item([item[0] for item in frmToken])
+                        direction = concepts2.getHypernimDirection(str(left), str(right))
+
+                        if w is not None and direction is not None:
                             if w not in pats:
-                                pats[w] = 0
-                            pats[w] += 1
+                                pats[w] = {'direction' : direction, 'freq': 0}
+                            pats[w]['freq'] += 1
         return pats
 
     def getPattern(self, lower, upper):
@@ -123,8 +129,8 @@ class PatternMining2:
         for j in range(i - 1, i - 5, -1):
             item = self.data[j]
             if self.isNounPhrase(item):
-                return j
-        return -1
+                return j, item
+        return -1, None
 
     def itemContains(self, token):
         start = 0
@@ -172,9 +178,13 @@ def formatTuples(tuples):
 
 if __name__ == '__main__':
 
-    pm = PatternMining2('../Misc/posChunk.json')
+    pm = PatternMining2()
 
     concepts = pm.readTrainingData('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
+                                   '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+
+    concepts2 = hmp.HypernymMining()
+    concepts2.parse('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
                                    '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
 
     pts = dict()
@@ -184,20 +194,26 @@ if __name__ == '__main__':
 
         pm.loadData(filename)
 
-        for item, value in pm.getPatterns(concepts).items():
-
+        patterns = pm.getPatterns(concepts, concepts2)
+        for item, value in patterns.items():
             if item not in pts:
-                pts[item] = 0
-            pts[item] += value
+                pts[item] = []
+            pts[item].append(value)
 
-    w = pm.sortPatterns(pts)
+        # for item, value in patterns.items():
+        #     if item not in pts:
+        #         pts[item] = 0
+        #     pts[item] += value
 
-    # with open('../MinedData/patternUsingTokens.txt', 'w') as f:
-
-    pattern_direction_freq = list()
-    for wi in w:
-        pattern_direction_freq.append({"pattern" : str(wi), "direction" : "L", "freq":wi.rank})
-        print('{0} = {1}'.format(str(wi), wi.rank))
-
-    with open('../MinedData/patternUsingTokens.json', 'w') as df:
-        json.dump(pattern_direction_freq, df)
+    print(pts)
+    # w = pm.sortPatterns(pts)
+    #
+    # # with open('../MinedData/patternUsingTokens.txt', 'w') as f:
+    #
+    # pattern_direction_freq = list()
+    # for wi in w:
+    #     pattern_direction_freq.append({"pattern" : str(wi), "direction" : "L", "freq":wi.rank})
+    #     print('{0} = {1}'.format(str(wi), wi.rank))
+    #
+    # with open('../MinedData/patternUsingTokens.json', 'w') as df:
+    #     json.dump(pattern_direction_freq, df)

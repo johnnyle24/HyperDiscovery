@@ -114,6 +114,8 @@ class Dialog:
 
         file_name = self.corpus_filename
 
+        self.fscore.set("0")
+
         # print("Pattern mining...")
         # # pattern_mining = PatternMining()
         #

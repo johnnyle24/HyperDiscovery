@@ -66,6 +66,27 @@ class HypernymMining:
 
                     self.train[concepts[count]] = hypernyms[len(hypernyms)-1]
 
+    def getHypernimDirection(self, left, right):
+
+        if left in self.nodes and right in self.nodes:
+
+            if self.getHypernimRec(left, right):
+                return 'R'
+
+            if self.getHypernimRec(right, left):
+                return 'L'
+        return None
+
+    def getHypernimRec(self, potHypo, potHyper):
+
+        hypoNode = self.nodes[potHypo]
+
+        if self.nodes[potHypo].parent == potHyper:
+            return True
+        elif self.nodes[potHypo].parent == '' or self.nodes[potHypo].parent == potHypo:
+            return False
+
+        return self.getHypernimRec(self.nodes[potHypo].parent, potHyper)
 
 # Used for ranking hypernyms found in text
 class HyperNode:
