@@ -1,4 +1,4 @@
-from HypernymMining import HypernymMining
+# from HypernymMining import HypernymMining
 from patternMining import PatternMining
 import sys
 
