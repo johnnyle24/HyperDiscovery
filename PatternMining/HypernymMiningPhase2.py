@@ -31,14 +31,31 @@ class HypernymMining:
 
                     length_hyp = len(hypernyms)
 
-                    for i in range(0, length_hyp-1):
-                        node = HyperNode(hypernyms[i+1], hypernyms[i])
-                        self.nodes[hypernyms[i+1]] = node
-                        # needs to do a check to see if node already exists
-                        # percolate up logic
-
                     node = HyperNode(hypernyms[0], "")
                     self.nodes[hypernyms[0]] = node
+
+                    for i in range(0, length_hyp-1):
+                        if hypernyms[i+1] not in self.nodes:
+                            node = HyperNode(hypernyms[i+1], hypernyms[i])
+                            self.nodes[hypernyms[i+1]] = node
+                        else:
+                            if self.nodes[hypernyms[i+1]].parent == hypernyms[i]:
+                                continue
+                                # do nothing
+                            else:
+                                previous = hypernyms[i+1]
+                                current = self.nodes[hypernyms[i+1]].parent
+                                while current == hypernyms[i] and len(current) != 0:
+                                    previous = current
+                                    current = self.nodes[current].parent
+                                if len(current) == 0:
+                                    node = HyperNode(hypernyms[i + 1], "")
+                                    self.nodes[hypernyms[i + 1]] = node
+                                    self.nodes[previous].parent = hypernyms[i+1]
+
+
+                            # needs to do a check to see if node already exists
+                            # percolate up logic
 
                     self.train[concepts[count]] = hypernyms[len(hypernyms)-1]
 
