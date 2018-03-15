@@ -25,20 +25,44 @@ class HypernymMining:
         with open(concept_filename, 'r') as concept_file:
             with open(gold_filename, "r") as gold_file:
                 for concept_line in concept_file:
-                    concepts.append(concept_line.split("\t")[0])
+                    concept = concept_line.split("\t")
+
+                    concepts.append(concept[0])
+
+                    self.training_hypernyms.add(concept[0])
+                    
                 for count, gold_line in enumerate(gold_file):
                     hypernyms = gold_line.split("\t")
 
                     length_hyp = len(hypernyms)
 
-                    for i in range(0, length_hyp-1):
-                        node = HyperNode(hypernyms[i+1], hypernyms[i])
-                        self.nodes[hypernyms[i+1]] = node
-                        # needs to do a check to see if node already exists
-                        # percolate up logic
-
                     node = HyperNode(hypernyms[0], "")
                     self.nodes[hypernyms[0]] = node
+
+                    for i in range(0, length_hyp-1):
+                        self.training_hypernyms.add(hypernyms[i+1])
+
+                        if hypernyms[i+1] not in self.nodes:
+                            node = HyperNode(hypernyms[i+1], hypernyms[i])
+                            self.nodes[hypernyms[i+1]] = node
+                        else:
+                            if self.nodes[hypernyms[i+1]].parent == hypernyms[i]:
+                                continue
+                                # do nothing
+                            else:
+                                previous = hypernyms[i+1]
+                                current = self.nodes[hypernyms[i+1]].parent
+                                while current == hypernyms[i] and len(current) != 0:
+                                    previous = current
+                                    current = self.nodes[current].parent
+                                if len(current) == 0:
+                                    node = HyperNode(hypernyms[i + 1], "")
+                                    self.nodes[hypernyms[i + 1]] = node
+                                    self.nodes[previous].parent = hypernyms[i+1]
+
+
+                            # needs to do a check to see if node already exists
+                            # percolate up logic
 
                     self.train[concepts[count]] = hypernyms[len(hypernyms)-1]
 
