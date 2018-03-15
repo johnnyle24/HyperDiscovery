@@ -284,6 +284,28 @@ class HypernymMining:
         return order
 
 
+    def getHypernimDirection(self, left, right):
+        if left in self.nodes and right in self.nodes:
+
+            if self.getHypernimRec(left, right):
+                return 'R'
+
+            if self.getHypernimRec(right, left):
+                return 'L'
+        return None
+
+
+    def getHypernimRec(self, potHypo, potHyper):
+        hypoNode = self.nodes[potHypo]
+
+        if self.nodes[potHypo].parent == potHyper:
+            return True
+        elif self.nodes[potHypo].parent == '' or self.nodes[potHypo].parent == potHypo:
+            return False
+
+        return self.getHypernimRec(self.nodes[potHypo].parent, potHyper)
+
+
 def main():
 
     frequency = 0
@@ -297,7 +319,6 @@ def main():
     corpus_filename = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_0.txt"
 
     hyp.discover(corpus_filename)
-
 
 # Used for ranking hypernyms found in text
 class HyperNode:
