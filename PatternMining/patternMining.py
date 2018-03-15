@@ -192,12 +192,12 @@ if __name__ == '__main__':
 
     w = pm.sortPatterns(pts)
 
-    with open('../MinedData/patternUsingTokens.txt', 'w') as f:
+    # with open('../MinedData/patternUsingTokens.txt', 'w') as f:
 
-        for wi in w:
-            print('{0} = {1}'.format(str(wi), wi.rank))
-            f.write('{0} = {1}\n'.format(str(wi), wi.rank))
+    pattern_direction_freq = list()
+    for wi in w:
+        pattern_direction_freq.append({"pattern" : str(wi), "direction" : "L", "freq":wi.rank})
+        print('{0} = {1}'.format(str(wi), wi.rank))
 
-
-    # d = { "such as" : {"direction": "L", "freq" : 1 },
-    #       "complained" : {"direction": "R", "freq": 3}}
+    with open('../MinedData/patternUsingTokens.json', 'w') as df:
+        json.dump(pattern_direction_freq, df)
