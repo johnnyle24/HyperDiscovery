@@ -25,7 +25,12 @@ class HypernymMining:
         with open(concept_filename, 'r') as concept_file:
             with open(gold_filename, "r") as gold_file:
                 for concept_line in concept_file:
-                    concepts.append(concept_line.split("\t")[0])
+                    concept = concept_line.split("\t")
+
+                    concepts.append(concept[0])
+
+                    self.training_hypernyms.add(concept[0])
+                    
                 for count, gold_line in enumerate(gold_file):
                     hypernyms = gold_line.split("\t")
 
@@ -35,6 +40,8 @@ class HypernymMining:
                     self.nodes[hypernyms[0]] = node
 
                     for i in range(0, length_hyp-1):
+                        self.training_hypernyms.add(hypernyms[i+1])
+
                         if hypernyms[i+1] not in self.nodes:
                             node = HyperNode(hypernyms[i+1], hypernyms[i])
                             self.nodes[hypernyms[i+1]] = node
