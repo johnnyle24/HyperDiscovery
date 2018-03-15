@@ -1,11 +1,26 @@
 import nltk
+import re
 
 
 class HypernymMining:
 
-    def __init__(self):
+    def __init__(self, file_name):
         self.hyp_hashes = dict()
         self.pat_hashes = dict()
+
+        self.test_hashes = set()
+
+        with open(file_name, 'r') as file:
+            for line in file:
+                str_split = line.lower().split('concept')
+                phrase = str_split[0].rstrip()
+                self.test_hashes.add(phrase)
+
+        self.ordered_hashes = []
+
+        self.ordered_found_hashes = []
+
+        self.ordered_found_strings = []
 
         self.node_map = dict()
 
@@ -138,7 +153,67 @@ class HypernymMining:
             self.rank_nodes()
             self.print_found_hypernyms()
             self.print_ordered_hypernyms()
+            self.unordered_score()
         # evaluations
+
+    def unordered_score(self):
+        found_score = 0
+
+        overall_score = 0
+
+        total_hypernyms = len(self.test_hashes)
+
+        for key in self.test_hashes:
+            if key in self.found_hypernyms:
+                found_score += 1
+
+            if key in self.hyp_hashes:
+                overall_score += 1
+
+        print("Unordered Found Score: " + str(float(found_score)/float(total_hypernyms)))
+
+        print("Unordered Overall Score: " + str(float(overall_score) / float(total_hypernyms)))
+
+    def ordered_score(self, file_name):
+
+        scores = []
+
+        with open(file_name, 'r') as file:
+            for line in file:
+                line = line.rstrip()
+                str_split = re.split(r'\t+', line)
+                while len(self.ordered_hashes) < len(str_split):
+                    hash = set()
+                    self.ordered_hashes.append(hash)
+                for index, token in enumerate(str_split):
+                    self.ordered_hashes[index].add(token)
+
+        for line in self.ordered_found_strings:
+            str_split = re.split(r'\t+', line)
+            while len(self.ordered_found_hashes) < len(str_split):
+                hash = set()
+                self.ordered_found_hashes.append(hash)
+            for index, token in enumerate(str_split):
+                self.ordered_found_hashes[index].add(token)
+
+        for index, hash_s in enumerate(self.ordered_hashes):
+            scores.append(float(0))
+            if index >= len(self.ordered_found_hashes):
+                break
+            for token in hash_s:
+                if token in self.ordered_found_hashes[index]:
+                    scores[index] += float(1)
+            scores[index] = scores[index]/float(len(hash_s))
+
+        average_score = float(0)
+
+        for index, score in enumerate(scores):
+            print("Rank: " + str(index) + ", Score: " + str(score))
+            average_score += score
+
+        average_score = average_score/float(len(scores))
+
+        print("Average Score: " + str(average_score))
 
     def print_found_hypernyms(self):
         print("\n\n\n")
@@ -154,10 +229,10 @@ class HypernymMining:
 
         sorted_nodes = sorted(unsorted_nodes, key=lambda node: node.rank, reverse=True)
 
-        for node in sorted_nodes:
-            print(node.phrase)
-            print(node.rank)
-            print("Phrase: " + node.phrase + ", Rank: ", + node.rank)
+        # for node in sorted_nodes:
+        #     print(node.phrase)
+        #     print(node.rank)
+        #     print("Phrase: " + node.phrase + ", Rank: ", + node.rank)
 
         print("\n\n\n-------------------------------------------------\n\n\n")
 
@@ -172,9 +247,10 @@ class HypernymMining:
             string = string.rstrip()
             if len(string) != 0:
                 print(string)
+                self.ordered_found_strings.append(string)
             return
 
-        string += (current_node.phrase + " ")
+        string += (current_node.phrase + "\t")
 
         current_node.visited_rank = True
 
