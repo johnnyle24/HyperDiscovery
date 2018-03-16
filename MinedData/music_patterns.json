@@ -1,0 +1,1052 @@
+[
+  {
+    "pattern": "and",
+    "direction": "R",
+    "freq": 666
+  },
+  {
+    "pattern": "or",
+    "direction": "R",
+    "freq": 40
+  },
+  {
+    "pattern": "Dream",
+    "direction": "R",
+    "freq": 3
+  },
+  {
+    "pattern": "Hypnagogic",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "Indie",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Swedish",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "within",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "such as",
+    "direction": "R",
+    "freq": 3
+  },
+  {
+    "pattern": "is",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "rockabilly",
+    "direction": "R",
+    "freq": 5
+  },
+  {
+    "pattern": "Latin",
+    "direction": "R",
+    "freq": 2
+  },
+  {
+    "pattern": "of Motown",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "Progressive",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "including",
+    "direction": "R",
+    "freq": 3
+  },
+  {
+    "pattern": "of this Lutheran",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "of",
+    "direction": "R",
+    "freq": 8
+  },
+  {
+    "pattern": "that greatly influenced",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "and in",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Gypsy",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "and playing",
+    "direction": "L",
+    "freq": 4
+  },
+  {
+    "pattern": "which uses",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Barbershop",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "blending",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "into",
+    "direction": "R",
+    "freq": 3
+  },
+  {
+    "pattern": "is influential on",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "was influenced by",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Label",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Neo",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "into their",
+    "direction": "R",
+    "freq": 2
+  },
+  {
+    "pattern": "Hymn",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "are in",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "with",
+    "direction": "R",
+    "freq": 10
+  },
+  {
+    "pattern": "is more on",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "turned",
+    "direction": "R",
+    "freq": 2
+  },
+  {
+    "pattern": "Truck driving",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "French",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "influenced",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "include",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "to black to",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "specifically Western",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "that combines",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Vedic",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "stylized as",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "to Mendelssohn",
+    "direction": "R",
+    "freq": 2
+  },
+  {
+    "pattern": "He explores",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "toward",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "that encompasses",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "since",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "Techno",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "and Army marching",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "and blackened",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "playing",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "echoes to dream",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "to",
+    "direction": "R",
+    "freq": 12
+  },
+  {
+    "pattern": "swing",
+    "direction": "L",
+    "freq": 3
+  },
+  {
+    "pattern": "and even",
+    "direction": "L",
+    "freq": 3
+  },
+  {
+    "pattern": "which expanded",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "gothic and",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "though",
+    "direction": "R",
+    "freq": 2
+  },
+  {
+    "pattern": "looped and layered",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "traditional",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "inspired",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "is upbeat and",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "and 90",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "1960s",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "Caball\u00e9",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "to teen",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "n",
+    "direction": "R",
+    "freq": 2
+  },
+  {
+    "pattern": "sometimes",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "It",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "60",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "having studied",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "and California",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "based",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "When",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "Celtic",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "from",
+    "direction": "R",
+    "freq": 2
+  },
+  {
+    "pattern": "She studied",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "and melodic",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "noise",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Radiophonics",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Merseyside",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "best",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "to simple",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "when",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "and ragged",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "highly unconventional for",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "for a Love",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "electronic",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "became less about",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "a 3",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "the 2001",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "african",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "in your",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "electro",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "not",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "is informed by",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "Andalusi",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "Brooks",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "influences into",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Nina Simone",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "to Arabic",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "classical and",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "and distorted",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "incorporating",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "but also",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "and House",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "and western",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "experimental and",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "He studied",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "from Dublin with",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "of its",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "to hearty",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "or Renaissance",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Douwe Eisenga studied",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "Marta plays",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "to 8",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "alternative",
+    "direction": "R",
+    "freq": 2
+  },
+  {
+    "pattern": "straight up",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "after her",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "a 6",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "to alternative",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "to the mellower",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "are",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "or even",
+    "direction": "R",
+    "freq": 2
+  },
+  {
+    "pattern": "western",
+    "direction": "R",
+    "freq": 2
+  },
+  {
+    "pattern": "slamming the",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "were emrging from",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "than their",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Super",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "His",
+    "direction": "R",
+    "freq": 3
+  },
+  {
+    "pattern": "like",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "but her",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "and 70",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "The weakest",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "and more",
+    "direction": "R",
+    "freq": 2
+  },
+  {
+    "pattern": "together with",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Every",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "that",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "in",
+    "direction": "R",
+    "freq": 9
+  },
+  {
+    "pattern": "based on one",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "to beautifil",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "and Lining",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "but its not",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "styled",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "its got",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "eastern",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "that had permeated",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "sounding",
+    "direction": "R",
+    "freq": 3
+  },
+  {
+    "pattern": "more",
+    "direction": "R",
+    "freq": 3
+  },
+  {
+    "pattern": "The best",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "nor",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Longest",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "of boring",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "ever Every",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "laced with over",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "psychedelic",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "and Texas",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "for",
+    "direction": "L",
+    "freq": 3
+  },
+  {
+    "pattern": "but",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "flavored",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "in her",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "I hate",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "back in",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "and his",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "was",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "than",
+    "direction": "L",
+    "freq": 7
+  },
+  {
+    "pattern": "confessional",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "with the",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "over",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Is she",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "goth",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "it",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "than on",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "and 50",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "industrial",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "became",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "Their",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "ethnic",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Alan Frew",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "was going",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "to experience",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "her",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "while",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "as far as",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "or going",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "70s",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "the xtra",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "In",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "out of",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "as well as",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "anymore only",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "Laine",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "upon which",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "and maybe",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "to their",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "is the Smiths",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Fave",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "with his",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "to punk",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "I liked",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "to torch",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "to ever hit",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "is going",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "to find",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "love",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "in its",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "and Latin",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "60s",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "with the Afterlife",
+    "direction": "L",
+    "freq": 1
+  }
+]

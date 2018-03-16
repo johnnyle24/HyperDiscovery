@@ -1,0 +1,102 @@
+[
+  {
+    "pattern": "particularly",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "including for",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "DIP",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "and",
+    "direction": "L",
+    "freq": 16
+  },
+  {
+    "pattern": "TBITraumatic",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "or",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Traumatic",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "in matching",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "related to",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Continuing",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "such as",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Breast",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "or had",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "including",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "or on",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "associated with",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "consistent with",
+    "direction": "L",
+    "freq": 1
+  },
+  {
+    "pattern": "Since ITA",
+    "direction": "R",
+    "freq": 1
+  },
+  {
+    "pattern": "in",
+    "direction": "L",
+    "freq": 2
+  },
+  {
+    "pattern": "as well as",
+    "direction": "L",
+    "freq": 1
+  }
+]

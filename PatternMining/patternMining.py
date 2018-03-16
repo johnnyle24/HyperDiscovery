@@ -175,47 +175,95 @@ def formatTuples(tuples):
         s.add(tuple(t[1].split()))
     return s
 
-
-if __name__ == '__main__':
-
+def getPatterns(trainingFileName, goldFileName, corpusName, outputFileName, numberOfFiles = 368):
     pm = PatternMining2()
 
-    concepts = pm.readTrainingData('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
-                                   '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+    concepts = pm.readTrainingData(trainingFileName,goldFileName)
 
     concepts2 = hmp.HypernymMining()
-    concepts2.parse('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
-                                   '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+    concepts2.parse(trainingFileName,goldFileName)
 
     pts = dict()
-    for i in range(0, 368):
-
+    for i in range(0, numberOfFiles):
         print(i)
 
-        filename = '../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt'.format(i)
+        filename = '{0}_{1}.txt'.format(corpusName, i)
 
         pm.loadData(filename)
 
         patterns = pm.getPatterns(concepts, concepts2)
         for item, value in patterns.items():
             if item not in pts:
-                pts[item] = []
-            pts[item].append(value)
-
-        # for item, value in patterns.items():
-        #     if item not in pts:
-        #         pts[item] = 0
-        #     pts[item] += value['frequency']
-
-    print(pts)
-    # w = pm.sortPatterns(pts)
-
-    # with open('../MinedData/patternUsingTokens.txt', 'w') as f:
+                pts[item] = {'direction' : value['direction'], 'freq' : 0}
+            pts[item]['freq'] += value['freq']
 
     pattern_direction_freq = list()
-    for wi in w:
-        pattern_direction_freq.append({"pattern" : str(wi), "direction" : "L", "freq":wi.rank})
-        print('{0} = {1}'.format(str(wi), wi.rank))
 
-    with open('../MinedData/patternUsingTokens.json', 'w') as df:
+    for key, value in pts.items():
+        pattern_direction_freq.append({"pattern" : str(key), "direction" : value['direction'], "freq":value['freq']})
+
+    with open('{0}.json'.format(corpusName), 'w') as df:
         json.dump(pattern_direction_freq, df)
+
+def getMedPatterns():
+    getPatterns('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
+                '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt',
+                '../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized',
+                '../MinedData/medical_patterns.json')
+
+
+def getMusicPatterns():
+    getPatterns('../SemEval2018-Task9/training/data/2B.music.training.data.txt',
+                '../SemEval2018-Task9/training/gold/2B.music.training.gold.txt',
+                '../Data/2B_music_bioreviews_tokenized/2B_music_bioreviews_tokenized',
+                '../MinedData/music_patterns.json')
+
+
+if __name__ == '__main__':
+    # pm = PatternMining2()
+    #
+    # concepts = pm.readTrainingData('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
+    #                                '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+    #
+    # concepts2 = hmp.HypernymMining()
+    # concepts2.parse('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
+    #                                '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+    #
+    # pts = dict()
+    # for i in range(0, 368):
+    #
+    #     print(i)
+    #
+    #     filename = '../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt'.format(i)
+    #
+    #     pm.loadData(filename)
+    #
+    #     patterns = pm.getPatterns(concepts, concepts2)
+    #     for item, value in patterns.items():
+    #         if item not in pts:
+    #             pts[item] = {'direction' : value['direction'], 'freq' : 0}
+    #         pts[item]['freq'] += value['freq']
+    #
+    #     # for item, value in patterns.items():
+    #     #     if item not in pts:
+    #     #         pts[item] = 0
+    #     #     pts[item] += value['frequency']
+    #
+    # # print(pts)
+    # w = pts
+    # # w = pm.sortPatterns(pts)
+    #
+    # # with open('../MinedData/patternUsingTokens.txt', 'w') as f:
+    #
+    # pattern_direction_freq = list()
+    # # for wi in w:
+    # #     pattern_direction_freq.append({"pattern" : str(wi), "direction" : "L", "freq":wi.rank})
+    # #     print('{0} = {1}'.format(str(wi), wi.rank))
+    #
+    # for key, value in pts.items():
+    #     pattern_direction_freq.append({"pattern" : str(key), "direction" : value['direction'], "freq":value['freq']})
+    #
+    # with open('../MinedData/patternUsingTokens.json', 'w') as df:
+    #     json.dump(pattern_direction_freq, df)
+
+    getMusicPatterns()
