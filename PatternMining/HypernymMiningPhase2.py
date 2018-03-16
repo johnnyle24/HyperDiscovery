@@ -379,9 +379,11 @@ def main():
 
     hyp.parse_patterns(pattern_filename, frequency)
 
-    corpus_filename = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_0.txt"
+    for i in range(0, 369):
+        corpus_filename = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt".format(i)
+        hyp.discover(corpus_filename)
 
-    hyp.discover(corpus_filename)
+    hyp.write_model()
 
 # Used for ranking hypernyms found in text
 class HyperNode:
@@ -393,5 +395,5 @@ class HyperNode:
         self.has_children = False
         self.visited_rank = False
 
-# if __name__ == '__main__':
-    # main()
+if __name__ == '__main__':
+    main()
