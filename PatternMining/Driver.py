@@ -1,5 +1,5 @@
-# from HypernymMining import HypernymMining
-from patternMining import PatternMining
+from HypernymMining import HypernymMining
+from PatternMining import patternMining
 import sys
 
 def main():
@@ -7,7 +7,7 @@ def main():
     # file_name = "../Data/2A_med_pubmed2/2A_med_pubmed_POITagged1.txt"
 
     # for i in range(10):
-    file_name = "../Data/2A_med_pubmed_2/2A_med_pubmed_2_2.txt"
+    file_name = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_0.txt"
 
     #file_name = "../Data/2B_music_bioreviews_2_2.txt"
 

@@ -311,7 +311,7 @@ def main():
 
     # hyp.parse(concept_filename, gold_filename)
 
-    hyp.parse_patterns(frequency, pattern_filename)
+    hyp.parse_patterns(pattern_filename, frequency)
 
     corpus_filename = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_0.txt"
 
