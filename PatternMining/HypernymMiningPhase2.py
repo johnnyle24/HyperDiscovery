@@ -244,6 +244,9 @@ class HypernymMining:
             print("Now must order everything")
             conc = self.get_concepts()
 
+            for con in conc:
+                print(self.get_order(con))
+
 
     def get_concepts(self):
         concepts = []
@@ -262,12 +265,11 @@ class HypernymMining:
 
         return concepts
 
-    def sort_orders(self, concepts):
-        pass
-
     def get_order(self, noun_phrase):
 
         order = list()
+
+        new_order = list()
 
         current = noun_phrase
 
@@ -275,7 +277,21 @@ class HypernymMining:
             order.append(self.gen_nps[current].phrase)
             current = self.gen_nps[current].parent
 
-        return order
+        indices_collected = set()
+
+        for i in range(0, len(order)):
+            max = ""
+            max_freq = 0
+            max_index = 0
+            for index, o in order:
+                if self.gen_nps[o].freq > max_freq and index not in indices_collected:
+                    max = o
+                    max_freq = self.gen_nps[o].freq
+                    max_index = index
+            indices_collected.add(max_index)
+            new_order.append(max)
+
+        return new_order
 
     def getHypernimDirection(self, left, right):
         if left in self.nodes and right in self.nodes:
@@ -304,12 +320,12 @@ def main():
 
     pattern_filename = "../MinedData/patternUsingTokens.json"
 
-    # concept_filename = "../SemEval2018-Task9/training/data/2A.medical.training.data.txt"
-    # gold_filename = "../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt"
+    concept_filename = "../SemEval2018-Task9/training/data/2A.medical.training.data.txt"
+    gold_filename = "../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt"
 
     hyp = HypernymMining()
 
-    # hyp.parse(concept_filename, gold_filename)
+    hyp.parse(concept_filename, gold_filename)
 
     hyp.parse_patterns(pattern_filename, frequency)
 
