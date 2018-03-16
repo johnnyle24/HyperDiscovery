@@ -16,6 +16,8 @@ class HypernymMining:
 
         self.domain_nps = dict()  # maps from a noun_phrase that got matched to the domain to the gen_nps node
 
+        self.domain_set = set()
+
     def parse(self, concept_filename, gold_filename):
 
         concepts = list()
@@ -66,10 +68,6 @@ class HypernymMining:
 
     def parse_patterns(self, pattern_filename, frequency):
 
-        frequency = 0
-
-        pattern_filename = "../MinedData/patternUsingTokens.json"
-
         with open(pattern_filename, 'r') as token_file:
             patterns = json.load(token_file)
 
@@ -87,9 +85,6 @@ class HypernymMining:
             self.gen_nps[noun_phrase].freq += 1
 
     def add_domain_np(self, noun_phrase_left, noun_phrase_right, direction):
-
-        if noun_phrase_left == "tuberculosis" and noun_phrase_right == "an immunocompetent host":
-            print("D")
 
         if direction == "L":
             parent = noun_phrase_left
@@ -164,16 +159,16 @@ class HypernymMining:
 
                 # if not found, take current path and connect it
                 if not_found:
-                    if parent == "disseminated cryptococcal infection":
-                        print("Check")
                     self.gen_nps[last].parent = parent
                     self.gen_nps[parent].has_children = True
 
         if parent not in self.domain_nps:
             self.domain_nps[parent] = self.gen_nps[parent]
+            self.domain_set.add(parent)
 
         if child not in self.domain_nps:
             self.domain_nps[child] = self.gen_nps[child]
+            self.domain_set.add(child)
 
 
     def discover(self, corpus_filename):
@@ -202,13 +197,15 @@ class HypernymMining:
 
                         second_np = second_np.rstrip()
 
-
-
                         self.add_gen_np(second_np)
 
                         pattern = pattern.rstrip()
 
-                        if len(first_np) > 3 and len(second_np) > 3 and pattern in self.patterns and first_np != second_np:
+                        # check if first_np or second_np is in training
+
+                        if (len(first_np) > 3 and len(second_np) > 3 and pattern in self.patterns
+                            and first_np != second_np and (first_np in self.training_hypernyms
+                            or second_np in self.training_hypernyms or first_np in self.domain_set)):
 
                             self.add_domain_np(first_np, second_np, self.patterns[pattern])
 
@@ -245,11 +242,27 @@ class HypernymMining:
                         print (count)
 
             print("Now must order everything")
+            conc = self.get_concepts()
+
 
     def get_concepts(self):
-        pass
+        concepts = []
 
-    def sort_orders(self):
+        all = []
+
+        not_domain = []
+
+        for key in self.domain_nps:
+            if not self.domain_nps[key].has_children:
+                concepts.append(key)
+            all.append(key)
+
+        for key in self.gen_nps:
+            not_domain.append(key)
+
+        return concepts
+
+    def sort_orders(self, concepts):
         pass
 
     def get_order(self, noun_phrase):
@@ -264,7 +277,6 @@ class HypernymMining:
 
         return order
 
-
     def getHypernimDirection(self, left, right):
         if left in self.nodes and right in self.nodes:
 
@@ -274,7 +286,6 @@ class HypernymMining:
             if self.getHypernimRec(right, left):
                 return 'L'
         return None
-
 
     def getHypernimRec(self, potHypo, potHyper):
         hypoNode = self.nodes[potHypo]
@@ -293,7 +304,12 @@ def main():
 
     pattern_filename = "../MinedData/patternUsingTokens.json"
 
+    # concept_filename = "../SemEval2018-Task9/training/data/2A.medical.training.data.txt"
+    # gold_filename = "../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt"
+
     hyp = HypernymMining()
+
+    # hyp.parse(concept_filename, gold_filename)
 
     hyp.parse_patterns(frequency, pattern_filename)
 
@@ -310,22 +326,6 @@ class HyperNode:
         self.parent = parent
         self.has_children = False
         self.visited_rank = False
-
-    # Takes in a child node and will append its phrase to the current's children
-    # Additionally, will add the current's phrase to the child's parents
-    def add_child(self, child):
-        if child.phrase in self.child_set:
-            return
-        else:
-            self.child_set.add(child.phrase)
-            child.add_parent(self)
-            self.rank += 1
-
-    def add_parent(self, parent):
-        if parent.phrase in self.parent_set:
-            return
-        else:
-            self.parent_set.add(parent.phrase)
 
 if __name__ == '__main__':
     main()
