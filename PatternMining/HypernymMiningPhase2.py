@@ -1,6 +1,7 @@
 import nltk
 import json
 from nltk.corpus import stopwords
+import heapq
 
 class HypernymMining:
 
@@ -298,8 +299,10 @@ class HypernymMining:
         with open(dir + '/hypernyms.txt', 'w') as f:
             for con in concepts:
                 print('writing {0}'.format(con))
-                f.write('\t'.join(self.get_order(con)))
-                f.write('\n')
+                orderList = self.get_order(con)
+                if len(orderList) > 0:
+                    f.write('\t'.join(orderList))
+                    f.write('\n')
 
 
 
@@ -355,20 +358,27 @@ class HypernymMining:
 
             indices_collected = set()
 
-            for i in range(0, len(order)):
-                max = ""
-                max_freq = 0
-                max_index = 0
-                for index, o in enumerate(order):
-                    if self.gen_nps[o].freq > max_freq and index not in indices_collected:
-                        max = o
-                        max_freq = self.gen_nps[o].freq
-                        max_index = index
-                indices_collected.add(max_index)
-                new_order.append(max)
+            # Used heap instead to try and optimize it a bit. O(nlogn) rather than O(n^2)
+            heapq.heapify(new_order)
+            for i, o in reversed(list(enumerate(order))):
+                it = self.gen_nps[o]
+                heapq.heappush(new_order, (-1*it.freq, self.removeStopWords(it.phrase)))
 
+            # for i in range(0, len(order)):
+            #     max = ""
+            #     max_freq = 0
+            #     max_index = 0
+            #     for index, o in enumerate(order):
+            #         if self.gen_nps[o].freq > max_freq and index not in indices_collected:
+            #             max = o
+            #             max_freq = self.gen_nps[o].freq
+            #             max_index = index
+            #     indices_collected.add(max_index)
+            #     new_order.append(max)
 
-            return [self.removeStopWords(phrase) for phrase in new_order]
+            return [heapq.heappop(new_order)[1] for i in range(len(new_order))]
+
+            # return [self.removeStopWords(phrase) for phrase in new_order]
 
         else:
             return new_order
