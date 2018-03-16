@@ -18,6 +18,37 @@ class HypernymMining:
 
         self.domain_set = set()
 
+
+    def load(self, concept_filename, gold_filename):
+        concepts = list()
+
+        with open(concept_filename, 'r') as concept_file:
+            with open(gold_filename, "r") as gold_file:
+                for concept_line in concept_file:
+                    concept = concept_line.split("\t")
+
+                    concepts.append(concept[0])
+
+                    self.training_hypernyms.add(concept[0])
+
+                for count, gold_line in enumerate(gold_file):
+                    hypernyms = gold_line.split("\t")
+
+                    length_hyp = len(hypernyms)
+
+                    node = HyperNode(hypernyms[0], "")
+                    self.gen_nps[hypernyms[0]] = node
+                    self.training_hypernyms.add(hypernyms[0])
+
+                    for i in range(1, length_hyp):
+                        self.training_hypernyms.add(hypernyms[i])
+
+                        node = HyperNode(hypernyms[i], hypernyms[i-1])
+                        self.gen_nps[hypernyms[i]] = node
+
+                    node = HyperNode(concepts[count], hypernyms[length_hyp-1])
+                    self.gen_nps[concepts[count]] = node
+
     def parse(self, concept_filename, gold_filename):
 
         concepts = list()
