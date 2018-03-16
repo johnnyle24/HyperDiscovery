@@ -56,13 +56,15 @@ def download(datasetName):
         return False
     return True
 
-# if __name__ == "__main__":
-#     #https://drive.google.com/open?id=1yyOJjctsgvmtT9iRA3wB-VfaLDlBMs8z
-#
-#     for file_id in files_ids:
-#
-#         # destination = '../Data/data.zip'
-#         download_file_from_google_drive(file_id, tempZipFile)
-#
-#         unzip(tempZipFile, targetDir)
-#         os.remove(tempZipFile)
+
+if __name__ == "__main__":
+    #https://drive.google.com/open?id=1yyOJjctsgvmtT9iRA3wB-VfaLDlBMs8z
+
+    # for file_id in files_ids:
+
+        # destination = '../Data/data.zip'
+    file_id = '1CZ6fybHlP4QDflDOUMSdRXSFvzZMZsQT'
+    download_file_from_google_drive(file_id, tempZipFile)
+
+    unzip(tempZipFile, targetDir)
+    os.remove(tempZipFile)
