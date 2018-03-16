@@ -1,6 +1,6 @@
 import nltk
 import json
-
+from nltk.corpus import stopwords
 
 class HypernymMining:
 
@@ -337,7 +337,7 @@ class HypernymMining:
         for key in self.gen_nps:
             not_domain.append(key)
 
-        return concepts
+        return [self.removeStopWords(con) for con in concepts]
 
     def get_order(self, noun_phrase):
 
@@ -367,7 +367,8 @@ class HypernymMining:
                 indices_collected.add(max_index)
                 new_order.append(max)
 
-            return new_order
+
+            return [self.removeStopWords(phrase) for phrase in new_order]
 
         else:
             return new_order
