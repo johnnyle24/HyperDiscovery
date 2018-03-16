@@ -1,1 +1,0 @@
-/usr/local/stow/python/amd64_linux26/python-3.6/lib/python3.6/sre_compile.py
