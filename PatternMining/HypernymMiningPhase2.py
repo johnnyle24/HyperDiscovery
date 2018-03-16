@@ -80,8 +80,6 @@ class HypernymMining:
                     node = HyperNode(concepts[count], hypernyms[length_hyp-1])
                     self.nodes[concepts[count]] = node
 
-
-
         # for c in concepts:
         #     checked = set()
         #     checked_list = list()
@@ -286,11 +284,11 @@ class HypernymMining:
     def write_model(self):
 
         dir = '../Data/Model'
-        with open(dir + '/concepts.json', 'w') as conFile:
-            json.dump(self.get_concepts(), conFile)
-
-        with open(dir + '/hypernyms.json', 'w') as conFile:
-            json.dump(self.domain_nps, conFile)
+        # with open(dir + '/concepts.json', 'w') as conFile:
+        #     json.dump(self.get_concepts(), conFile)
+        #
+        # with open(dir + '/hypernyms.json', 'w') as conFile:
+        #     json.dump(self.domain_nps, conFile)
 
         concepts = self.get_concepts()
         with open(dir + '/concepts.txt', 'w') as f:
@@ -299,8 +297,11 @@ class HypernymMining:
 
         with open(dir + '/hypernyms.txt', 'w') as f:
             for con in concepts:
+                print('writing {0}'.format(con))
                 f.write('\t'.join(self.get_order(con)))
                 f.write('\n')
+
+
 
 
     def write_results(self, test_concepts, write_file):
@@ -422,7 +423,7 @@ def main():
 
     hyp.write_model()
 
-def run(pattern_filename, concept_filename, gold_filename, corpus_subname):
+def run(pattern_filename, concept_filename, gold_filename, corpus_subname, frange = (0, 369)):
     frequency = 0
 
     # pattern_filename = "../MinedData/medical_patterns.json"
@@ -436,7 +437,7 @@ def run(pattern_filename, concept_filename, gold_filename, corpus_subname):
 
     hyp.parse_patterns(pattern_filename, frequency)
 
-    for i in range(0, 369):
+    for i in range(frange[0], frange[1]):
         # corpus_filename = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt".format(i)
         corpus_filename = "{0}_{1}.txt".format(corpus_subname, i)
         hyp.discover(corpus_filename)
@@ -444,23 +445,23 @@ def run(pattern_filename, concept_filename, gold_filename, corpus_subname):
 
     hyp.write_model()
 
-def music():
+def music(r=369):
     pattern_filename = "../MinedData/music_patterns.json"
 
     concept_filename = "../SemEval2018-Task9/training/data/2B.music.training.data.txt"
     gold_filename = "../SemEval2018-Task9/training/gold/2B.music.training.gold.txt"
     corputSubName = "../Data/2B_music_bioreviews_tokenized/2B_music_bioreviews_tokenized"
 
-    run(pattern_filename, concept_filename, gold_filename, corputSubName)
+    run(pattern_filename, concept_filename, gold_filename, corputSubName, frange=(0, r))
 
-def medical():
+def medical(r=369):
     pattern_filename = "../MinedData/medical_patterns.json"
 
     concept_filename = "../SemEval2018-Task9/training/data/2A.medical.training.data.txt"
     gold_filename = "../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt"
     corputSubName = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized"
 
-    run(pattern_filename, concept_filename, gold_filename, corputSubName)
+    run(pattern_filename, concept_filename, gold_filename, corputSubName, frange=(0, r))
 
 # Used for ranking hypernyms found in text
 class HyperNode:
@@ -472,7 +473,8 @@ class HyperNode:
         self.has_children = False
         self.visited_rank = False
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
+    music(5)
     # main()
 
     # pattern_filename = "../MinedData/medical_patterns.json"
