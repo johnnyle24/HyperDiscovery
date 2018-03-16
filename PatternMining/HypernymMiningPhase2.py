@@ -166,7 +166,7 @@ class HypernymMining:
                 while not_found:
 
                     if current in checked:
-                        print(current)
+                        # print(current)
                         hidden_set.append(current)
                     else:
                         checked.add(current)
@@ -279,9 +279,9 @@ class HypernymMining:
                         first_np = second_np
 
                     count += 1
-                    print(count)
-                    if(count == 2223):
-                        print (count)
+                    # print(count)
+                    # if(count == 2223):
+                    #     print (count)
 
     def write_model(self):
 
