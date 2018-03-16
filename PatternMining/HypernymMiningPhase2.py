@@ -399,7 +399,7 @@ def main():
 
     frequency = 0
 
-    pattern_filename = "../MinedData/patternUsingTokens.json"
+    pattern_filename = "../MinedData/medical_patterns.json"
 
     concept_filename = "../SemEval2018-Task9/training/data/2A.medical.training.data.txt"
     gold_filename = "../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt"
