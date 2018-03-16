@@ -8,12 +8,17 @@ import multiprocessing
 # import sys
 from Scoring import scorer
 from Misc import downloadData
+from HypernymMiningPhase2 import HypernymMining
+
 
 class Dialog:
 
     def __init__(self):
         self.root = Tk()
         self.root.title("Hypernym Discovery")
+
+        self.hyp = HypernymMining()
+        self.total_files = 368
 
         mainframe = ttk.Frame(self.root, padding="3 3 12 12")
         mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
@@ -24,12 +29,18 @@ class Dialog:
         self.spearman = StringVar()
         self.recall = StringVar()
         self.precision = StringVar()
+        self.percent = StringVar()
 
         self.pattern_filename = StringVar()
         self.concept_filename = StringVar()
         self.gold_filename = StringVar()
         self.corpus_filename = StringVar()
         self.download_status = StringVar()
+
+        self.pattern_filename.set("../MinedData/patternUsingTokens.json")
+        self.concept_filename.set("../SemEval2018-Task9/training/data/2A.medical.training.data.txt")
+        self.gold_filename.set("../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt")
+        self.corpus_filename.set("../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized")
 
         self.hypernym_order = StringVar()
         self.hypernym_order.set("<Hyper>:<Hypo>")
@@ -56,11 +67,13 @@ class Dialog:
         hypernym_entry = ttk.Entry(mainframe, width=15, textvariable=self.hypernym_query)
         hypernym_entry.grid(column=3, row=2, sticky=(W, E))
 
+        ttk.Label(mainframe, textvariable=self.percent).grid(column=2, row=6, sticky=(W, E))
+
         ttk.Label(mainframe, textvariable=self.fscore).grid(column=2, row=7, sticky=(W, E))
         ttk.Label(mainframe, textvariable=self.spearman).grid(column=2, row=8, sticky=(W, E))
         ttk.Label(mainframe, textvariable=self.recall).grid(column=2, row=9, sticky=(W, E))
         ttk.Label(mainframe, textvariable=self.precision).grid(column=2, row=10, sticky=(W, E))
-        ttk.Label(mainframe, textvariable=self.download_status).grid(column=3, row=11, sticky=(W, E))
+        ttk.Label(mainframe, textvariable=self.download_status).grid(column=3, row=0, sticky=(W, E))
 
         ttk.Label(mainframe, text="Enter a hypernym below").grid(column=3, row=1, sticky=(W, E))
         ttk.Label(mainframe, text="").grid(column=4, row=1, sticky=(W, E))
@@ -89,9 +102,9 @@ class Dialog:
         ttk.Button(mainframe, text="Check Hypernym", command=self.run).grid(column=4, row=2, sticky=W)
 
         choices = ['Choose Dataset', 'Medical', 'Music']
-        ttk.OptionMenu(mainframe, self.default_option, *choices).grid(column=2, row=11, sticky=(W, E))
+        ttk.OptionMenu(mainframe, self.default_option, *choices, command=self.set_data).grid(column=2, row=0, sticky=(W, E))
 
-        ttk.Button(mainframe, text="Download Data", command=self.downlaod_data).grid(column=1, row=11, sticky=(W, E))
+        ttk.Button(mainframe, text="Download Data", command=self.download_data).grid(column=1, row=0, sticky=(W, E))
 
         # option.pack(side='left', padx=10, pady=10)
         # button = tk.Button(root, text="check value slected", command=select)
@@ -104,6 +117,22 @@ class Dialog:
         # root.bind('<Return>', calculate)
 
         self.root.mainloop()
+
+    def set_data(self, choice):
+        print(choice)
+        if choice == 'Medical':
+            self.pattern_filename.set("../MinedData/medical_patterns.json")
+            self.concept_filename.set("../SemEval2018-Task9/training/data/2A.medical.training.data.txt")
+            self.gold_filename.set("../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt")
+            self.corpus_filename.set("../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized")
+            self.total_files = 368
+        if choice == 'Music':
+            self.pattern_filename.set("../MinedData/music_patterns.json")
+            self.concept_filename.set("../SemEval2018-Task9/training/data/2B.music.training.data.txt")
+            self.gold_filename.set("../SemEval2018-Task9/training/gold/2B.music.training.gold.txt")
+            self.corpus_filename.set("../Data/2B_music_bioreviews_tokenized/2B_music_bioreviews_tokenized")
+            self.total_files = 468
+
 
     def concept_set(self):
         self.concept_filename.set(filedialog.askopenfilename(initialdir="/", title="Select file",
@@ -130,7 +159,7 @@ class Dialog:
         self.fscore.set(0)
         self.spearman.set(0)
 
-    def downlaod_data(self):
+    def download_data(self):
         self.download_status.set('Download in progress...')
 
         datasetName = self.default_option.get()
@@ -141,27 +170,24 @@ class Dialog:
 
     def run(self):
 
-        file_name = self.corpus_filename
-
         self.fscore.set("0")
 
-        # print("Pattern mining...")
-        # # pattern_mining = PatternMining()
-        #
-        # print("...")
-        # # pattern_mining.GetPairs()
-        #
-        # print("Hypernym hashing...")
-        # hyp = HypernymMining()
-        # print("...")
-        # hyp.hash_patterns(self.pattern_filename)
-        # print("...")
-        # hyp.hash_hypernyms(self.concept_filename)
-        #
-        # print("Hypernym extraction...")
-        # hyp.extract_hypernyms(file_name)
-        #
-        # print("Extraction Complete.")
+        self.hyp = HypernymMining()
+
+        frequency = 0
+
+        self.hyp.parse(self.concept_filename.get(), self.gold_filename.get())
+
+        self.hyp.parse_patterns(self.pattern_filename.get(), frequency)
+
+        total = float(self.total_files)
+
+        for i in range(0, self.total_files+1):
+            self.percent.set('{0}% complete...'.format(float(i)/total))
+            filename = '{0}_{1}.txt'.format(self.corpus_filename.get(), i)
+            self.hyp.discover(filename)
+
+        self.hyp.write_results(self.write_file)
 
 
 def main():

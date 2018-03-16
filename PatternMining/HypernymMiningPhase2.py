@@ -247,7 +247,8 @@ class HypernymMining:
                     if(count == 2223):
                         print (count)
 
-            print("Now must order everything")
+    def write_results(self, write_file):
+
             conc = self.get_concepts()
 
             for con in conc:
