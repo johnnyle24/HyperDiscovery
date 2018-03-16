@@ -99,7 +99,7 @@ class Dialog:
 
         ttk.Label(mainframe, text="VISUALIZATION").grid(column=3, row=4, sticky=(W, E))
 
-        ttk.Button(mainframe, text="Check Hypernym", command=self.run).grid(column=4, row=2, sticky=W)
+        ttk.Button(mainframe, text="Check Hypernym", command=self.check_hypernym).grid(column=4, row=2, sticky=W)
 
         choices = ['Choose Dataset', 'Medical', 'Music']
         ttk.OptionMenu(mainframe, self.default_option, *choices, command=self.set_data).grid(column=2, row=0, sticky=(W, E))
@@ -117,6 +117,17 @@ class Dialog:
         # root.bind('<Return>', calculate)
 
         self.root.mainloop()
+
+    def check_hypernym(self):
+        order = self.hyp.get_order(self.hypernym_query.get())
+
+        if len(order) > 0:
+            ordered_hypernyms = order[0]
+
+            for index in range(1, len(order)):
+                ordered_hypernyms += ":" + order[index]
+
+            self.hypernym_order.set(ordered_hypernyms)
 
     def set_data(self, choice):
         print(choice)
