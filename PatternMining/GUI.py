@@ -1,9 +1,13 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
+from time import sleep
+import multiprocessing
 # from HypernymMining import HypernymMining
 # from patternMining import PatternMining
 # import sys
+from Scoring import scorer
+from Misc import downloadData
 
 class Dialog:
 
@@ -25,12 +29,17 @@ class Dialog:
         self.concept_filename = StringVar()
         self.gold_filename = StringVar()
         self.corpus_filename = StringVar()
+        self.download_status = StringVar()
 
         self.hypernym_order = StringVar()
         self.hypernym_order.set("<Hyper>:<Hypo>")
 
         self.hypernym_query = StringVar()
         self.hypernym_query.set("")
+
+        self.option = 'Select Dataset'
+        self.default_option = StringVar()
+        self.default_option.set(self.option)
 
         pattern_entry = ttk.Entry(mainframe, width=20, textvariable=self.pattern_filename)
         pattern_entry.grid(column=2, row=1, sticky=(W, E))
@@ -51,6 +60,7 @@ class Dialog:
         ttk.Label(mainframe, textvariable=self.spearman).grid(column=2, row=8, sticky=(W, E))
         ttk.Label(mainframe, textvariable=self.recall).grid(column=2, row=9, sticky=(W, E))
         ttk.Label(mainframe, textvariable=self.precision).grid(column=2, row=10, sticky=(W, E))
+        ttk.Label(mainframe, textvariable=self.download_status).grid(column=3, row=11, sticky=(W, E))
 
         ttk.Label(mainframe, text="Enter a hypernym below").grid(column=3, row=1, sticky=(W, E))
         ttk.Label(mainframe, text="").grid(column=4, row=1, sticky=(W, E))
@@ -77,6 +87,16 @@ class Dialog:
         ttk.Label(mainframe, text="VISUALIZATION").grid(column=3, row=4, sticky=(W, E))
 
         ttk.Button(mainframe, text="Check Hypernym", command=self.run).grid(column=4, row=2, sticky=W)
+
+        choices = ['Choose Dataset', 'Medical', 'Music']
+        ttk.OptionMenu(mainframe, self.default_option, *choices).grid(column=2, row=11, sticky=(W, E))
+
+        ttk.Button(mainframe, text="Download Data", command=self.downlaod_data).grid(column=1, row=11, sticky=(W, E))
+
+        # option.pack(side='left', padx=10, pady=10)
+        # button = tk.Button(root, text="check value slected", command=select)
+        # button.pack(side='left', padx=20, pady=10)
+
 
         for child in mainframe.winfo_children(): child.grid_configure(padx=5, pady=5)
 
@@ -109,6 +129,15 @@ class Dialog:
     def score(self):
         self.fscore.set(0)
         self.spearman.set(0)
+
+    def downlaod_data(self):
+        self.download_status.set('Download in progress...')
+
+        datasetName = self.default_option.get()
+
+        if downloadData.download(datasetName):
+            self.download_status.set('Done!')
+
 
     def run(self):
 

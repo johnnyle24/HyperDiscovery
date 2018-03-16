@@ -105,7 +105,7 @@ class PatternMining2:
                         left = Item([item[0] for item in frmToken])
                         direction = concepts2.getHypernimDirection(str(left), str(right))
 
-                        if w is not None and direction is not None:
+                        if w is not None:# and direction is not None:
                             if w not in pats:
                                 pats[w] = {'direction' : direction, 'freq': 0}
                             pats[w]['freq'] += 1
@@ -194,26 +194,26 @@ if __name__ == '__main__':
 
         pm.loadData(filename)
 
-        patterns = pm.getPatterns(concepts, concepts2)
-        for item, value in patterns.items():
-            if item not in pts:
-                pts[item] = []
-            pts[item].append(value)
-
+        # patterns = pm.getPatterns(concepts, concepts2)
         # for item, value in patterns.items():
         #     if item not in pts:
-        #         pts[item] = 0
-        #     pts[item] += value
+        #         pts[item] = []
+        #     pts[item].append(value)
 
-    print(pts)
-    # w = pm.sortPatterns(pts)
-    #
-    # # with open('../MinedData/patternUsingTokens.txt', 'w') as f:
-    #
-    # pattern_direction_freq = list()
-    # for wi in w:
-    #     pattern_direction_freq.append({"pattern" : str(wi), "direction" : "L", "freq":wi.rank})
-    #     print('{0} = {1}'.format(str(wi), wi.rank))
-    #
-    # with open('../MinedData/patternUsingTokens.json', 'w') as df:
-    #     json.dump(pattern_direction_freq, df)
+        for item, value in patterns.items():
+            if item not in pts:
+                pts[item] = 0
+            pts[item] += value['frequency']
+
+    # print(pts)
+    w = pm.sortPatterns(pts)
+
+    # with open('../MinedData/patternUsingTokens.txt', 'w') as f:
+
+    pattern_direction_freq = list()
+    for wi in w:
+        pattern_direction_freq.append({"pattern" : str(wi), "direction" : "L", "freq":wi.rank})
+        print('{0} = {1}'.format(str(wi), wi.rank))
+
+    with open('../MinedData/patternUsingTokens.json', 'w') as df:
+        json.dump(pattern_direction_freq, df)
