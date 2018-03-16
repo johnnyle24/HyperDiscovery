@@ -52,7 +52,8 @@ def download(datasetName):
 
         unzip(tempZipFile, targetDir)
         os.remove(tempZipFile)
-    except:
+    except e:
+        print(e)
         return False
     return True
 
