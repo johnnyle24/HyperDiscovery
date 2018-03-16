@@ -105,7 +105,7 @@ class PatternMining2:
                         left = Item([item[0] for item in frmToken])
                         direction = concepts2.getHypernimDirection(str(left), str(right))
 
-                        if w is not None:# and direction is not None:
+                        if w is not None and direction is not None:
                             if w not in pats:
                                 pats[w] = {'direction' : direction, 'freq': 0}
                             pats[w]['freq'] += 1
@@ -190,23 +190,25 @@ if __name__ == '__main__':
     pts = dict()
     for i in range(0, 368):
 
+        print(i)
+
         filename = '../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt'.format(i)
 
         pm.loadData(filename)
 
-        # patterns = pm.getPatterns(concepts, concepts2)
-        # for item, value in patterns.items():
-        #     if item not in pts:
-        #         pts[item] = []
-        #     pts[item].append(value)
-
+        patterns = pm.getPatterns(concepts, concepts2)
         for item, value in patterns.items():
             if item not in pts:
-                pts[item] = 0
-            pts[item] += value['frequency']
+                pts[item] = []
+            pts[item].append(value)
 
-    # print(pts)
-    w = pm.sortPatterns(pts)
+        # for item, value in patterns.items():
+        #     if item not in pts:
+        #         pts[item] = 0
+        #     pts[item] += value['frequency']
+
+    print(pts)
+    # w = pm.sortPatterns(pts)
 
     # with open('../MinedData/patternUsingTokens.txt', 'w') as f:
 

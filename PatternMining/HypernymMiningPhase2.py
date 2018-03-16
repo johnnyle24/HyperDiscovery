@@ -38,33 +38,39 @@ class HypernymMining:
 
                     node = HyperNode(hypernyms[0], "")
                     self.nodes[hypernyms[0]] = node
+                    self.training_hypernyms.add(hypernyms[0])
 
-                    for i in range(0, length_hyp-1):
-                        self.training_hypernyms.add(hypernyms[i+1])
+                    for i in range(1, length_hyp):
+                        self.training_hypernyms.add(hypernyms[i])
 
-                        if hypernyms[i+1] not in self.nodes:
-                            node = HyperNode(hypernyms[i+1], hypernyms[i])
-                            self.nodes[hypernyms[i+1]] = node
-                        else:
-                            if self.nodes[hypernyms[i+1]].parent == hypernyms[i]:
-                                continue
-                                # do nothing
-                            else:
-                                previous = hypernyms[i+1]
-                                current = self.nodes[hypernyms[i+1]].parent
-                                while current == hypernyms[i] and len(current) != 0:
-                                    previous = current
-                                    current = self.nodes[current].parent
-                                if len(current) == 0:
-                                    node = HyperNode(hypernyms[i + 1], "")
-                                    self.nodes[hypernyms[i + 1]] = node
-                                    self.nodes[previous].parent = hypernyms[i+1]
+                        node = HyperNode(hypernyms[i], hypernyms[i-1])
+                        self.nodes[hypernyms[i]] = node
+
+                    node = HyperNode(concepts[count], hypernyms[length_hyp-1])
+                    self.nodes[concepts[count]] = node
 
 
-                            # needs to do a check to see if node already exists
-                            # percolate up logic
 
-                    self.train[concepts[count]] = hypernyms[len(hypernyms)-1]
+        for c in concepts:
+            checked = set()
+            checked_list = list()
+
+            previous = c
+            current = c
+            checked.add(c)
+
+            while current != "":
+                previous = current
+                current = self.nodes[current].parent
+
+
+
+                if current in checked:
+                    print("Lame")
+
+                else:
+                    checked.add(current)
+                    checked_list.append(current)
 
     def parse_patterns(self, pattern_filename, frequency):
 
@@ -294,7 +300,7 @@ class HypernymMining:
         return new_order
 
     def getHypernimDirection(self, left, right):
-        if left in self.nodes and right in self.nodes:
+        if left in self.training_hypernyms and right in self.training_hypernyms:
 
             if self.getHypernimRec(left, right):
                 return 'R'
@@ -304,15 +310,23 @@ class HypernymMining:
         return None
 
     def getHypernimRec(self, potHypo, potHyper):
-        hypoNode = self.nodes[potHypo]
+
+        if self.nodes[potHypo].parent == '':
+            return False
 
         if self.nodes[potHypo].parent == potHyper:
             return True
-        elif self.nodes[potHypo].parent == '' or self.nodes[potHypo].parent == potHypo:
-            return False
 
         return self.getHypernimRec(self.nodes[potHypo].parent, potHyper)
 
+    def removeStopWords(self, phrase):
+        phrase = phrase.split()
+        words = ''
+        for word in phrase:
+            if word not in stopwords.words('english'):
+                words += word + ' '
+
+        return words.rstrip()
 
 def main():
 
@@ -343,5 +357,5 @@ class HyperNode:
         self.has_children = False
         self.visited_rank = False
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+    # main()
