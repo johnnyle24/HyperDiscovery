@@ -283,7 +283,7 @@ class HypernymMining:
             max = ""
             max_freq = 0
             max_index = 0
-            for index, o in order:
+            for index, o in enumerate(order):
                 if self.gen_nps[o].freq > max_freq and index not in indices_collected:
                     max = o
                     max_freq = self.gen_nps[o].freq
