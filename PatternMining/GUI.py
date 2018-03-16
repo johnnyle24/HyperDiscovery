@@ -206,6 +206,7 @@ class Dialog:
             self.percent.set('{0}% complete...'.format(float(i)/total))
             filename = '{0}_{1}.txt'.format(self.corpus_filename.get(), i)
             self.hyp.discover(filename)
+            print("Now serving file number: {0}".format(i))
 
         self.hyp.write_results(self.write_file)
 

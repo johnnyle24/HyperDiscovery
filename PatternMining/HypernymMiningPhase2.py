@@ -82,26 +82,26 @@ class HypernymMining:
 
 
 
-        for c in concepts:
-            checked = set()
-            checked_list = list()
-
-            previous = c
-            current = c
-            checked.add(c)
-
-            while current != "":
-                previous = current
-                current = self.nodes[current].parent
-
-
-
-                if current in checked:
-                    print("Lame")
-
-                else:
-                    checked.add(current)
-                    checked_list.append(current)
+        # for c in concepts:
+        #     checked = set()
+        #     checked_list = list()
+        #
+        #     previous = c
+        #     current = c
+        #     checked.add(c)
+        #
+        #     while current != "":
+        #         previous = current
+        #         current = self.nodes[current].parent
+        #
+        #
+        #
+        #         if current in checked:
+        #             print("Lame")
+        #
+        #         else:
+        #             checked.add(current)
+        #             checked_list.append(current)
 
     def parse_patterns(self, pattern_filename, frequency):
 
@@ -413,6 +413,7 @@ def main():
     for i in range(0, 369):
         corpus_filename = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt".format(i)
         hyp.discover(corpus_filename)
+        print("Now serving file number: {0}".format(i))
 
     hyp.write_model()
 
