@@ -222,7 +222,7 @@ class Dialog:
 
         total = float(self.total_files)
 
-        self.total_files = 2 # For debugging purposes
+        self.total_files = 10 # For debugging purposes, uncomment when done
 
         for i in range(0, self.total_files+1):
             self.percent.set('{0}% complete...'.format(float(i)/total))

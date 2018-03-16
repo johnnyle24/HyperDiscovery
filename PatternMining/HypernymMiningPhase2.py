@@ -210,6 +210,11 @@ class HypernymMining:
 
     def discover(self, corpus_filename):
 
+        self.gen_nps = dict()
+
+        for dn in self.domain_nps:
+            self.gen_nps[dn] = self.domain_nps[dn]
+
         if len(self.patterns) == 0:
             print("No patterns have been added.")
         else:
@@ -246,28 +251,28 @@ class HypernymMining:
 
                             self.add_domain_np(first_np, second_np, self.patterns[pattern])
 
-                            current = first_np
+                            # current = first_np
+                            #
+                            # check = set()
+                            #
+                            # while current != "":
+                            #     current = self.gen_nps[current].parent
+                            #     if current not in check:
+                            #         check.add(current)
+                            #     else:
+                            #         print("Found you")
+                            #
+                            #
+                            # current = second_np
+                            #
+                            # check = set()
 
-                            check = set()
-
-                            while current != "":
-                                current = self.gen_nps[current].parent
-                                if current not in check:
-                                    check.add(current)
-                                else:
-                                    print("Found you")
-
-
-                            current = second_np
-
-                            check = set()
-
-                            while current != "":
-                                current = self.gen_nps[current].parent
-                                if current not in check:
-                                    check.add(current)
-                                else:
-                                    print("Found you")
+                            # while current != "":
+                            #     current = self.gen_nps[current].parent
+                            #     if current not in check:
+                            #         check.add(current)
+                            #     else:
+                            #         print("Found you")
 
                         pattern = ""
 
