@@ -298,9 +298,9 @@ class HypernymMining:
 
         with open(dir + '/hypernyms.txt', 'w') as f:
             for con in concepts:
-                print('writing {0}'.format(con))
                 orderList = self.get_order(con)
                 if len(orderList) > 0:
+                    print('writing {0}'.format(con))
                     f.write('\t'.join(orderList))
                     f.write('\n')
 
