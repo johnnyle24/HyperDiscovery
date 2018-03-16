@@ -37,10 +37,20 @@ class Dialog:
         self.corpus_filename = StringVar()
         self.download_status = StringVar()
 
+        self.test_concept_filename = StringVar()
+        self.test_gold_filename = StringVar()
+
+        self.write_file = StringVar()
+
         self.pattern_filename.set("../MinedData/medical_patterns.json")
         self.concept_filename.set("../SemEval2018-Task9/training/data/2A.medical.training.data.txt")
         self.gold_filename.set("../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt")
         self.corpus_filename.set("../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized")
+
+        self.test_concept_filename.set("../SemEval2018-Task9/test/data/2A.medical.test.data.txt")
+        self.test_gold_filename.set("../SemEval2018-Task9/test/gold/2A.medical.test.gold.txt")
+
+        self.write_file.set("../MinedData/medical_results.txt")
 
         self.hypernym_order = StringVar()
         self.hypernym_order.set("<Hyper>:<Hypo>")
@@ -146,12 +156,22 @@ class Dialog:
             self.gold_filename.set("../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt")
             self.corpus_filename.set("../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized")
             self.total_files = 368
+
+            self.test_concept_filename.set("../SemEval2018-Task9/test/data/2A.medical.test.data.txt")
+            self.test_gold_filename.set("../SemEval2018-Task9/test/gold/2A.medical.test.gold.txt")
+
+            self.write_file.set("../MinedData/medical_results.txt")
         if choice == 'Music':
             self.pattern_filename.set("../MinedData/music_patterns.json")
             self.concept_filename.set("../SemEval2018-Task9/training/data/2B.music.training.data.txt")
             self.gold_filename.set("../SemEval2018-Task9/training/gold/2B.music.training.gold.txt")
             self.corpus_filename.set("../Data/2B_music_bioreviews_tokenized/2B_music_bioreviews_tokenized")
             self.total_files = 468
+
+            self.test_concept_filename.set("../SemEval2018-Task9/test/data/2B.music.test.data.txt")
+            self.test_gold_filename.set("../SemEval2018-Task9/test/gold/2B.music.test.gold.txt")
+
+            self.write_file.set("../MinedData/music_results.txt")
 
 
     def concept_set(self):
@@ -202,13 +222,23 @@ class Dialog:
 
         total = float(self.total_files)
 
+        self.total_files = 2
+
         for i in range(0, self.total_files+1):
             self.percent.set('{0}% complete...'.format(float(i)/total))
             filename = '{0}_{1}.txt'.format(self.corpus_filename.get(), i)
             self.hyp.discover(filename)
             print("Now serving file number: {0}".format(i))
 
-        self.hyp.write_results(self.write_file)
+        test_concepts = list()
+
+        with open(self.test_concept_filename.get(), 'r') as concept_file:
+            for concept_line in concept_file:
+                concept = concept_line.split("\t")
+
+                test_concepts.append(concept[0])
+
+        self.hyp.write_results(test_concepts, self.write_file.get())
 
 
 def main():
