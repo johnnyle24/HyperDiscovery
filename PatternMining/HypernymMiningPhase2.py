@@ -308,27 +308,32 @@ class HypernymMining:
 
         new_order = list()
 
-        current = noun_phrase
+        if noun_phrase in self.gen_nps:
 
-        while current != "":
-            order.append(self.gen_nps[current].phrase)
-            current = self.gen_nps[current].parent
+            current = noun_phrase
 
-        indices_collected = set()
+            while current != "":
+                order.append(self.gen_nps[current].phrase)
+                current = self.gen_nps[current].parent
 
-        for i in range(0, len(order)):
-            max = ""
-            max_freq = 0
-            max_index = 0
-            for index, o in enumerate(order):
-                if self.gen_nps[o].freq > max_freq and index not in indices_collected:
-                    max = o
-                    max_freq = self.gen_nps[o].freq
-                    max_index = index
-            indices_collected.add(max_index)
-            new_order.append(max)
+            indices_collected = set()
 
-        return new_order
+            for i in range(0, len(order)):
+                max = ""
+                max_freq = 0
+                max_index = 0
+                for index, o in enumerate(order):
+                    if self.gen_nps[o].freq > max_freq and index not in indices_collected:
+                        max = o
+                        max_freq = self.gen_nps[o].freq
+                        max_index = index
+                indices_collected.add(max_index)
+                new_order.append(max)
+
+            return new_order
+
+        else:
+            return new_order
 
     def getHypernimDirection(self, left, right):
         if left in self.training_hypernyms and right in self.training_hypernyms:
