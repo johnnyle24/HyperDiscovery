@@ -247,12 +247,42 @@ class HypernymMining:
                     if(count == 2223):
                         print (count)
 
-    def write_results(self, write_file):
+    def write_model(self):
+
+        dir = '../Data/Model'
+        with open(dir + '/concepts.json', 'w') as conFile:
+            json.dump(self.get_concepts(), conFile)
+
+        with open(dir + '/hypernyms.json', 'w') as conFile:
+            json.dump(self.domain_nps, conFile)
+
+        concepts = self.get_concepts()
+        with open(dir + '/concepts.txt', 'w') as f:
+            for con in concepts:
+                f.write('{0}\tConcept\n'.format(con))
+
+        with open(dir + '/hypernyms.txt', 'w') as f:
+            for con in concepts:
+                f.write('\t'.join(self.get_order(con)))
+                f.write('\n')
+
+
+    def write_results(self, test_concepts, write_file):
 
             conc = self.get_concepts()
 
-            for con in conc:
-                print(self.get_order(con))
+            predictions = []
+            for t_concept in test_concepts:
+
+                if t_concept in conc:
+                    predictions.append(self.get_order(t_concept))
+                else:
+                    predictions.append(None)
+
+            with open(write_file, 'w') as f:
+
+                for prediction in predictions:
+                    f.write('\t'.join(prediction))
 
 
     def get_concepts(self):
