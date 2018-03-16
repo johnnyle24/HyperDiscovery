@@ -425,10 +425,10 @@ def main():
 def run(pattern_filename, concept_filename, gold_filename, corpus_subname):
     frequency = 0
 
-    pattern_filename = "../MinedData/medical_patterns.json"
+    # pattern_filename = "../MinedData/medical_patterns.json"
 
-    concept_filename = "../SemEval2018-Task9/training/data/2A.medical.training.data.txt"
-    gold_filename = "../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt"
+    # concept_filename = "../SemEval2018-Task9/training/data/2A.medical.training.data.txt"
+    # gold_filename = "../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt"
 
     hyp = HypernymMining()
 
