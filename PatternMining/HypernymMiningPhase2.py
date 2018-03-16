@@ -241,7 +241,7 @@ class HypernymMining:
                         # check if first_np or second_np is in training
 
                         if (len(first_np) > 3 and len(second_np) > 3 and pattern in self.patterns
-                            and first_np != second_np and (first_np in self.training_hypernyms
+                            and first_np != second_np and (first_np in self.training_hypernyms or second_np in self.domain_set
                             or second_np in self.training_hypernyms or first_np in self.domain_set)):
 
                             self.add_domain_np(first_np, second_np, self.patterns[pattern])
