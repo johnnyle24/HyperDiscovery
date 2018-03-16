@@ -422,6 +422,46 @@ def main():
 
     hyp.write_model()
 
+def run(pattern_filename, concept_filename, gold_filename, corpus_subname):
+    frequency = 0
+
+    pattern_filename = "../MinedData/medical_patterns.json"
+
+    concept_filename = "../SemEval2018-Task9/training/data/2A.medical.training.data.txt"
+    gold_filename = "../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt"
+
+    hyp = HypernymMining()
+
+    hyp.parse(concept_filename, gold_filename)
+
+    hyp.parse_patterns(pattern_filename, frequency)
+
+    for i in range(0, 369):
+        # corpus_filename = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt".format(i)
+        corpus_filename = "{0}_{1}.txt".format(corpus_subname, i)
+        hyp.discover(corpus_filename)
+        print("Now serving file number: {0}".format(i))
+
+    hyp.write_model()
+
+def music():
+    pattern_filename = "../MinedData/music_patterns.json"
+
+    concept_filename = "../SemEval2018-Task9/training/data/2B.music.training.data.txt"
+    gold_filename = "../SemEval2018-Task9/training/gold/2B.music.training.gold.txt"
+    corputSubName = "../Data/2B_music_bioreviews_tokenized/2B_music_bioreviews_tokenized"
+
+    run(pattern_filename, concept_filename, gold_filename, corputSubName)
+
+def medical():
+    pattern_filename = "../MinedData/medical_patterns.json"
+
+    concept_filename = "../SemEval2018-Task9/training/data/2A.medical.training.data.txt"
+    gold_filename = "../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt"
+    corputSubName = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized"
+
+    run(pattern_filename, concept_filename, gold_filename, corputSubName)
+
 # Used for ranking hypernyms found in text
 class HyperNode:
 
@@ -432,5 +472,13 @@ class HyperNode:
         self.has_children = False
         self.visited_rank = False
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+    # main()
+
+    # pattern_filename = "../MinedData/medical_patterns.json"
+    #
+    # concept_filename = "../SemEval2018-Task9/training/data/2A.medical.training.data.txt"
+    # gold_filename = "../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt"
+    # corputSubName = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized"
+    #
+    # run(pattern_filename, concept_filename, gold_filename, corputSubName)
