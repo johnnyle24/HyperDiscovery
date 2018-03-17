@@ -64,11 +64,15 @@ class Scoring:
 
 if __name__ == '__main__':
 
-    s = Scoring('../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt',
-                '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+    # s = Scoring('../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt',
+    #             '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
 
     # s = Scoring('../Misc/test.pred.txt',
     #             '../Misc/test.gold.txt')
+
+    s = Scoring('../Data/Model/hypernyms.txt',
+                '../SemEval2018-Task9/training/gold/2B.music.training.gold.txt')
+
 
     print(s.recall())
     print(s.precision())

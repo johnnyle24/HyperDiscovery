@@ -305,6 +305,23 @@ class HypernymMining:
                     f.write('\n')
 
 
+    def test(self):
+        dir = '../Data/Model'
+        concepts = []
+        with open('../SemEval2018-Task9/test/data/2B.music.test.data.txt') as f:
+
+            for line in f:
+                concepts.append(line.split('\t')[0])
+
+        with open(dir + '/hypernyms.txt', 'w') as f:
+            for con in concepts:
+                orderList = self.get_order(con)
+                if len(orderList) > 0:
+                    print('writing {0}'.format(con))
+                    hypermym = '\t'.join(orderList)
+                    f.write(hypermym.replace('\n', ''))
+                    hypermym = ''
+                f.write('\n')
 
 
     def write_results(self, test_concepts, write_file):
@@ -454,6 +471,7 @@ def run(pattern_filename, concept_filename, gold_filename, corpus_subname, frang
         hyp.discover(corpus_filename)
         print("Now serving file number: {0}".format(i))
 
+    # hyp.test()
     hyp.write_model()
 
 def music(r=369):
