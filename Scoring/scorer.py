@@ -1,4 +1,4 @@
-
+from Scoring import build_score_file as score
 
 class Scoring:
 
@@ -62,17 +62,26 @@ class Scoring:
 
         return 2 * (self.prec * self.rec) / (self.prec + self.rec)
 
+def get_scores(data_file):
+    score.get_file(data_file, 'predictions.txt')
+
+    s = Scoring(data_file, 'predictions.txt')
+
+    return {'recall' : s.recall(),
+            'precision' : s.precision(),
+            'fscore' : s.fScore()}
+
 if __name__ == '__main__':
 
-    # s = Scoring('../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt',
-    #             '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+    score.get_file('../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt', 'predictions.txt')
+
+    s = Scoring('../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt', 'predictions.txt')
 
     # s = Scoring('../Misc/test.pred.txt',
     #             '../Misc/test.gold.txt')
 
-    s = Scoring('../Data/Model/hypernyms.txt',
-                '../SemEval2018-Task9/training/gold/2B.music.training.gold.txt')
-
+    # s = Scoring('../Data/Model/hypernyms.txt',
+    #             '../SemEval2018-Task9/training/gold/2B.music.training.gold.txt')
 
     print(s.recall())
     print(s.precision())

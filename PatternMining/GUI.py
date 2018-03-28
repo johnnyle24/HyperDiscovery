@@ -9,7 +9,7 @@ import multiprocessing
 from Scoring import scorer
 from Misc import downloadData
 from HypernymMiningPhase2 import HypernymMining
-
+import threading
 
 class Dialog:
 
@@ -215,7 +215,7 @@ class Dialog:
 
     def run(self):
 
-        self.fscore.set("0")
+        # self.fscore.set("0")
 
         self.hyp = HypernymMining()
 
@@ -229,23 +229,33 @@ class Dialog:
 
         # self.total_files = 10 # For debugging purposes, uncomment when done
 
-        for i in range(0, self.total_files+1):
-            self.percent.set('{0}% complete...'.format(float(i)/total))
-            filename = '{0}_{1}.txt'.format(self.corpus_filename.get(), i)
-            self.hyp.discover(filename)
-            print("Now serving file number: {0}".format(i))
+        def callback():
+            for i in range(0, self.total_files+1):
+                # self.percent.set("{0:.2f}% complete...".format(float(i)/total) * 100)
+                self.percent.set('{0:.2f}% complete...'.format((float(i)/total) * 100))
+                filename = '{0}_{1}.txt'.format(self.corpus_filename.get(), i)
+                self.hyp.discover(filename)
+                print("Now serving file number: {0}".format(i))
 
+            with open(self.test_concept_filename.get(), 'r') as concept_file:
+                for concept_line in concept_file:
+                    concept = concept_line.split("\t")
+
+                    test_concepts.append(concept[0])
+
+            self.percent.set('100.00% now writing this can take a while...')
+            self.hyp.write_results(test_concepts, self.write_file.get())
+            self.hyp.write_model()
+            self.percent.set('100.00% Finished!')
+
+            scores = scorer.get_scores(self.gold_filename.get())
+            self.fscore.set(scores['fscore'])
+            self.recall.set(scores['recall'])
+            self.precision.set(scores['precision'])
+
+        t = threading.Thread(target=callback)
+        t.start()
         test_concepts = list()
-
-        with open(self.test_concept_filename.get(), 'r') as concept_file:
-            for concept_line in concept_file:
-                concept = concept_line.split("\t")
-
-                test_concepts.append(concept[0])
-
-        self.hyp.write_results(test_concepts, self.write_file.get())
-        self.hyp.write_model()
-
 
 def main():
 
