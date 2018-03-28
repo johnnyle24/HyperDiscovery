@@ -377,7 +377,7 @@ class HypernymMining:
 
             indices_collected = set()
 
-            # Used heap instead to try and optimize it a bit. O(nlogn) rather than O(n^2)
+            # # Used heap instead to try and optimize it a bit. O(nlogn) rather than O(n^2)
             heapq.heapify(new_order)
             for i, o in reversed(list(enumerate(order))):
                 it = self.gen_nps[o]
@@ -401,6 +401,20 @@ class HypernymMining:
 
         else:
             return new_order
+
+    def get_phrase_hypernyms(self, noun_phrase):
+
+        order = self.get_order(noun_phrase)
+
+        new_order = list()
+
+        for o in order:
+            if o == noun_phrase:
+                break
+            else:
+                new_order.append(o)
+
+        return new_order
 
     def getHypernimDirection(self, left, right):
         if left in self.training_hypernyms and right in self.training_hypernyms:

@@ -1,3 +1,5 @@
 /.idea/
 
 PatternMining/__pycache__/*
+
+Data/2A_med_pubmed_tokenized/*
