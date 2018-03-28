@@ -222,7 +222,7 @@ class Dialog:
 
         total = float(self.total_files)
 
-        self.total_files = 10 # For debugging purposes, uncomment when done
+        # self.total_files = 10 # For debugging purposes, uncomment when done
 
         for i in range(0, self.total_files+1):
             self.percent.set('{0}% complete...'.format(float(i)/total))
@@ -239,6 +239,7 @@ class Dialog:
                 test_concepts.append(concept[0])
 
         self.hyp.write_results(test_concepts, self.write_file.get())
+        self.hyp.write_model()
 
 
 def main():

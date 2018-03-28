@@ -339,7 +339,9 @@ class HypernymMining:
             with open(write_file, 'w') as f:
 
                 for prediction in predictions:
-                    f.write('\t'.join(prediction))
+                    if prediction is not None:
+                        f.write('\t'.join(prediction))
+                        f.write('\n')
 
 
     def get_concepts(self):
