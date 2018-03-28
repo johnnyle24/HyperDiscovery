@@ -1,5 +1,7 @@
 /.idea/
 
 PatternMining/__pycache__/*
+Misc/__pycache__/*
+Scoring/__pycache__/*
 
 Data/2A_med_pubmed_tokenized/*
