@@ -1,1469 +1,1910 @@
-fever	Concept
-transesophageal echocardiography	Concept
-pulmonary edema	Concept
-pneumonia	Concept
-kidney	Concept
+brain	Concept
+rs3733829	Concept
+granulomas	Concept
+immunocompetent individual	Concept
+endobronchial mass	Concept
+immunocompetent patients	Concept
+immunocompetent patient	Concept
+broncholithiasis	Concept
+collagen vascular diseases	Concept
+chest	Concept
+immunocompetent patient	Concept
+arterial blood	Concept
+drowsiness	Concept
+psychomotor activity	Concept
+neurology	Concept
+chronic respiratory insufficiency	Concept
+early portosystemic encephalopathy	Concept
+organ system	Concept
+morality	Concept
+terms	Concept
+improved access	Concept
+authors	Concept
+evidence exists	Concept
+young adults	Concept
+medical intensive care unit	Concept
+underdiagnosis	Concept
+family	Concept
+physician	Concept
+alcohol abuse	Concept
+current form	Concept
+large cell varieties	Concept
+advanced stage	Concept
+prostate cancer	Concept
+severe obstructive lung function group	Concept
+eclipse cohort	Concept
+veterans administration	Concept
+health-related quality	Concept
+treatment.3	Concept
+current procedural terminology	Concept
+baseline number	Concept
+non-roflumilast-treated group	Concept
+mean COPD-related inpatient costs	Concept
+mean COPD-related outpatient visits	Concept
+mean number	Concept
+manifests	Concept
+comparison	Concept
+markers	Concept
+field	Concept
+prescription	Concept
+anxiety medications	Concept
+baseline covariates	Concept
+COPD-related physician office visits	Concept
+depressed population	Concept
+current study	Concept
+anxiety relative	Concept
+historical cohort	Concept
+impact	Concept
+positive sputum culture	Concept
+infliximab-treated patients	Concept
+infection	Concept
+current smokers	Concept
+poor treatment outcome	Concept
+newborn babies	Concept
+small axillary node	Concept
+nursery	Concept
+baby	Concept
+evidence	Concept
+prophylaxis	Concept
+pregnancy burden	Concept
+swallowing	Concept
+postpartum	Concept
+hence	Concept
+suspected case	Concept
+isolated hospital ward	Concept
+poverty	Concept
+review	Concept
+antithrombin	Concept
+cases	Concept
+present case	Concept
+patient	Concept
+human adjuvant disease	Concept
+gas station attendant	Concept
+form	Concept
+mortality worldwide	Concept
+chronic sputum	Concept
+phlegm	Concept
+early stages	Concept
+symptomatic patterns	Concept
+worsening	Concept
+treatment responses	Concept
+arterial blood gas values	Concept
+tobacco exposure	Concept
+infection.17	Concept
+systemic levels	Concept
+previous year	Concept
+end points	Concept
+cigarette smokers	Concept
+overall mortality.3	Concept
+airway disease	Concept
+airway remodeling	Concept
+questionnaires	Concept
+group	Concept
+asthma subjects.31	Concept
+wheezing	Concept
+airway diseases	Concept
+self-rated health	Concept
+health impairment	Concept
+anti-tuberculous treatment	Concept
+recent wheeze	Concept
+bronchoalveolar lavage	Concept
+malaise	Concept
+leukocytosis	Concept
+diagnostic marker	Concept
+family	Concept
+abscess	Concept
+area	Concept
+sensitivity system	Concept
+district	Concept
+chest clinic	Concept
+initial diagnostic evaluation	Concept
+6-minute walk test	Concept
+subsequent management	Concept
+clinic group	Concept
+chest physicians	Concept
+proficiency	Concept
+adults	Concept
+primary care practice	Concept
+congestive heart failure	Concept
+immigrants	Concept
+Iranian housewives	Concept
+series	Concept
+persistent cough	Concept
+response variability	Concept
+daily rescue medication use	Concept
+glycopyrronium group	Concept
+treatment groups	Concept
+health status versus placebo.6	Concept
+relief	Concept
+overall rate	Concept
+symptom scores	Concept
+overall health status	Concept
+interstitial lung disorder	Concept
+intra-nasal corticosteroids	Concept
+last year	Concept
+trough	Concept
+variability	Concept
+bronchial artery embolization	Concept
+gaining time	Concept
+general population	Concept
+active phase	Concept
+either treatment group	Concept
+primary aim	Concept
+symptom relief versus combination therapy	Concept
+albuterol	Concept
+reactive inflammation	Concept
+gestational diabetes	Concept
+infant	Concept
+order	Concept
+tuberculosis contacts	Concept
+pregnancies	Concept
+pregnant woman	Concept
+hospitals	Concept
+university hospitals	Concept
+university hospital	Concept
+mediastinal malignancy	Concept
+background	Concept
+malignant disease	Concept
+study	Concept
+cardiovascular diseases	Concept
+chronic bronchitis symptoms	Concept
+general practice.15	Concept
+influence	Concept
+diagnostic evaluation	Concept
+tobacco smoking	Concept
+early detection	Concept
+individuals	Concept
+cystic fibrosis adults	Concept
+people	Concept
+absence	Concept
+exacerbation group	Concept
+patient group	Concept
+active pulmonary tuberculosis	Concept
+biomarker levels	Concept
+stable population	Concept
+prognosis.30	Concept
+infectious etiology	Concept
+following year	Concept
+short term	Concept
+field	Concept
+conducting	Concept
+clinical diagnosis	Concept
+mucopurulent sputum	Concept
+fungus	Concept
+immunocompromised settings	Concept
+mucopurulent expectoration	Concept
+liver function test results	Concept
+inner two-thirds	Concept
+invasive aspergillosis	Concept
+immunocompromised settings	Concept
+young horses	Concept
+evidence	Concept
+solid organ transplantation	Concept
+bronchiectasias	Concept
+immune competent host	Concept
+neutropenic patients	Concept
+organ transplant recipients	Concept
+kidney transplant recipients	Concept
+immunocompromised host	Concept
+immunocompromised patient	Concept
+reduced lung function	Concept
+common pathogenesis	Concept
+nonallergic airway	Concept
+β-agonists	Concept
+retrospective follow-up	Concept
+correlation	Concept
+asthma,25 levels	Concept
+normal human bronchial epithelium.19	Concept
+European cohort	Concept
+long term tobacco smokers	Concept
+sex-specific fashion	Concept
+childhood.2	Concept
+late adolescence	Concept
+adulthood.35	Concept
+airflow obstruction.17,18	Concept
+chronic lung diseases	Concept
+rheumatoid arthritis	Concept
+young children	Concept
+work	Concept
+adult patients	Concept
+idiopathic bronchiectasis	Concept
+correlation	Concept
+adulthood	Concept
+clinical courses	Concept
+relation	Concept
+lifelong non-smoking patients	Concept
+alpha1-antitrypsin deficiency	Concept
+stable chronic obstructive pulmonary disease	Concept
+underestimation	Concept
+diffuse	Concept
+person	Concept
+urine cultures	Concept
+displacement	Concept
+degree	Concept
+pressure gradient	Concept
+mitral regurgitation	Concept
+mitral stenosis	Concept
+neoplasm	Concept
+clinical settings	Concept
+enlargement	Concept
+third space	Concept
+cardiology unit	Concept
+elderly patients	Concept
+therapy Respiration	Concept
+elderly patient	Concept
+recurrent bilateral pleural effusions	Concept
+benign prostatic hyperplasia	Concept
+total numbers	Concept
+murine model	Concept
+endotracheal intubation	Concept
+large majority	Concept
+hospitalization duration	Concept
+low rates	Concept
+respiratory	Concept
+equipment	Concept
+ventilator	Concept
+intubation requirement	Concept
+weaning	Concept
+cardiogenic pulmonary edema	Concept
+hypercapnic acute respiratory failure	Concept
+humn model	Concept
+respiratory	Concept
+arterial blood	Concept
+others	Concept
+intensive care unit	Concept
+good patient	Concept
+heart levels	Concept
+absence	Concept
+others	Concept
+supportive measures	Concept
+arterial blood gases	Concept
+fact	Concept
+acute cardiogenic pulmonary oedema	Concept
+severe acute exacerbations	Concept
+cancer patients	Concept
+French intensive care units	Concept
+developing country	Concept
+acute hypoxemic respiratory failure	Concept
+emergency department	Concept
+lung biopsies	Concept
+chronic lymphocytic pneumonia	Concept
+disclosures	Concept
+reexpansion	Concept
+contralateral alveolar filling	Concept
+radiographic findings	Concept
+full analysis population	Concept
+tiotropium group	Concept
+placebo group	Concept
+subanalysis	Concept
+drop-out rates	Concept
+health status changes	Concept
+lung function parameters	Concept
+patient population	Concept
+sputum color	Concept
+concomitant respiratory diseases	Concept
+inpatient death	Concept
+population	Concept
+severe disease.24	Concept
+magnitude	Concept
+hospital.29	Concept
+performance status	Concept
+predictors	Concept
+different patient populations	Concept
+adaptation	Concept
+future	Concept
+30-day mortality	Concept
+terminal patients.122	Concept
+terminal states	Concept
+high-risk	Concept
+reduces	Concept
+ventilatory support	Concept
+patient position	Concept
+security alarm systems	Concept
+short-term outcomes.175 Predictors	Concept
+pressure waveforms	Concept
+flow cycle	Concept
+capacity	Concept
+stridor	Concept
+carbon	Concept
+acute cardiogenic pulmonary edema	Concept
+stable hypercapnic chronic obstructive pulmonary disease	Concept
+acute pulmonary oedema	Concept
+elderly cardiogenic pulmonary edema patients	Concept
+acute pulmonary edema	Concept
+acute hypercapnic pulmonary edema	Concept
+emergency department patients	Concept
+status asthmaticus	Concept
+severe acute asthma	Concept
+severe hypoxemic respiratory failure	Concept
+ventilator	Concept
+high-risk patients	Concept
+hypercapnic patients	Concept
+immunocompromised patients	Concept
+end-of-life patients	Concept
+chest trauma	Concept
+obesity hypoventilation syndrome	Concept
+acute hypercapnic respiratory failure	Concept
+hypercapnic encephalopathy	Concept
+distress	Concept
+chronic obstructive pulmonary disease patients	Concept
+pressure waveforms analysis	Concept
+setting	Concept
+reported literature	Concept
+tachypnea	Concept
+positive pressure flow	Concept
+particular study	Concept
+anatomical perfusion	Concept
+sputum change	Concept
+serial troponins	Concept
+medical intensive care unit	Concept
+populations	Concept
+occult emboli	Concept
+tow cohorts	Concept
+sibilant types	Concept
+decompensated chronic obstructive pulmonary disease	Concept
+study	Concept
+asthmatic group	Concept
+neutrophil count.34	Concept
+concomitant asthma	Concept
+positive response	Concept
+emphysematous destruction	Concept
+hospitalization.24	Concept
+symptoms.69	Concept
+overlap group	Concept
+serious side effects	Concept
+coagulation disorders	Concept
+post-bronchodilator	Concept
+life-long nonsmokers	Concept
+irreversible airflow limitation	Concept
+chronic obstructive bronchitis	Concept
+short term response	Concept
+COPD	Concept
+frequency	Concept
+treatment failure.1	Concept
+context	Concept
+bilevel	Concept
+volume preset	Concept
+chronic obstructive pulmonary disorder	Concept
+unconscious patients	Concept
+ventilator support	Concept
+nonresponders	Concept
+reduced level	Concept
+subsequent pneumonia	Concept
+nonresponders	Concept
+general ward	Concept
+long-term systemic steroid therapy	Concept
+young adulthood	Concept
+episodes	Concept
+endocardial fibrosis	Concept
+adults—by	Concept
+persistent patent ductus arteriosus	Concept
+tortuosity	Concept
+protrusion	Concept
+electrocardiography	Concept
+adolescents	Concept
+neonates	Concept
+pulmonary capillary hemangiomatosis	Concept
+pulmonary capillary heamangiomatosis	Concept
+review	Concept
+dermal fibroblasts	Concept
+tumor-derived lung tissue	Concept
+vivo	Concept
+human myeloblast/promyelocyte cell line	Concept
+rat airways	Concept
+mouse lung	Concept
+migration	Concept
+human emphysema	Concept
+mediates	Concept
+bronchoalveolar cells	Concept
+spite	Concept
+high percentage	Concept
+patients	Concept
+pulmonary function tests.42	Concept
+anti-muscarinic drugs.56	Concept
+situations	Concept
+normalization	Concept
+mortality risk	Concept
+elderly subjects	Concept
+systemic factors	Concept
+chronic heart failure	Concept
+general population research	Concept
+advanced heart failure	Concept
+heart failure patients	Concept
+community	Concept
+inhaled beta-adrenoceptor agonists	Concept
+population	Concept
+first cohort	Concept
+medical care	Concept
+discontinuation	Concept
+length	Concept
+arterial blood gas abnormalities	Concept
+intervention groups	Concept
+care	Concept
+course	Concept
+intubated patients	Concept
+cost-utility analysis	Concept
+acute ventilatory failure	Concept
+bi-level positive airway pressure	Concept
+severe chronic obstructive pulmonary disease	Concept
+stable phase	Concept
+stable phase	Concept
+purulent sputum	Concept
+clinical manifestations.1,15	Concept
+color	Concept
+hematocrit	Concept
+oral corticosteroids	Concept
+samples	Concept
+mental status	Concept
+nebulizer	Concept
+materials	Concept
+sputum purulence	Concept
+lack	Concept
+muscles	Concept
+chronic respiratory failure	Concept
+invasive mechanical ventilation	Concept
+alveolar pressures	Concept
+minute ventilation volume	Concept
+circulatory statuses	Concept
+arrhythmia	Concept
+alkalosis	Concept
+pulmonary angiography	Concept
+dehydration	Concept
+end-of-life care	Concept
+emergency department visits.1,36	Concept
+home-care arrangements	Concept
+clinical symptoms,39 GOLD	Concept
+arrhythmias	Concept
+Pressure support ventilation Goals	Concept
+mainland	Concept
+patient condition	Concept
+radiological observations	Concept
+release	Concept
+cellular activation.19,56,57	Concept
+conditions	Concept
+types	Concept
+localization	Concept
+levels	Concept
+analyses	Concept
+numbers	Concept
+percent emphysema	Concept
+parameters	Concept
+pulmonary capillary vasculature	Concept
+nitroglycerin-mediated peripheral vascular dilation	Concept
+pulmonary vasculature.11	Concept
+incidence	Concept
+centrifugation protocols	Concept
+decreased expression	Concept
+various clinical settings	Concept
+arthritis	Concept
+meningococcal sepsis	Concept
+severe obesity	Concept
+pulmonary pathology	Concept
+multiple sclerosis	Concept
+fibrinogen levels	Concept
+vascular homeostasis	Concept
+pulmonary hypertension patients	Concept
+acute ischemic stroke	Concept
+major cardiopulmonary complications	Concept
+surgical patients	Concept
+general surgery	Concept
+general population	Concept
+Western countries	Concept
+transfusion-related acute lung injury	Concept
+occurrence	Concept
+irreversible brain damage	Concept
+coronary artery disease	Concept
+teenagers	Concept
+pulmonary physiological reserves	Concept
+natural killer cytotoxic activity	Concept
+perceived stress	Concept
+infectious complications consequent	Concept
+low ventilation-perfusion areas	Concept
+hypermetabolic conditions	Concept
+inflammatory damages	Concept
+fluoroscopy	Concept
+restoration	Concept
+cough attacks	Concept
+transfusion needs	Concept
+instructions	Concept
+facilitate weaning	Concept
+symptomatic asthmatics	Concept
+wound dehiscence	Concept
+silent bronchoaspiration	Concept
+health care	Concept
+suctioning	Concept
+inspiratory oxygen fraction	Concept
+pulmonary complications	Concept
+high-risk group	Concept
+operating room	Concept
+thereby lowers	Concept
+positive fluid balance	Concept
+standardization	Concept
+anesthesia care	Concept
+neuromuscular activity	Concept
+cardiac complications	Concept
+benefits	Concept
+history	Concept
+integrated analysis	Concept
+respiration	Concept
+cohort	Concept
+cardiovascular disease mortality	Concept
+muscle paralysis	Concept
+measures	Concept
+anticoagulated patient	Concept
+noncardiac major surgical procedures	Concept
+neuromuscular blockade	Concept
+septic shock	Concept
+time trends	Concept
+postoperative period	Concept
+one-year mortality	Concept
+volume signals	Concept
+cardiovascular mortality	Concept
+site	Concept
+postoperative pulmonary complications	Concept
+stroke volume	Concept
+general health deterioration	Concept
+experimental animals	Concept
+albumin concentration	Concept
+several variables	Concept
+different pulmonary diseases	Concept
+chronic liver disease	Concept
+acute respiratory	Concept
+glucocorticoid therapy	Concept
+regard	Concept
+brentuximab arm [	Concept
+hyaline membrane formation	Concept
+nebulizers	Concept
+brain edema	Concept
+results	Concept
+serosal fluid sample	Concept
+sheep Annals	Concept
+recurrent	Concept
+palpitations	Concept
+thromboses	Concept
+working knowledge	Concept
+muscles	Concept
+consolidation replaces	Concept
+septations	Concept
+solid lesion	Concept
+diaphragm paralysis	Concept
+supine trauma patient	Concept
+drainage	Concept
+studies	Concept
+way	Concept
+impaired production	Concept
+platelet count	Concept
+hemophagocytosis	Concept
+woman	Concept
+anticoagulation therapies	Concept
+days	Concept
+familial cancer	Concept
+arterioles	Concept
+circulatory arrest	Concept
+young patients	Concept
+gastric congestion	Concept
+pulmonary arterial anatomy	Concept
+lessons	Concept
+britain	Concept
+heterozygosis	Concept
+mixed connective tissue disease	Concept
+tumor thrombus	Concept
+multiple tumor thrombi	Concept
+right ventricular failure refractory	Concept
+reversibility	Concept
+hemodynamic failure	Concept
+venous channels	Concept
+right ventricular failure	Concept
+specific therapeutic challenge	Concept
+recurrent miscarriages	Concept
+demonstration	Concept
 traumas	Concept
+16-year-old male patient	Concept
+primary antiphospholipid syndrome	Concept
+strengthening	Concept
+symptomatic vertebral compression fractures	Concept
+spinal cord damage	Concept
+thorax	Concept
+perioperative management	Concept
+reported case	Concept
+local conditions	Concept
+surgical management Annals	Concept
+radiologic management	Concept
+72-year-old woman	Concept
+Whipple disease	Concept
+large thrombus	Concept
+chosen treatment	Concept
+lytic therapy	Concept
+therapeutic management	Concept
+blood chemistry	Concept
+transbronchial lung biopsy	Concept
+studies	Concept
+early anticoagulation	Concept
+international cooperative pulmonary embolism registry	Concept
+vertebral augmentation procedures	Concept
 cement leakage	Concept
 compressions	Concept
-pulmonary embolism	Concept
-anxiety	Concept
-presence	Concept
-primary graft dysfunction	Concept
-bleeding	Concept
-acute rejection	Concept
-prostaglandins	Concept
-tumor	Concept
-biopsy	Concept
-aging-related diseases	Concept
-infected cysts	Concept
-mediastinal adenopathy	Concept
-massive hemorrhage	Concept
-reduction	Concept
-ICS–macrolides	Concept
-cor-pulmonale	Concept
-nocturnal cough	Concept
-sleep apnea	Concept
-daytime sleepiness	Concept
-lung immune imbalance	Concept
-atelectasis	Concept
-C-reactive protein	Concept
-coughing	Concept
-aging.21	Concept
-acute respiratory failure	Concept
-tobacco smoking	Concept
-cirrhosis	Concept
-hemothorax	Concept
-cardiovascular	Concept
-cor pulmonale	Concept
-respiratory distress	Concept
-cardiovascular disease and/or	Concept
-ventilator-associated pneumonia	Concept
-underlying heart diseases	Concept
-coronary artery disease	Concept
-cough	Concept
-pancytopenia	Concept
-cough discomfort	Concept
-cough	Concept
-chronic obstructive pulmonary disease	Concept
-length	Concept
-group	Concept
-psychologist	Concept
-bronchial asthma	Concept
-available lung function parameters	Concept
-advanced acute respiratory	Concept
-cytokines	Concept
-secondary bacterial pneumonia	Concept
-gastroesophageal reflux	Concept
-gestational age	Concept
-gastroesophageal reflux disease	Concept
-asthma [	Concept
-caesarean section birth	Concept
-genetics	Concept
-convulsion	Concept
-bacterial sinusitis	Concept
-airway hyper-reactivity	Concept
-bronchoalveolar lavage	Concept
-chronic	Concept
-fatigue	Concept
-alcohol	Concept
-empyema	Concept
-deconditioning	Concept
-mortality	Concept
-imaging	Concept
-pulmonary emphysema	Concept
-receptor	Concept
-one	Concept
-respiratory center depression	Concept
-hypercapnic and/or hypoxic ventilatory responses	Concept
-cigarette smoking	Concept
-liver cirrhosis	Concept
-patient satisfaction	Concept
-atelectasis [	Concept
-weakness	Concept
-cause	Concept
-cystic fibrosis	Concept
-induced hypoxia	Concept
-chronic active hepatitis	Concept
-neuromuscular disease	Concept
-common cold	Concept
-neoplasm	Concept
-hemodynamic compromise	Concept
-tobacco smoke exposure	Concept
-bronchiectasis	Concept
-formation	Concept
-gender [	Concept
-type	Concept
-administration	Concept
-lung fibrosis	Concept
-asbestosis	Concept
-food intake	Concept
-swallow dysfunction	Concept
-falls	Concept
-interstitial lung disease	Concept
-hyperventilation	Concept
-vaccination programs	Concept
-cardiac impairment	Concept
-migration	Concept
-gastric retention	Concept
-coprostasis	Concept
-autonomic neuropathy	Concept
-vascular disease	Concept
-decline	Concept
-concomitant emphysema	Concept
-emphysema	Concept
-socioeconomic status	Concept
-healthcare workers	Concept
-growth	Concept
-serum	Concept
-insomnia	Concept
-bacterial co‐infections	Concept
-smoking	Concept
-shortness	Concept
-metabolic dysfunctions	Concept
-lightheadedness	Concept
-hypoxemia	Concept
-apical fibrosis	Concept
-malnutrition	Concept
-pneumothorax	Concept
-anticoagulant	Concept
-hemoptysis	Concept
-acute exacerbation	Concept
-tele-medicine	Concept
-obstructive sleep apnea	Concept
-chronic heart failure	Concept
-breathing	Concept
-chronic cough	Concept
-community-acquired pneumonia	Concept
-mortality reduction	Concept
-proportional assist ventilation	Concept
-tremor	Concept
-inpatient management	Concept
-intercellular adhesion molecule	Concept
-abnormal diurnal somnolence	Concept
-chest tightness	Concept
-cultural expectations	Concept
-single room heating	Concept
-wheeze	Concept
-rhinitis	Concept
-asthmatic heredity	Concept
-ozone	Concept
-pulmonary resistance	Concept
-nutritional status	Concept
-doxycycline	Concept
-confusion	Concept
-gender	Concept
-pulmonary fibrosis	Concept
-breathlessness	Concept
-pulmonary dysfunction	Concept
-acute respiratory infection	Concept
-muscle mass	Concept
-diphteria	Concept
-spine	Concept
-tracheotomy	Concept
-sneezing	Concept
-stuffy	Concept
-continued smoking	Concept
-vocal sounds	Concept
-improvements	Concept
-fracture	Concept
-spinal cord injury	Concept
-low bone density	Concept
-nausea	Concept
-pseudarthosis	Concept
-osteopenia	Concept
-late-onset paraplegia	Concept
-ileus	Concept
-back pain	Concept
-salaries	Concept
-epilepsy	Concept
+cement	Concept
+lung diffusion capacity	Concept
+specific management	Concept
+right heart failure symptoms	Concept
+vertebroplasty	Concept
+hemoglobin	Concept
+blood product transfusions	Concept
+vasculitis-related pulmonary bleeding	Concept
+series	Concept
 systemic lupus erythematosus	Concept
-pharmacy	Concept
-sickle cell anemia	Concept
-removal	Concept
-extent	Concept
-multi-organ failure	Concept
-recurrent urinary tract infection	Concept
-systemic infections	Concept
-pulmonary infection	Concept
-radiotherapy	Concept
-massaging	Concept
-disturbed sleep [	Concept
-polyneuropathy	Concept
-antigen	Concept
-dementia	Concept
-redness	Concept
-alcohol intoxication	Concept
-substitution	Concept
-brain tumor	Concept
-malaria	Concept
-brain	Concept
-hand	Concept
-uremia	Concept
-anti-epileptic medications	Concept
-admission	Concept
-paraplegia	Concept
-cerebral infarction	Concept
-primary non-function	Concept
-arthralgia	Concept
-creatinine levels	Concept
-contractures	Concept
-seizures	Concept
-lack	Concept
-cognitive impairment	Concept
-dyskinesia	Concept
-education	Concept
-glucose	Concept
-malignant tumors	Concept
-rotator cuff disorder	Concept
-borreliosis	Concept
-hopelessness	Concept
-guilt	Concept
-drowsiness	Concept
-pulmonology	Concept
-herpes	Concept
-hemiparesis	Concept
-anterior spinal artery syndrome	Concept
-dizziness	Concept
-renal obstruction	Concept
-muscle biopsy	Concept
-pseudo-hypertrophy	Concept
-developmental delay	Concept
-cell phones	Concept
-social deficits	Concept
-incontinence	Concept
-nerve-sparing status	Concept
-severe blood loss	Concept
-patient age	Concept
-prostate	Concept
-number	Concept
-female sex	Concept
-rectal injury	Concept
-urinary tract infection	Concept
-severe uncontrollable bleeding	Concept
-stones	Concept
-neurogenic bladder	Concept
-erectile dysfunction	Concept
-access	Concept
-respiratory depression	Concept
-rate	Concept
-oxygen saturation	Concept
-supervised exercise [	Concept
-hobbies	Concept
-psychology	Concept
-reaction-	Concept
-work commitments	Concept
-degree	Concept
-pressure sores	Concept
-fluctuating nature	Concept
-slowed thinking	Concept
-imbalance	Concept
-cerebral infarct	Concept
-agitation	Concept
-treatment manipulations	Concept
-hypokalemia	Concept
-structural brain lesions infections	Concept
-rate	Concept
-ganglion	Concept
-sarcoid	Concept
-hyperextension-flexion injuries	Concept
-hearing loss	Concept
-weight loss	Concept
-hemolysis	Concept
-introduction	Concept
-cerebral palsy	Concept
-lethargy	Concept
-encephalopathy	Concept
-colic	Concept
-motor vehicle accidents	Concept
-vertebral bodies erosion	Concept
-urology	Concept
-prostate volume	Concept
-vertigo	Concept
-photophobia	Concept
-eosinophilic meningitis	Concept
-endocranial ones	Concept
-calcification	Concept
-chronic pyelonephritis	Concept
-erosion	Concept
-frequency	Concept
-arthroscopy	Concept
-hepatic cirrhosis	Concept
-cerebrovascular disease	Concept
-pre-notification	Concept
-neurology	Concept
-hypothermia	Concept
-anesthesia18	Concept
-baseline cognitive performance	Concept
-increased excretion	Concept
-hypertension/heart failure	Concept
-aneurysm size	Concept
-site	Concept
-bacterial meningitis	Concept
-stimulus type	Concept
-diagnostic ultrasonography	Concept
-electrode array placement	Concept
-stimulation rate	Concept
-otalgia	Concept
-cholesteatoma	Concept
-sudden hearing loss	Concept
-inter-stimulus interval	Concept
-pure-tone audiometry	Concept
-personality	Concept
-audibility	Concept
-cerebellopontine angle tumor,12	Concept
-orientation	Concept
-hypercapnia	Concept
-vasogenic edema	Concept
-major depression	Concept
-anorexia	Concept
-rheumatoid arthritis	Concept
-clothing	Concept
-transfusion-transmitted infections	Concept
-hepatitis	Concept
-donor weight	Concept
-transfusion-transmissible diseases	Concept
-gastrointestinal bleeding	Concept
-congenital thrombophilia	Concept
-polyphosphates	Concept
-occlusion method	Concept
-acute kidney injury	Concept
-calcium-phosphate product	Concept
-glioblastoma multiforme	Concept
-carcinoembryonic antigen	Concept
-cardiac catheterization	Concept
-obesity20	Concept
-β2-microglobulin amyloidosis	Concept
-parenteral administration	Concept
-vitality	Concept
-collagen	Concept
-pulmonary reactions	Concept
-local changes	Concept
-therapeutic hyperoxia	Concept
-chosen	Concept
-response	Concept
-protein binding	Concept
-pallor	Concept
-food allergy	Concept
-primary aldosteronism	Concept
-autonomic dysfunction	Concept
-atenolol	Concept
-microalbuminuria	Concept
-graft rejection	Concept
-anthracyclines	Concept
-emotional instability	Concept
-gene therapy	Concept
-c-myc	Concept
-colon	Concept
-race	Concept
-self-renewal	Concept
-alkalosis	Concept
-cerebrovascular accidents	Concept
-addition	Concept
-multiple sclerosis	Concept
-edema	Concept
-attack	Concept
-menstrual blood loss	Concept
-thrombin generation	Concept
-prestorage leukoreduction	Concept
-veno-occlusive disease	Concept
-barcoding	Concept
-left ventricular dysfunction	Concept
-life-threatening hyperkalemia	Concept
-homocysteine	Concept
-acute	Concept
-recent surgery	Concept
-active cancer	Concept
-phase-contrast flow studies	Concept
-iron-deficiency anemia	Concept
-nutritional status/dietary habits	Concept
-syphilis	Concept
-history	Concept
-hemolytic disease	Concept
-abortion/miscarriage	Concept
-abortion	Concept
-parity	Concept
-miscarriage	Concept
-stillbirth	Concept
-general weakness	Concept
-essential hypertension	Concept
-lungs	Concept
-systemic hypoxemia	Concept
-non-Hodgkin lymphoma	Concept
-hypotension	Concept
-first nonpeptide agonist	Concept
-preoperative hematocrit	Concept
-intestinal parasitic infections	Concept
-end organ compromise	Concept
-erythema	Concept
-blood oxygen	Concept
-relative tissue volumes	Concept
-ratio	Concept
-children	Concept
-shear stress	Concept
-challenge	Concept
-obese population groups16	Concept
-bone pain	Concept
-blood brain	Concept
-ferritin	Concept
-synchrotron radiation	Concept
-iliac crest	Concept
-osteoporosis	Concept
-bone shape	Concept
-craniofacial growth	Concept
-dissection	Concept
-trabecular thickness	Concept
-trabecular number	Concept
-bone marrow	Concept
-integrin αvβ3	Concept
-unknown subject backgrounds	Concept
-femur	Concept
-hematomas	Concept
-cell migration	Concept
-runx2	Concept
-multiple myeloma	Concept
-micro-computed tomography	Concept
-osteogenesis imperfecta	Concept
-computed tomography	Concept
-poor calcium	Concept
-reproduction	Concept
-adenomatous polyposis	Concept
-osteitis	Concept
-biomaterial ’	Concept
-bone scintigraphy	Concept
-carcinoma	Concept
-erythema nodosum	Concept
-platelet-derived growth factor	Concept
-bone marrow,1,2 adipose,3	Concept
-femur	Concept
-cortical destruction	Concept
-tooth pain	Concept
-autoimmune arthritis	Concept
-inflammatory breast cancer	Concept
-bone infections	Concept
-osteonecrosis	Concept
-bone scan	Concept
-long-term bed rest	Concept
-lymph node	Concept
-severity	Concept
-serum creatinine	Concept
-alendronic acid	Concept
-growth hormone	Concept
-bone loss	Concept
-microcracks	Concept
-physical activity	Concept
-osteomalacia	Concept
-three-point bending	Concept
-magnetic resonance-perfusion	Concept
-early withdrawal	Concept
-oral epithelial cells	Concept
-bisphosphonate	Concept
-pain control	Concept
-insulin-like growth factors	Concept
-hip fracture	Concept
-urinary tract infection	Concept
-pressure ulcers	Concept
-body mass.4	Concept
-infertility	Concept
-component placement	Concept
-intestinal bacterial overgrowth.35	Concept
-acetabular component revisions	Concept
-blood flow	Concept
-inflammatory response	Concept
-shoe wear	Concept
-bony anatomy	Concept
-severe soft-tissue compromise	Concept
-mechanical properties	Concept
-bone matrix protein degeneration	Concept
-hyperthyroidism	Concept
-tumor necrosis factor	Concept
-blood supply	Concept
-condyles	Concept
-respiratory infections	Concept
-platelet	Concept
-metastases	Concept
-vitamin	Concept
-gene transfer mode	Concept
-impaired bone healing	Concept
-vertebrae	Concept
-bone tissue composition	Concept
-abiraterone acetate	Concept
-adhesions88	Concept
-arthritis.32	Concept
-bFGF	Concept
-synchrotron-computed micro-CT	Concept
-tensile	Concept
-chemotherapy	Concept
-vascular endothelial growth factor	Concept
-bone mineral density	Concept
-pyrophosphate	Concept
-transplant diagnosis	Concept
-avascular necrosis	Concept
-gastrointestinal lymphomas	Concept
-gastrointestinal side effects	Concept
-fluid	Concept
-bone fracture	Concept
-insulin	Concept
-calvarial injury	Concept
-leukemia	Concept
-variations	Concept
-fibrinogen	Concept
-prior bowel inflammation	Concept
-venous thromboembolism	Concept
-intraabdominal abscesses	Concept
-colorectal	Concept
-advanced age	Concept
-neurogenesis	Concept
-schizophrenia	Concept
-cerebrospinal fluid	Concept
-psychosis	Concept
-cell adhesion	Concept
-vessel sprouting	Concept
-various cytokines	Concept
-brain-derived neurotrophic factor	Concept
-major depressive disorder	Concept
-nitric oxide	Concept
-traumatic brain injury	Concept
-anti-inflammatory cytokines	Concept
-cocaine	Concept
-ischemia	Concept
-psychogenic	Concept
-immunohistochemistry	Concept
-retinoic acid	Concept
-tumor growth	Concept
-exposure	Concept
-neuron	Concept
-giant cell growth	Concept
-type	Concept
-concreteness	Concept
-duration	Concept
-partial volume effects	Concept
-model-based residual bootstrapping	Concept
-impulsive choice	Concept
-negative urgency	Concept
-craving	Concept
-somatization	Concept
-family	Concept
-counting	Concept
-comprehension	Concept
-migraine	Concept
-initial bias towards	Concept
-dynamic imaging	Concept
-psychotherapy	Concept
-seizure severity	Concept
-inter-individual differences	Concept
-amyotrophic lateral sclerosis	Concept
-acute stroke	Concept
-treatment-resistant depression	Concept
-mild paraesthesias	Concept
-gaze disturbance	Concept
-single unit recording	Concept
-post-traumatic stress disorder	Concept
-advancement	Concept
-congruency	Concept
-dendritic branching pattern	Concept
-task difficulty	Concept
-substantial maldevelopment	Concept
-microcephalies	Concept
-pediatric cardiac anesthesia	Concept
-sevoflurane	Concept
-hippocampus	Concept
-autism	Concept
-mercury	Concept
-fractional anisotropy	Concept
-radiation	Concept
-use	Concept
-location	Concept
-amygdala	Concept
-apathy	Concept
-latency analysis	Concept
-transient ischemic attack	Concept
-style	Concept
-single photon emission	Concept
-diffusion tensor imaging	Concept
-motivation	Concept
-treadmill exercise	Concept
-judgements	Concept
-emotional decision-making	Concept
-rule-breaking	Concept
-clinical depression	Concept
-batch	Concept
-brain abscess	Concept
-erratic behavior	Concept
-tractography	Concept
-reasoning	Concept
-status epilepticus	Concept
-difficulty	Concept
-increased anxiety	Concept
-cerebellum	Concept
-life event	Concept
-smoking status	Concept
-relative hypoxia	Concept
-zoledronic acid	Concept
-non-small cell lung cancer	Concept
-paclitaxel	Concept
-tumor neovascularization	Concept
-prostatectomy	Concept
-tumor invasion	Concept
-alpha-smooth muscle actin	Concept
-exposure	Concept
-consumption	Concept
-tobacco	Concept
-primary erythrocytosis	Concept
-quality	Concept
-breast examination	Concept
-hormone replacement therapy	Concept
-high-throughput re-sequencing	Concept
-sarcoma	Concept
-dietary fiber	Concept
-lovastatin	Concept
-taxanes	Concept
-fibroblast growth factors	Concept
-targeted agents	Concept
-taxanes	Concept
-light	Concept
-antiangiogenic agents	Concept
-fibronectin	Concept
-action	Concept
-testis	Concept
-leptin	Concept
-statins	Concept
-muscular atrophy	Concept
-tuberculosis	Concept
-bladder drainage	Concept
-tumour size	Concept
-poor reproducibility	Concept
-nuclear grade	Concept
-glucocorticoids	Concept
-exhaled air	Concept
-ascitic fluid	Concept
-ethnicity	Concept
-improvements	Concept
-genetic mutations	Concept
-pericarditis	Concept
-duration	Concept
-presence	Concept
-cell type	Concept
-trastuzumab	Concept
-granulocyte colony	Concept
-sildenafil	Concept
-dacarbazine	Concept
-selumetinib	Concept
-ovarian cancer	Concept
-hepatocellular carcinoma	Concept
-checkpoint blockade	Concept
-hematological malignancies	Concept
-mechanism	Concept
-melanoma	Concept
-receptor mispairing	Concept
-microarrays	Concept
-differences	Concept
-diversion	Concept
-adhesion	Concept
-rapid performance	Concept
-cyclin	Concept
-glandular-neuroendocrine carcinoma	Concept
-pHH3	Concept
-tumor stage	Concept
-breast	Concept
-ovaries	Concept
-sorafenib	Concept
-reflux	Concept
-old age	Concept
-development	Concept
-costs	Concept
-tumour blood flow	Concept
-somatostatin	Concept
-nitrogen mus- tards	Concept
-temozolomide	Concept
-monoclonal anti- bodies	Concept
-disease onset	Concept
-persistent unhealthy cervix	Concept
-under-utilisation	Concept
-disable tumor-killing	Concept
-cardiology	Concept
-level	Concept
-liver	Concept
-abdomino-sacral resection	Concept
-aromatase inhibitors	Concept
-communication skills	Concept
-tumour bulk	Concept
-mediastinal blood pool	Concept
-unnecessary investigations	Concept
-toxic exposure	Concept
-retinyl palmitate	Concept
-characteristics	Concept
-doctors	Concept
-haemoptysis warrant	Concept
-surgical exploration	Concept
-anemia	Concept
-non-blood	Concept
-lump	Concept
-hormone receptor status	Concept
-nulliparity	Concept
-timing	Concept
-sensitivity	Concept
-x-ray tomosynthesis	Concept
-estrogen receptor	Concept
-histological grade	Concept
-infection rates	Concept
-radical prostatectomy	Concept
-melphalan	Concept
-gastric cancer	Concept
-menopausal hormone therapy	Concept
-cisplatin	Concept
-perception	Concept
-communication	Concept
-second-and third-generation aromatase inhibitors	Concept
-5-azacytidine induce re-expression	Concept
-carboplatin	Concept
-dietary intake	Concept
-inflamed bronchi	Concept
-cancer procoagulant	Concept
-recurrent	Concept
-transplant	Concept
-alcoholism	Concept
-chronic renal failure	Concept
-myelosuppressive chemotherapy	Concept
-tamoxifen	Concept
-biological subtype	Concept
-tumor size	Concept
-neoadjuvant radiation	Concept
-cagA	Concept
-cancer type	Concept
-endoscopy	Concept
-bortezomib	Concept
-fibroblasts	Concept
-leaks	Concept
-distress	Concept
-occupational exposures	Concept
-external glucose	Concept
-focal edema	Concept
-rectal cancer	Concept
-diffusion	Concept
-familial form	Concept
-cyclophosphamide	Concept
-fluoropyrimidines	Concept
-anal ulcers	Concept
-keratins	Concept
-esophageal	Concept
-potential	Concept
-intratumoral immune infiltrates	Concept
-oncology nurses	Concept
-‘ cancer fear	Concept
-activation	Concept
-subsequent kidney failure	Concept
-leg pain	Concept
-acute myocardial infarction	Concept
-family history	Concept
-myocarditis	Concept
-referral patterns	Concept
-strokes	Concept
-angina pectoris	Concept
-cardiac magnetic resonance	Concept
-expected burden	Concept
-severe hypoxia	Concept
-proton beam therapy	Concept
-cell movement	Concept
-unstable angina	Concept
-cardiac arrhythmias	Concept
-theophylline	Concept
-left ventricle ejection fraction	Concept
-embolic strokes	Concept
-history	Concept
-conduction abnormality	Concept
-β-blockers	Concept
-sleep quality	Concept
-oligohydramnios	Concept
-consanguinity	Concept
-acute infarction.42,45,46	Concept
-peripheral vascular complications	Concept
-fenestration	Concept
-tumor necrosis factor alpha	Concept
-dexamethasone	Concept
-ventricular hypertrophy	Concept
-hyperlipidemia	Concept
-angiotensin	Concept
-family preferences	Concept
-heart block	Concept
-diuretics	Concept
-post surgery	Concept
-systemic lupus	Concept
-activation	Concept
-creatinine-based glomerular filtration rate	Concept
-diastolic heart failure	Concept
-increased mortality	Concept
-cardiotoxic chemotherapy regimens	Concept
-cor triatriatum	Concept
-previous myocardial infarction	Concept
-palpitations	Concept
-prescription rates	Concept
-proper timing	Concept
-strain imaging	Concept
-genetic polymorphism	Concept
-hypertrophic cardiomyopathy	Concept
-bystander	Concept
-nonadherence	Concept
-transcatheter	Concept
-delayed diagnosis	Concept
-frailty	Concept
-hypoxia	Concept
-myocardial infarction	Concept
-age	Concept
-arrhythmia	Concept
-computed tomography angiography	Concept
-past history	Concept
-environmental influences	Concept
-temperature	Concept
-geographic location	Concept
-cardiopulmonary bypass	Concept
-distortion	Concept
-cyclosporin	Concept
-change	Concept
-posterior enlargement	Concept
-genre	Concept
-electrolyte imbalance	Concept
-inappropriate device position	Concept
-three-dimensional echocardiography	Concept
-stents	Concept
-sudden death	Concept
-re-hospitalisation	Concept
-baffle leaks	Concept
-degradation	Concept
-stressechocardiography	Concept
-stress echocardiography	Concept
-basement membrane thickening	Concept
-hospitalization	Concept
-device embolization	Concept
-congestive heart failure	Concept
-functional capacity	Concept
-diaphoresis	Concept
-dyslipidemia	Concept
-exercise capacity	Concept
-aspirin	Concept
-minimal leaks	Concept
-previous ischemic heart disease	Concept
-genomics	Concept
-accelerated atherosclerosis	Concept
-breads	Concept
-flecainide	Concept
-decreased energy expenditure	Concept
-improvement	Concept
-low-grade fever	Concept
-systemic embolism	Concept
-liver disease	Concept
-diabetes mellitus	Concept
-optimal timing	Concept
-sinus arrhythmia	Concept
-level	Concept
-family history	Concept
-coronary artery bypass graft	Concept
-pacemaker placement	Concept
-life-threatening arrhythmia	Concept
-bacterium	Concept
-coronary sinus	Concept
-protein kinase p-AKT	Concept
-cardiac chamber flow obstruction	Concept
-immunodeficiency	Concept
-cyclosporine	Concept
-need	Concept
-chronic lung	Concept
-tachycardia	Concept
-constrictive pericarditis	Concept
-increased heart rate	Concept
-regurgitant volume	Concept
-perforation	Concept
-involvement	Concept
-interleukins	Concept
-urine	Concept
-hypertrophy	Concept
-microRNAs	Concept
-mitral valve disease	Concept
-real time	Concept
-diastolic dysfunction	Concept
-atrial fibrillation	Concept
-aortic stenosis	Concept
-digitalis	Concept
-orthopnea	Concept
-cardiomegaly	Concept
-carvedilol	Concept
-arterial hypertension	Concept
-murmur	Concept
-ascites	Concept
-development	Concept
-periventricular leukomalacia	Concept
-morphine	Concept
-left atrium diameter	Concept
-left main coronary artery disease	Concept
-pleural effusion	Concept
-angina	Concept
-coronary angiography	Concept
-intensified physiotherapy program	Concept
-low output state	Concept
-prolonged mechanical ventilation	Concept
-vascular injures	Concept
-vascular injuries	Concept
-non-dihydropyridine calcium channel blockers	Concept
-orthopedics	Concept
-consideration	Concept
-permanent pacemaker implantation	Concept
-low cardiorespiratory capacity	Concept
-oxygen consumption	Concept
-cardiac failure	Concept
-hypovolemia	Concept
-multiple system atrophy	Concept
-magnetic resonance imaging	Concept
-valvular diseases	Concept
-postoperative arrhythmias	Concept
-aneurysm	Concept
-small caliber graft	Concept
-chronicity	Concept
-restrictive cardiomyopathy	Concept
-fractional shortening	Concept
-dysphagia	Concept
-rupture	Concept
-protein kinase	Concept
-rituximab.4	Concept
-perioperative hypothyroidism	Concept
-irisin,21 ghrelin23,24,31	Concept
-café-au-lait spots	Concept
-pulmonary capillary wedge pressure	Concept
-thoracic vertebral level	Concept
-magnitude	Concept
-pericardial constraint	Concept
-γGT levels	Concept
-increased behavioural risk factors	Concept
-language barriers	Concept
-lack	Concept
-heart	Concept
-renovascular disease	Concept
-endothelin	Concept
-right ventricular hypertrophy/dilatation	Concept
-magnetic resonance imaging	Concept
-cerebrovascular events	Concept
-preoperative lung	Concept
-transthoracic echocardiography	Concept
-	Concept
-calcium reuptake	Concept
-respiratory variation	Concept
-parental styles	Concept
-lipoprotein phospholipase	Concept
-acute coronary syndrome12	Concept
-male gender	Concept
-hypertensive encephalopathy	Concept
-peripheral neuropathy [	Concept
-knee osteoarthritis	Concept
-coronary arteries	Concept
-co-medications	Concept
-superoxide	Concept
-metabolic adaptation	Concept
-diffuse fibrosis	Concept
-dilated cardiomyopathy	Concept
-thalassemia	Concept
-prevalence	Concept
-high blood cholesterol	Concept
-hypercholesterolemia	Concept
-pulmonary vascular resistance	Concept
-k-fold cross-validation	Concept
-peak velocity	Concept
-biventricular pacemakers	Concept
-self-gating	Concept
-cyclo-oxygenase products	Concept
-arrhythmogenic right ventricular cardiomyopathy	Concept
-computer tomography	Concept
-exertional dyspnea	Concept
-vena contracta	Concept
-atherosclerotic stenoses	Concept
-cardiac tamponade	Concept
-systemic oxygen delivery	Concept
-penetration	Concept
-amiodarone	Concept
-peripheral vascular disease	Concept
-oral contraceptives	Concept
-manual handling	Concept
-b-blockers	Concept
-sotalol	Concept
-diaphragmatic injury	Concept
-chest pain	Concept
-cerebrovascular accident	Concept
-varied angiographic criteria	Concept
-thrombomodulin	Concept
-pharmacological therapy	Concept
-fibrosis	Concept
-atheroembolism	Concept
-ones	Concept
-ischaemic heart disease	Concept
-embolism	Concept
-sleep apnoea	Concept
-coronary heart disease	Concept
-poor antiarrhythmic efficacy	Concept
-cytoskeletal protein derangements	Concept
-atypical chest pain	Concept
-fluoroscopy	Concept
-backbone	Concept
-pulmonary tissue	Concept
-cardiac fibrosis	Concept
-coil occlusion	Concept
-echocardiographic strain	Concept
-imatinib	Concept
-elevated right atrial pressure	Concept
-pulmonary vein stenosis	Concept
-additional cardiac catheterization	Concept
-emission	Concept
-positron emission tomography	Concept
-deep sternal wound infection	Concept
-organ transplantation	Concept
-inhibition	Concept
-homodyne reconstruction	Concept
-periostin,7 thymosin-β4,9,101	Concept
-acute lung injury	Concept
-viral myocarditis	Concept
-tumour necrosis factor	Concept
-liver	Concept
-doppler	Concept
-valvular	Concept
-tissue doppler	Concept
-skin	Concept
-cachexia	Concept
-portable sonography procedure	Concept
-skin	Concept
-paravalvular leak	Concept
-annulus rupture	Concept
-stress myocardial perfusion	Concept
-occurrence	Concept
-tissue phase mapping	Concept
-macrophage infiltration	Concept
-sensitivity encoding	Concept
-de-conditioning	Concept
-ajmaline	Concept
-patient size	Concept
-change	Concept
-late stenosis	Concept
-postinfarction	Concept
-neuroblastoma	Concept
-thrombus formation	Concept
-hypoglycemia	Concept
-perioperative myocardial infarction	Concept
-palpable hardware	Concept
-reduced effect	Concept
-embolisation	Concept
-heart rate	Concept
-weight reduction	Concept
-patient symptomatology	Concept
-ACE-inhibitors	Concept
-degree	Concept
-long duration	Concept
-multidetector	Concept
-anterior left atrium	Concept
-ridogrel	Concept
-ischemic coronary artery disease	Concept
-dabigatran	Concept
-serum levels	Concept
-risks	Concept
-endothelial nitric oxide	Concept
-advanced aging	Concept
-small intestine	Concept
-reperfusion injury	Concept
-phenylephrine	Concept
-flow	Concept
-mixed venous saturation	Concept
-kidney	Concept
-renal insufficiency	Concept
-perfusionists	Concept
-patient	Concept
-hyperinsulinemia	Concept
-ezetimibe	Concept
-enzyme replacement therapy	Concept
-off-isocenter position	Concept
-ventricular dysfunction	Concept
-nuclear overhauser enhancement	Concept
-metabolic rate	Concept
-preeclampsia	Concept
-gravida	Concept
-systemic emboli	Concept
-chest radiograph	Concept
-verapamil	Concept
-dopamine	Concept
-genetic variations	Concept
-chest	Concept
-vital signs	Concept
-oro-facial clefts	Concept
-aspiration pneumonitis	Concept
-chronic uremia	Concept
-genetic predisposition	Concept
-ventricular volumes	Concept
-rheumatic mitral stenosis	Concept
-respiratory arrest	Concept
-ruptured tracheal stent removal	Concept
-blood trauma	Concept
-systemic inflammatory response	Concept
-diffuse calcification	Concept
-ventricular arrhythmias	Concept
-anti-arrhythmics	Concept
-cardiac transplantation	Concept
-differences	Concept
-left ventricular dilation	Concept
-familial cardiomyopathy	Concept
-intracardiac defibrillators	Concept
-oxidative stress	Concept
-captopril	Concept
-calcium antagonists	Concept
-blebbistatin	Concept
-graft failure	Concept
-akathisia	Concept
-thioridazine	Concept
-logistic regression	Concept
-peripheral arterial disease	Concept
-cerebrus	Concept
-copy number variation	Concept
-tissue-specific chromosome conformation capture	Concept
-heart development	Concept
-strain-based modelling	Concept
-betablockers	Concept
-subjects	Concept
-ischaemic heart disease.4	Concept
-pre-eclampsia	Concept
-cardiac ischemia	Concept
-environmental tobacco smoke	Concept
-left ventricular diastolic diameter	Concept
-dilated left atrium	Concept
-timing	Concept
-amlodipine	Concept
-periodontitis	Concept
-brachytherapy	Concept
-neck	Concept
-radial data acquisition	Concept
-transmural pressure	Concept
-decrease	Concept
-aortic aneurysms	Concept
-flow volume	Concept
-eyes	Concept
-adenosine	Concept
-ambulances	Concept
-hemochromatosis	Concept
-chronic renal insufficiency	Concept
-inability	Concept
-adrenal glands	Concept
-dermatomyositis	Concept
-noncompaction cardiomyopathy	Concept
-myocardial perfusion	Concept
-increased age	Concept
-cognitive retardation	Concept
-dry eyes	Concept
-obstructive sleep apnea syndrome	Concept
-orexin	Concept
-substance	Concept
-intractable migraine	Concept
-carbamazepine	Concept
-tissue edema	Concept
-environmental risk factors	Concept
-tissue accumulation	Concept
-psychiatric comorbidity	Concept
-cluster headache	Concept
-chocolates	Concept
-posterior reversible encephalopathy syndrome	Concept
-temple	Concept
-putative migraine centers	Concept
-familial susceptibility	Concept
-migraines	Concept
-psychiatry	Concept
-posterior leucoencephalopathy	Concept
-calcitonine gene-	Concept
-anger	Concept
-tim- ing	Concept
-bright light	Concept
-paroxysmal hemicrania	Concept
-parox- ysmal hemicrania	Concept
-dysphoria	Concept
-triptans	Concept
-tension-type headache	Concept
-effect	Concept
-ritonavic	Concept
-lateral cavernous sinus	Concept
-social structure	Concept
-fentanyl	Concept
-nasal mucosa	Concept
-anaphylactic reactions	Concept
-peripheral oxygen saturation	Concept
-biofeedback	Concept
-intraoperative trauma	Concept
-snoring	Concept
-fulminant sinusitis	Concept
-“ standard ”	Concept
-foreign body	Concept
-wound infection	Concept
-epistaxis	Concept
-nasal obstruction	Concept
-lacrimation	Concept
-psychiatric morbidities	Concept
-propranolol	Concept
-tissue plasminogen activator antigen	Concept
-medication use	Concept
-cephalic allodynia	Concept
-distal embolization	Concept
-increased headache frequency	Concept
-ibudilast	Concept
-iatrogenic velopharyngeal insufficiency	Concept
-socio-economic status	Concept
-counseling	Concept
-mood	Concept
-defecation	Concept
-inattention	Concept
-coffee drinking	Concept
-medication intake	Concept
-psychological therapy	Concept
-tonsillotomy	Concept
-age	Concept
-cPAP-masks	Concept
-infectious mononucleosis	Concept
-affect	Concept
-sphenopalatine ganglion	Concept
-cingulate	Concept
-massage	Concept
-muscle overload	Concept
-tension	Concept
-daytime somnolence	Concept
-sudden idiopathic hearing loss	Concept
-phonophobia	Concept
-relief	Concept
-fibromyalgia	Concept
-hypnic headache	Concept
-excessive daytime sleepiness	Concept
-odontoma	Concept
-silicone	Concept
-chewing	Concept
-obsessive thoughts	Concept
-gabapentin	Concept
-diplopia	Concept
-recent operative procedures	Concept
-cognitive maturation	Concept
-treatment satisfaction	Concept
-primary angiitis	Concept
-postpartum period	Concept
-hypersensitivity	Concept
-alternative form	Concept
-sarcomas	Concept
-status	Concept
-asth-	Concept
-cervical dystonia	Concept
-bouginage	Concept
-tinnitus	Concept
-indication	Concept
-tube ventilation disorders	Concept
-low socio-economic status	Concept
-availability	Concept
-auricular growth	Concept
-physical strain	Concept
-addictive behavior	Concept
-gout	Concept
-environment,9 travel,8 proximity	Concept
-serotonin	Concept
-regulation	Concept
-high blood pressure	Concept
-leukotrienes	Concept
-serious infections	Concept
-interferon gamma	Concept
-catecholamines	Concept
-macrophages	Concept
-disorganized granule compartments	Concept
-joint inflammation	Concept
-carotid sinus	Concept
-arthritis	Concept
-haemoglobin	Concept
-cigarette smoke	Concept
-cytomegalovirus	Concept
-immune complexes	Concept
-chronic bronchitis	Concept
-transmitters	Concept
-osteoarthritis	Concept
-atherosclerotic lesions	Concept
-systemic hypotension	Concept
-gastrointestinal irritations	Concept
-wingless-type protein	Concept
-lipid mediators	Concept
-tumour necrosis factor-	Concept
-amygdala	Concept
-cell type	Concept
-endothelial cells	Concept
-cytokine production	Concept
-arthritis [	Concept
-pentoxifylline	Concept
-core	Concept
-severe inflammation	Concept
-retinal detachment	Concept
-pre-existing corneal scars	Concept
-seclusio papillae	Concept
-reduced ischemia-reperfusion injury	Concept
-mucosal oedema	Concept
-eicosanoids	Concept
-cell proliferation	Concept
-superoxide dismutase	Concept
-interleukins	Concept
-butyrate	Concept
-host characteristics	Concept
-collagen types	Concept
-granulocyte-colony stimulating factor	Concept
-septic shock	Concept
-retrolental cells	Concept
-cold-like symptoms	Concept
-beta-lactams	Concept
-kidney damage	Concept
-AMP-activated protein kinase	Concept
-resolvins	Concept
-murine	Concept
-brain trauma	Concept
-interleukin	Concept
-anti-TNF-α therapy	Concept
-centralization	Concept
-monocytes/macrophage	Concept
-bowel perforation	Concept
-vitronectin	Concept
-glaucoma	Concept
-experimental autoimmune encephalomyelitis	Concept
-poly	Concept
-inflammatory bowel disease	Concept
-flushing	Concept
-increased lesion burden	Concept
-interstitial pulmonary fibrosis	Concept
-cerebral cortex	Concept
-arteriovenous malformations	Concept
-pattern	Concept
-hemorrhage	Concept
-superoxide anion	Concept
-lupus	Concept
-scleroderma.62	Concept
-lupus.85,86	Concept
-histamine	Concept
-lymphocytes	Concept
-polymyositis	Concept
-diabetic microvascular complications	Concept
-neutrophils	Concept
-monocytes	Concept
-neuron homeostasis	Concept
-allergic rhinitis	Concept
-increased sebum production	Concept
-rheumatic diseases	Concept
-experimental subarachnoid hemorrhage	Concept
-high free fatty acids	Concept
-difficulty breathing	Concept
-tracheal-tube size	Concept
-exudation	Concept
-microparticles	Concept
-IL-1 antagonists	Concept
-cardiovascular mortality	Concept
-inflammatory bowel diseases	Concept
-hs-CRP	Concept
-neck stiffness	Concept
-environmental conditions	Concept
-growth factor receptor	Concept
-intraretinal hemorrhage	Concept
-ischemic heart disease	Concept
-alcohol drinking	Concept
-phosphatidylcholine	Concept
-hypothalamus	Concept
-neural precursors	Concept
-brain ischemia	Concept
-leukotriene	Concept
-stroke	Concept
-tumor necrosis	Concept
-autoimmune	Concept
-interferon-gamma	Concept
-tumour necrosis factor	Concept
+Colombian patients	Concept
+dry cough	Concept
+advanced arteriopathic changes	Concept
+severe congestion	Concept
+time course	Concept
+pulselessness	Concept
+acute major pulmonary embolism	Concept
+systolic arterial pressure	Concept
+aggressive surgical approach	Concept
+expectoration	Concept
+intravenous application	Concept
+many cases	Concept
+bilateral bases	Concept
+bilateral lung	Concept
+geographic appearance	Concept
+left lateral decubitus position	Concept
+palpitation	Concept
+subcutaneous emphysema	Concept
+hilum	Concept
+mediastinum	Concept
+labour	Concept
+delivery	Concept
+size	Concept
+management require	Concept
+viral particles	Concept
+cultured endothelial cells	Concept
+cardiac toxicity	Concept
+skin involvement	Concept
+effusions	Concept
+vivo Angiogenesis	Concept
+cultured vascular endothelial cells	Concept
+user	Concept
+parenchymal infiltrates	Concept
+severe tricuspid regurgitation	Concept
+primary carcinoma	Concept
+constriction	Concept
+mild digital clubbing	Concept
+evidence	Concept
+normal pulmonary capillary wedge pressure	Concept
+intrapulmonary shunt	Concept
+portopulmonary hypertension	Concept
+A-a gradient	Concept
+overexpression	Concept
+amelioration	Concept
+rat	Concept
+literature review	Concept
+classic proinflammatory cytokines	Concept
+rat lung tissues	Concept
+forced expiratory volume	Concept
+atherosclerosis.11,12	Concept
+cigarette smoke extract	Concept
+study subjects	Concept
+lung homogenate	Concept
+peripheral blood	Concept
+chronic inflammatory processes	Concept
+association	Concept
+rat lungs	Concept
+stable condition	Concept
+contributes	Concept
+bronchoalveolar lavage fluid	Concept
+subsequent studies	Concept
+circulation	Concept
+patients	Concept
+stable condition	Concept
+aberrant angiogenesis	Concept
+prostate cancer cells	Concept
+Caucasian subjects	Concept
+fat cells	Concept
+mucus production	Concept
+redox regulation	Concept
+growth	Concept
+morbidity worldwide	Concept
+diabetes.4	Concept
+treatment choices	Concept
+practice	Concept
+evidence-based clinical choices	Concept
+program	Concept
+live peer-to-peer	Concept
+response patterns	Concept
+two-day course	Concept
+clinical behavior	Concept
+several indicators	Concept
+incorporation	Concept
+knowledge	Concept
+physician competence	Concept
+actual clinical practice.26,28	Concept
+certain aspects	Concept
+persist	Concept
+enthusiastic coaching	Concept
+national sample	Concept
+general practice	Concept
+external examinations	Concept
+myelodysplastic syndromes	Concept
+regional population sample	Concept
+small versus	Concept
+group	Concept
+epithelial basal cells	Concept
+clefts	Concept
+obliteration	Concept
+airways,27	Concept
+genetic changes	Concept
+normal control	Concept
+vascularity marker	Concept
+squamous cell carcinoma	Concept
+non-small-cell lung cancer	Concept
+pulmonary hypertension	Concept
+biological testing	Concept
+cigarette smoke extract induces	Concept
+postmortem examination	Concept
+Japanese patients	Concept
+pollutants	Concept
+mucus hypersecretion	Concept
+lumen	Concept
+airways pathologies	Concept
+interstitial fluids	Concept
+submucosal glands	Concept
+impaired clearance	Concept
+breakdown	Concept
+acute exposure models	Concept
+increased levels	Concept
+collagen production	Concept
+mediators	Concept
+lung samples	Concept
+α1-PI-deficient patients	Concept
+murine cigarette smoke exposure model	Concept
+anti-inflammatory agents	Concept
+emphysematous changes	Concept
+phagocyte-derived oxidants	Concept
+hamsters	Concept
+alpha-1-antitrypsin deficiency	Concept
+emphysematous alveoli	Concept
+serine proteinases	Concept
+mouse	Concept
+young cigarette smokers	Concept
+adult murine lung	Concept
+subclinical emphysema	Concept
+alveolar space	Concept
+adults.13	Concept
+inadequate duration	Concept
+birth	Concept
+regeneration insufficient.18–22	Concept
+regular medication	Concept
+uniformity	Concept
+small cationic peptides	Concept
+drive	Concept
+neutrophil-produced proteinases	Concept
+airways correspond	Concept
+enzymatic activity	Concept
+human lung	Concept
+aeration	Concept
+urine levels	Concept
+nonrespiratory tissues	Concept
+lung tissue inflammation	Concept
+controls.139	Concept
+allergic inflammatory diseases	Concept
+specific primers	Concept
+healthy nonsmokers	Concept
+replacement	Concept
+total bacterial count	Concept
+transient wheezing.163–165	Concept
+healthy microflora	Concept
 gut	Concept
-age distribution	Concept
-inactivity	Concept
-asthma eosinophils	Concept
-ischemia-reperfusion	Concept
-complications type	Concept
-atopic dermatitis	Concept
-scalp	Concept
-neutrophil chemokine interleukin-8	Concept
-mycobacteria	Concept
-dendritic cells	Concept
-microorganisms	Concept
-intestines	Concept
-iNOS	Concept
-immunomodulatory peptide	Concept
-collagen-induced arthritis	Concept
-interferon γ	Concept
-foam cell formation	Concept
-autoimmunity	Concept
-variable airflow obstruction	Concept
-ovalbumin	Concept
-neutrophil	Concept
-hepatic inflammation	Concept
-nasal stuffiness	Concept
-inflammatory bowel disorder	Concept
-diarrhea	Concept
-mesenteric lymph nodes	Concept
-infected pancreatic necrosis	Concept
-systemic inflammatory response syndrome	Concept
-viral hepatitis	Concept
-chemoattractant	Concept
-band keratopathy	Concept
-cataract	Concept
-bladder	Concept
-benzodiazepinedione family	Concept
-roscovitine	Concept
-optic neuritis	Concept
-atheroma	Concept
-commensal microbiota	Concept
-methotrexate	Concept
-mucins	Concept
-chorioamnionitis	Concept
-cell size	Concept
-chorioretinal biopsy	Concept
-immature	Concept
-pericytes	Concept
-marathon	Concept
-age,154,176,177 preconditioning,178–180 gender,80,166	Concept
-chemokine	Concept
-warfarin	Concept
-serum lactate levels	Concept
-fistulation	Concept
-caspase-3/7 activity	Concept
-tumor-necrosis-factor-α	Concept
-cytochrome c	Concept
-microarray	Concept
-certain infectious agents	Concept
-prostaglandins	Concept
-complement	Concept
-interleukin-2	Concept
-selectins	Concept
-synaptic plasticity	Concept
+antipyretics	Concept
+atopy	Concept
+transgenic mice	Concept
+rats	Concept
+reference population.187	Concept
+differentiate	Concept
+induced local regeneration	Concept
+endothelium	Concept
+choice	Concept
+vascular endothelial cells	Concept
+South African adults	Concept
+respiratory health	Concept
+alters	Concept
+modulation	Concept
+chronic obstructive pulmonary disease-related emergency department visits	Concept
+symptomatic smokers	Concept
+chronic granulocytic leukaemia	Concept
+degradation	Concept
+lung tissue destruction	Concept
+lung parenchyma	Concept
+mice Science	Concept
+risk	Concept
+medicare patients	Concept
+abundance	Concept
+sensitization	Concept
+infancy	Concept
+composition	Concept
+contribution	Concept
+type	Concept
+model	Concept
+ex vivo models	Concept
+organs	Concept
+postbronchodilator	Concept
+hepatic failure	Concept
+discriminative properties	Concept
+functional evaluation	Concept
+multidimensional staging	Concept
+male patients	Concept
+increases	Concept
+lung cells	Concept
+increased infiltration	Concept
+alveolar septal cell apoptosis	Concept
+lung tissue samples	Concept
+bax index	Concept
+bad staining	Concept
+absolute number	Concept
+emphysema overlap	Concept
+peripheral airways disease	Concept
+defective clearance	Concept
+hospitalized patients	Concept
+blood granulocytes	Concept
+dysregulation	Concept
+tissue injury	Concept
+removal	Concept
+peripheral blood T-cells	Concept
+peripheral blood	Concept
+peripheral muscle weakness	Concept
+loss	Concept
+adult rats	Concept
+cytotoxic activity	Concept
+vitro inhibit	Concept
+central nervous system	Concept
+tracheal epithelial lining fluid	Concept
+bronchial mucosa	Concept
+severe persistent asthma	Concept
+likelihood	Concept
+consequences	Concept
+protein structure	Concept
+alveolar epithelial cell layer	Concept
+attraction	Concept
+improved distribution	Concept
+lymphocyte concentration	Concept
+secretion	Concept
+respiratory cells	Concept
+lung tissue	Concept
+production	Concept
+breath condensate	Concept
+side-effects	Concept
+exhaled biomarkers	Concept
+influenza virus-induced gene expression	Concept
+various tissues	Concept
+expired breath condensate	Concept
+exhaled air	Concept
+exacerbation risk	Concept
+clinical impact	Concept
+subsequent centralization	Concept
+heterogeneous group	Concept
+aortic diameter	Concept
+intravascular pressure	Concept
+cardiac output	Concept
+heterogenous group	Concept
+fbrosis scores	Concept
+r=0.434	Concept
+right ventricular	Concept
+heterogeneous population	Concept
+body	Concept
+multiple linear regression model	Concept
+population.72	Concept
+all-cause mortality.74	Concept
+select treatment	Concept
+exercise-induced pulmonary hypertension.80	Concept
+pulmonary artery enlargement	Concept
+related hospitalizations	Concept
+series	Concept
+pulmonary muscular arteries	Concept
+cause emphysema	Concept
+magnetic resonance	Concept
+right cardiac catheterization study	Concept
+sleep apnea syndrome	Concept
+obstructive sleep apnoea syndrome	Concept
+therapeutic consequences	Concept
+emphysema patients	Concept
+cardiovascular death	Concept
+chronic pulmonary disease	Concept
+remodeling	Concept
+advanced idiopathic pulmonary fibrosis	Concept
+right ventricular preload	Concept
+familiarity	Concept
+inhalation	Concept
+types	Concept
+vegetable oil	Concept
+chronic exogenous lipoid pneumonia	Concept
+legionella pneumophila	Concept
+laryngectomy patients	Concept
+fire eater	Concept
+adolescent female patient—evolution	Concept
+gas station	Concept
+adolescent girl	Concept
+lung lavage	Concept
+child	Concept
+biomass exposure	Concept
+impaired quality	Concept
+bacterial loads	Concept
+use similarities	Concept
+upper respiratory tract	Concept
+systems.23	Concept
+disease.25	Concept
+adverse clinical outcomes	Concept
+mean bacterial load	Concept
+forced expiratory volume	Concept
+vitro46	Concept
+porcine pancreatic elastase	Concept
+model	Concept
+mice.63	Concept
+prolonged mucus secretion	Concept
+emphysematous airways	Concept
+disease pathogenesis	Concept
+potential mechanisms	Concept
+stable patients	Concept
+load	Concept
+stable visits	Concept
+exacerbation samples	Concept
+bacterial load	Concept
+frequent coryzal symptoms	Concept
+number	Concept
+detection rates	Concept
+non-obstructed control subjects	Concept
+viral clearance	Concept
+rhinovirus	Concept
+lung function.91	Concept
+virus-associated exacerbations	Concept
+eosinophils	Concept
+interferon production	Concept
+secondary care	Concept
+peak expiratory flow.119	Concept
+doxycycline group	Concept
+upper respiratory	Concept
+standard therapy group	Concept
+associated adverse effects	Concept
+identification	Concept
+treatment group.134	Concept
+doubling	Concept
+exacerbation rates	Concept
+intention-to-treat analysis.138	Concept
+exacerbations141,142	Concept
+protease-antiprotease balance	Concept
+characterization	Concept
+cystic fibrosis patients	Concept
+impaired pulmonary clearance	Concept
+immune response	Concept
+airway infection	Concept
+acute viral exacerbations	Concept
+anti-protease defences	Concept
+sputum isolates	Concept
+alpha- 1-antitrypsin-deficient patients	Concept
+clinical trials	Concept
+review	Concept
+excess	Concept
+lung-volume reduction surgery	Concept
+interpretation	Concept
+inclusion process	Concept
+mean distance	Concept
+radiological emphysema	Concept
+third test	Concept
+pulmonary function test	Concept
+maximum work	Concept
+old age	Concept
+endurance shuttle	Concept
+chronic obstructive airways disease	Concept
+exercise-induced oxygen desaturation	Concept
+correlates	Concept
+functioning	Concept
+context	Concept
+persons	Concept
+metastatic cancer	Concept
+medical problem	Concept
+medical problems	Concept
+suicidal thoughts	Concept
+need	Concept
+clinical settings	Concept
+depression status	Concept
+primary care patients	Concept
+microfibrils	Concept
+adult lung	Concept
+deposition	Concept
+macrolides	Concept
+myofibroblasts	Concept
+density	Concept
+extensive remodeling	Concept
+lung development	Concept
+alveolar myofibroblasts	Concept
+situ hybridization	Concept
+productivity	Concept
+heart rate.4	Concept
+coronary heart disease	Concept
+weight gains	Concept
+vital status data	Concept
+reduced risk	Concept
+serum cholesterol treatment	Concept
+risk occurs	Concept
+asthmatics	Concept
+occasional smokers	Concept
+lung function32	Concept
+second lung primary	Concept
+heart failure hospitalization	Concept
+women.42	Concept
+forebrain	Concept
+anxiety	Concept
+appropriate patients	Concept
+men rises	Concept
+asthmatic smokers	Concept
+leukotriene receptor antagonists	Concept
+smoking cessation advice	Concept
+nortriptyline	Concept
+premature death	Concept
+frequently-associated chronic bronchitis	Concept
+excessive apoptosis	Concept
+systems	Concept
+adult mammals	Concept
+particular cell population	Concept
+regulation	Concept
+chronic injury	Concept
+emphysematous lung	Concept
+antiproliferative effects	Concept
+cross-linking	Concept
+repair systems	Concept
+humans remains	Concept
+capillary endothelial cells	Concept
+rodents	Concept
+distal perfusion	Concept
+human lung fibroblasts	Concept
+adult mouse models	Concept
+bronchiolar epithelial cells	Concept
+adult rat lung	Concept
+adolescence	Concept
+mouse lung gene expression	Concept
+chemotaxis	Concept
+human pulmonary emphysema	Concept
+profession	Concept
+respiratory bronchiolitis	Concept
+grading	Concept
+recognition	Concept
+adequate tissue	Concept
+pleural cavities	Concept
+attribution	Concept
+asbestos insulation workers	Concept
+exercise capacity.9	Concept
+lung tissue sections	Concept
+mitochondria	Concept
+immune system activation.41,42	Concept
+never-smoked control subjects	Concept
+right ventricular hypertrophy index	Concept
+small airway epithelium	Concept
+mouse model	Concept
+murine splenocytes	Concept
+mouse model	Concept
+orthologous rat model	Concept
+means	Concept
+resources	Concept
+control samples	Concept
+chronic cigarette smoke exposure	Concept
+human lung cells.15	Concept
+guinea pigs	Concept
+mouse lung tissue	Concept
+mouse lungs	Concept
+additional animal model	Concept
+human cells	Concept
+low level	Concept
+mouse lung inflammatory cells	Concept
+animals	Concept
+chronic cigarette smoke	Concept
+importance	Concept
+cancer cell	Concept
+lipid accumulation.4	Concept
+wild-type mice,8	Concept
+individuals deficient	Concept
+macrophage	Concept
+atherosclerosis36,37	Concept
+proteasomal activity	Concept
+lung inflammatory cells	Concept
+mouse group	Concept
+CCAAT/enhancer-binding protein-homologous protein	Concept
+human lung cells	Concept
+smoke-exposed guinea pigs	Concept
+cigarette tobacco smoke	Concept
+branch	Concept
+sporadic idiopathic pulmonary fibrosis	Concept
+vivo reveals patterns	Concept
+management considerations	Concept
+practice	Concept
+treatment considerations	Concept
+cohort	Concept
+self-reported health status decrease	Concept
+hospitalization.20	Concept
+management thereof	Concept
+chronic debilitating diseases	Concept
+depression predicting	Concept
+cardiac failure	Concept
+period	Concept
+6-minute walk distance.4	Concept
+context.61,62	Concept
+fibrinogen	Concept
+in-hospital mortality	Concept
+study.74	Concept
+hyperlipidemia	Concept
+significant risk factors	Concept
+cardiovascular mortality.83	Concept
+ventilation/perfusion mismatching	Concept
+pulmonary fibrosis alone.118,119	Concept
+aforementioned caution	Concept
+osteoporosis risk	Concept
+chronic bronchitis subgroup.136	Concept
+relative risk	Concept
+control groups	Concept
+hyper-lipidemia	Concept
+concurrent pulmonary hypertension	Concept
+concurrent	Concept
+pulmonary vascular	Concept
+incident lung cancer	Concept
+recommendations	Concept
+chronic breathing disorders	Concept
+general population	Concept
+gastroesophageal	Concept
+right ventricular structure	Concept
+26-year follow-up	Concept
+lipid core carotid artery plaques	Concept
+interstitial lung diseases	Concept
+end-stage chronic obstructive pulmonary disease	Concept
+hemodynamic assessment	Concept
+co-morbidities	Concept
+inflammatory disorders	Concept
+observational studies	Concept
+microvasculature result	Concept
+female reproductive cycle	Concept
+human airway disease	Concept
+microvascular remodeling	Concept
+bronchial circulation	Concept
+favor	Concept
+bronchial vascularity	Concept
+vascular area	Concept
+airway smooth muscle mass	Concept
+distal airways	Concept
+intimal space	Concept
+significant airspace enlargement	Concept
+hyperpermeability	Concept
+cardinal respiratory muscle	Concept
+vascular walls	Concept
+airway mucus secretion	Concept
+peripheral airways	Concept
+recruitment	Concept
+pulmonary sarcoidosis	Concept
+bronchial biopsies	Concept
+mild asthma	Concept
+primary endothelial cells	Concept
+bronchial lavage	Concept
+blood vessel formation	Concept
+ratio	Concept
+fungi	Concept
+radiation	Concept
+natural history	Concept
+disease	Concept
+radiotherapy treatment	Concept
+prominent parenchymal fibrotic infiltrates	Concept
+subpleural parenchymal opacities	Concept
+syndrome	Concept
+pulmonary medicine specialists	Concept
+emphysema patients.12	Concept
+wall	Concept
+background lung	Concept
+related patterns	Concept
+connective tissue disease	Concept
+stable chronic obstructive pulmonary disease patients	Concept
+tiotropium treatment group	Concept
+reduced progression	Concept
+ipratropium.5	Concept
+mean	Concept
+rehabilitation program	Concept
+oxitropium treatment groups	Concept
+ventilatory equivalent	Concept
+concentrations	Concept
+submaximal isotime	Concept
+oxitropium group	Concept
+oxitropium groups	Concept
+therapeutic effectiveness	Concept
+recent pooled analysis	Concept
+several parameters	Concept
+carbon dioxide production versus power	Concept
+ventilatory capacity	Concept
+oxygen	Concept
+norepinephrine threshold	Concept
+constant work-load exercise testing	Concept
+exercise time	Concept
+constant workload exercise	Concept
+submax norepinephrine level	Concept
+concentration	Concept
+sputum specimens	Concept
+co-infecting patients	Concept
+several bacteria	Concept
+“ carriage ”	Concept
+HIV-negative patients	Concept
+lung disease	Concept
+sputum specimen	Concept
+non-HIV-infected patients	Concept
+bronchoalveolar lavage specimens	Concept
+Brazilian cystic fibrosis patients	Concept
+air	Concept
+rate	Concept
+primate model	Concept
+simian immunodeficiency	Concept
+hard contractive respiratory muscles	Concept
+defense reaction	Concept
+long-acting beta-adrenergic agonists	Concept
+group	Concept
+statistical significance	Concept
+lnIL-6 levels	Concept
+walking performance	Concept
+lung function,26	Concept
+weight-losing patients	Concept
+females.35,36	Concept
+covariation	Concept
+monocytes	Concept
+effect relationship	Concept
+monocyte-derived macrophages	Concept
+human hepatocytes	Concept
+subgroup	Concept
+tissue hypoxia	Concept
+normal healthy blood donors	Concept
+physical performance	Concept
+synovial fluid	Concept
+propensity	Concept
+pharmacotherapy	Concept
+emphysema Respiration	Concept
+heavy smokers	Concept
+healthy subjects	Concept
+idiopathic interstitial pneumonia	Concept
+six-minute-walk test	Concept
+severe pulmonary arterial hypertension	Concept
+sporadic disease	Concept
+panhypogammaglobulinemia	Concept
+anti-neutrophil cytoplasmic antibody tests	Concept
+failed response	Concept
+granulomatous-lymphocytic interstitial lung disease	Concept
+shelterin complex	Concept
+related bone marrow failure	Concept
+long-term survivor	Concept
+decreased elimination	Concept
+physical measures	Concept
+mucous glands	Concept
+increased volume	Concept
+liquid	Concept
+cough.3,6	Concept
+cartilage	Concept
+chronic viral infection,12	Concept
+total cell number	Concept
+peripheral airway epithelium	Concept
+trouble	Concept
+lung function.35,36	Concept
+group	Concept
+many patients	Concept
+exfoliated sputum	Concept
+exercise capacity.54	Concept
+intracellular cyclic adenosine monophosphate levels	Concept
+mucus production.76,77	Concept
+human bronchial epithelial cells	Concept
+cilomilast	Concept
+small airway function	Concept
+sputum production.96	Concept
+past year	Concept
+airway secretions	Concept
+chronic airflow limitation	Concept
+chronic obstructive pulmonary disease morbidity	Concept
+stable COPD	Concept
+emphysema ”	Concept
+multivariate analysis	Concept
+pulmonary vascular alterations	Concept
+pulmonary vasculature	Concept
+pulmonary circulation	Concept
+inflammatory cytokine release	Concept
+muscularization	Concept
+serologies	Concept
+lead	Concept
+position	Concept
+agitated saline contrast	Concept
+cessation strategies	Concept
+causation	Concept
+hypoxia-induced pulmonary vasoconstriction	Concept
+patient population	Concept
+six-minute walk distance.77	Concept
+collapsed lung lobe	Concept
+dog	Concept
+long-term cigarette smokers	Concept
+healthy humans	Concept
+right-sided cardiovascular system	Concept
+cardiac disease	Concept
+functions	Concept
 extent	Concept
-posterior synechiae	Concept
+surgical lung resections	Concept
+naïve rats	Concept
+immune effectors	Concept
+bronchoalveolar lavage	Concept
+large numbers	Concept
+local increases	Concept
+cell culture	Concept
+tissues	Concept
+cigarette smoke model	Concept
+cellular debris	Concept
 natural killer cells	Concept
-adrenocorticotropic hormone	Concept
-saliva collection	Concept
-time	Concept
-chronic model	Concept
-cataracts	Concept
-adalimumab	Concept
-infliximab	Concept
-chromosome	Concept
-mild	Concept
-endotoxemia	Concept
-estrogen	Concept
-sex hormones	Concept
-intima-media thickness	Concept
-mobilization	Concept
-sCD163	Concept
-sodium salicylate	Concept
-ultrasonography	Concept
-ultrasonography and/or	Concept
-tumor necrosis factor alfa	Concept
-decreased expression	Concept
-thyroid destruction	Concept
-retinopathy	Concept
-colorectal cancer	Concept
-encephalitis	Concept
-ataxia	Concept
-colitis	Concept
-microglia	Concept
-phagocytic activity	Concept
-claudins	Concept
+cachexia	Concept
+mucosal antibody	Concept
+lung function changes	Concept
+acute bacterial exacerbations	Concept
+differentiation	Concept
+multiple effector molecules	Concept
+angiogenic processes	Concept
+pneumocystis colonization	Concept
+acquired immunodeficiency syndrome	Concept
+tissue oxygenation	Concept
+electrocardiographic monitoring	Concept
+respiratory equivalent	Concept
+peak exercise power	Concept
+preclinical stages	Concept
+medication	Concept
+medication patterns	Concept
+asthma.13 Markers	Concept
+procedural code	Concept
+respiratory medication	Concept
+specified time interval	Concept
+switch	Concept
+all-cause hospitalizations	Concept
+cohort	Concept
+database	Concept
+shortness	Concept
+clinical setting	Concept
+depression Psychosomatics	Concept
+clinical relevance	Concept
+attributable fraction	Concept
+multivariable indices	Concept
+medical therapy arm	Concept
+multivariate analysis	Concept
+national registry	Concept
+pulmonary artery wedge pressure	Concept
+osteopenia	Concept
+overall rate	Concept
+survival.55	Concept
+need	Concept
+propagation	Concept
+access	Concept
+acute rejection	Concept
+transplant recipients	Concept
+severe airflow obstruction	Concept
+working population	Concept
+subsequent outcomes	Concept
+procedures	Concept
+national cohort	Concept
+lung transplant candidates	Concept
+physical therapy	Concept
+secondary end-points	Concept
+lung transplant recipients	Concept
+single lung transplantation	Concept
+single-lung transplant recipient	Concept
+6-minute walk test	Concept
+subjective sense	Concept
+subsequent sense	Concept
+postexercise values	Concept
+peripheral muscles	Concept
+exercise limitations	Concept
+daily life	Concept
+oxygen consumption	Concept
+subsequent sense	Concept
+respiratory disease	Concept
+considerations	Concept
+frailty	Concept
+acute cellular rejection	Concept
+senior donors	Concept
+maximum inspiratory pressures	Concept
+specific recipient age subgroups	Concept
+sexagenarians	Concept
+subset	Concept
+subset	Concept
+trial sites	Concept
+permuted blocks	Concept
+fruit juice	Concept
+total score	Concept
+thiol redox couples	Concept
+arm	Concept
+mouse models	Concept
+placebo arm	Concept
+placebo arm	Concept
+dyspnea.13	Concept
+impact domains	Concept
+symptom domain score	Concept
+indirect measure	Concept
+either group	Concept
+survey scores	Concept
+inflammation biomarkers	Concept
+viscosity	Concept
+human plasma	Concept
+oxidative pathways	Concept
+control group	Concept
+cost utility	Concept
+placebo groups	Concept
+annual exacerbation rates	Concept
+past year	Concept
+evidence	Concept
+single agent therapy	Concept
+patient population	Concept
+nontreatment	Concept
+adverse effects	Concept
+future directions	Concept
+blood polymorphonuclear leukocytes	Concept
+chronic obstructive pulmonary disase	Concept
+partial pressure	Concept
+nasal bilevel	Concept
+pCO2	Concept
+similar patient population	Concept
+acute respiratory failure.21–24	Concept
+capillary pCO2	Concept
+upper airway leakage	Concept
+right heart decompensation	Concept
+mean airway pressure	Concept
+lung volume	Concept
+pressure settings	Concept
+nearby flow rates	Concept
+pH values	Concept
+minute volume	Concept
+dead space	Concept
+children Pediatrics	Concept
+infants	Concept
+stable hypercapnic COPD	Concept
+volunteers	Concept
+clinical outcome	Concept
+advanced obstructive airways disease	Concept
+acute lung injury model	Concept
+silicosis	Concept
+prior studies.7–10	Concept
+identified patchy widening	Concept
+centrilobular distribution	Concept
+pattern	Concept
+diffusion capacity	Concept
+pulmonary carcinogenesis.37	Concept
+associated lung tumors.45,46	Concept
+molecular pathogenesis	Concept
+lung carcinoma	Concept
+Swedish series	Concept
+bronchial cancer	Concept
+controls	Concept
+functional stages	Concept
+residual volume	Concept
+interobserver variation	Concept
+progression rate	Concept
+healthy non-smokers	Concept
+different mechanisms	Concept
+analysis	Concept
+breast cancer cells	Concept
+idiopathic pulmonary fibrosis display upregulation	Concept
+bevacizumab-treated metastatic colon cancer	Concept
+scleroderma patients	Concept
+viral antigen level	Concept
+laryngeal symptom index	Concept
+systemic steroids	Concept
+male	Concept
+high-risk groups	Concept
+normal controls	Concept
+diagnostic definition	Concept
+specificity	Concept
+medical chart	Concept
+environmental inhalational agents	Concept
+endocrine disorder	Concept
+view	Concept
+aortic prosthesis	Concept
+potential treatments	Concept
+significant proportion	Concept
+pheno/endotypes	Concept
+third decade	Concept
+pneumoperitoneum	Concept
+symptoms suggestive	Concept
+connective tissue disorders	Concept
+curls	Concept
+carmustine	Concept
+idiopathic cases	Concept
+pirfenidone intake	Concept
+careful infection control	Concept
+behavior	Concept
+nonsmoking controls	Concept
+relevant control groups	Concept
+blood samples	Concept
+clara cell	Concept
+plasma fibrinogen	Concept
+hyperinflation.10,11	Concept
+pulmonary surfactant protein	Concept
+serum samples	Concept
+diagnosis	Concept
+respiratory disorder	Concept
+low-dose xanthines	Concept
+sputum status	Concept
+reactance	Concept
+kidney cancer	Concept
+control groups	Concept
+systemic biomarkers	Concept
+structural cells	Concept
+serum biomarkers	Concept
+pulmonary host defense	Concept
+conduct	Concept
+spirometry measurements	Concept
+raw means	Concept
+sputum inflammatory mediators	Concept
+lung defense mechanisms	Concept
+inflammatory response	Concept
+bronchial secretions	Concept
+mucus plug formation	Concept
+total airway resistance	Concept
+peripheral airway component	Concept
+bronchioles	Concept
+capillary beds	Concept
+α-tocopherol	Concept
+glycine	Concept
+increased levels	Concept
+chronic exposure	Concept
+antioxidant defense	Concept
+animal tissue	Concept
+alveolar macrophage	Concept
+tar-semiquinone	Concept
+deformability	Concept
+subsequent up-regulation	Concept
+primary human bronchial epithelial cells	Concept
+co-release	Concept
+cultures	Concept
+chemokine activity	Concept
+reduced surface area	Concept
+aldehyde scavengers	Concept
+protein tyrosine kinases	Concept
+epithelial permeability	Concept
+epithelial repair	Concept
+extracellular matrix production	Concept
+sub-epithelium	Concept
+alveolar region	Concept
+anti-apoptotic effects	Concept
+clearance	Concept
+major histocompatibility complex	Concept
+alveolar chemokine release	Concept
+endogenous ligands	Concept
+yeast cell walls	Concept
+alveolar regions	Concept
+precise role	Concept
+tissue remodeling	Concept
+wound repair	Concept
+cigarette smoke extract	Concept
+reduced repair	Concept
+total lung	Concept
+hyperproduction	Concept
+airway epithelium	Concept
+mucin expression	Concept
+bronchial submucosal glands	Concept
+host defense	Concept
+excessive proteolytic activity	Concept
+autocrine/paracrine activation	Concept
+dendritic cells	Concept
+horses	Concept
+immunoregulation	Concept
+human biology	Concept
+human airway	Concept
+bronchopulmonary dysplasia	Concept
+protection	Concept
+LPS-treated lung tissue	Concept
+therapeutic options	Concept
+protection	Concept
+cell growth	Concept
+utilization	Concept
+vascular endothelial growth factor receptor	Concept
+primary human airway	Concept
+airway epithelial cell lines	Concept
+airway-like epithelia	Concept
+extracellular matrix	Concept
+increased epithelial permeability	Concept
+hypersecretion	Concept
+leukocyte-conditioned medium	Concept
+peripheral airways	Concept
+surfactant-depleted rabbit lung	Concept
+mucins	Concept
+ambient particulate matter	Concept
+primary lung	Concept
+atherogenesis	Concept
+healthy intermittent smokers	Concept
+bronchial hyperresponsiveness	Concept
+angiogenesis Genes	Concept
+serum level	Concept
+early stage	Concept
+mice.10	Concept
+miRNA–miRNA	Concept
+ovarian cancer	Concept
+information	Concept
+negative control	Concept
+rs2910164 genotype	Concept
+protein expression level	Concept
+control	Concept
+human fibroblast cells	Concept
+fibroblast cells	Concept
+human lung tissues	Concept
+miR-146a level	Concept
+clinical characteristics	Concept
+advanced emphysema increases mortality	Concept
+prostaglandin	Concept
+microRNA networks	Concept
+miR-27a gene decrease	Concept
+adult glioma	Concept
+modulates	Concept
+lobular anatomy	Concept
+inflammation-related genes	Concept
+radiology	Concept
+large pulmonary vessels	Concept
+latter	Concept
+moderate cases	Concept
+dust inhalation	Concept
+involved area decreases	Concept
+intralobular attenuation	Concept
+lung parenchyme	Concept
+upper lung field	Concept
+bullous lung disease	Concept
+periphery grow	Concept
+etiologic assessment	Concept
+panacinar emphysema	Concept
+plasma samples	Concept
+anticholinergics	Concept
+plasma	Concept
+lifelong non-smokers	Concept
+chronic cigarette smokers	Concept
+processing	Concept
+doxycycline	Concept
+acute coronary syndrome	Concept
+asymptomatic current chronic smokers	Concept
+reactive species	Concept
+novel perspectives	Concept
+one-quarter	Concept
+oxidative capacity	Concept
+self-limiting chain reaction	Concept
+loss	Concept
+nitrogen radicals	Concept
+observation times	Concept
+eosinophilic peroxidase	Concept
+differentiation processes	Concept
+inflammatory processes	Concept
+exogenous radicals	Concept
+antioxidant capacity	Concept
+environmental smoke exposure	Concept
+passive smokers	Concept
+nutritional regimen	Concept
+antioxidant values	Concept
+lungs32	Concept
+fractional exhaled nitric oxide	Concept
+pentane58	Concept
+inflammation.83	Concept
+radical burden	Concept
+either respiratory cells	Concept
+lungs.75	Concept
+oxidative biomarkers	Concept
+exhaled oxidant biomarkers	Concept
+hemoxygenase-1 activity.95	Concept
+allergic sheep	Concept
+hyperoxic	Concept
+respiratory epithelial cells	Concept
+general population.105	Concept
+inflammatory cell content	Concept
+neutrophil chemotactic factor gene expression	Concept
+caffeine	Concept
+asthma model.140	Concept
+smokers.142	Concept
+steroid sensitivity	Concept
+exercise-induced oxidative damage.148	Concept
+severe α1-antitrypsin deficiency.151	Concept
+familial aggregation	Concept
+biology	Concept
+asthma bronchiale	Concept
+ozone-induced lung inflammation mouse model	Concept
+hypoxic tissue	Concept
+exacerbated chronic obstructive pulmonary disease patients	Concept
+expired breath condensate	Concept
+sputum predict	Concept
+human lung diseases	Concept
+different pulmonary diseases Mediators	Concept
+lung function profiles	Concept
+altered levels	Concept
+inflammatory lung disease	Concept
+protects	Concept
+elastase/LPS-exposed mice	Concept
+peripheral lung tissue	Concept
+melatonin level	Concept
+general immune response	Concept
+α-1-antitrypsin deficiency-related lung disease	Concept
+opportunities	Concept
+significant history	Concept
+drinking	Concept
+apparent clinical deterioration	Concept
+histopathological subtype	Concept
+potential clinical improvement	Concept
+early referral	Concept
+rheumatoid arthritis—a population-based study	Concept
+recent onset rheumatoid	Concept
+early rheumatoid arthritis patients	Concept
+rheumatoid arthritis-associated interstitial lung disease	Concept
+nonspecific interstitial pneumonia	Concept
+thoracic pain	Concept
+hamartomas	Concept
+family members	Concept
+positive family history	Concept
+lung cysts	Concept
+supplemental oxygen support	Concept
+advanced severe lung emphysema	Concept
+collateral flow	Concept
+reduced mortality [	Concept
+severe emphysema Proceedings	Concept
+histology	Concept
+dysplasia	Concept
+female cases	Concept
+bronchial stenosis	Concept
+prostate	Concept
+platelet transfusion	Concept
+precipitation	Concept
+bladder thickening	Concept
+arterial blood gas analysis	Concept
+functional residual capacity	Concept
+closing volume	Concept
+upper airway resistance	Concept
+neuromuscular output	Concept
+alveolar ventilation	Concept
+studies	Concept
+sleep duration	Concept
+diurnal blood gases	Concept
+cardiorespiratory parameters	Concept
+hypoxemic episodes	Concept
+oxygen flow	Concept
+desaturators	Concept
+requirement	Concept
+severe patients	Concept
+obstructive sleep apnea syndrome	Concept
+normal man	Concept
+arterial blood gas tensions	Concept
+nocturnal gas exchange	Concept
+long-term oxygen therapy	Concept
+daytime pulmonary haemodynamics	Concept
+normal subjects	Concept
+chronic hypoxic cor pulmonale	Concept
+hypoxemic chronic obstructive lung disease	Concept
+associated factors	Concept
+chronic hypercapnic respiratory failure	Concept
+normal adolescents	Concept
+steroid responses	Concept
+rehabilitative exercise training	Concept
+serum inflammatory markers	Concept
+tiotropium bromide	Concept
+severe neuromechanical dissociation	Concept
+contribute	Concept
+muscular oxidative capacities	Concept
+sensation	Concept
+arterial carbon dioxide tension	Concept
+arterial oxygenation	Concept
+recovery time	Concept
+motor activation	Concept
+work	Concept
+physiological parameters	Concept
+survivors	Concept
+nonspontaneous pursed lips	Concept
+physiological outcomes	Concept
+mild hypoxemia	Concept
+advanced chronic obstructive pulmonary disease	Concept
+daily tasks	Concept
+exercise-induced hypoxaemia	Concept
+myalgia	Concept
+treatment options	Concept
+soft tissue tumors	Concept
+myalgias	Concept
 albumin	Concept
-tissue plasminogen activator	Concept
-spinal cord compression	Concept
-post-MI cardiac rupture	Concept
+hypercalcemia	Concept
+bilateral ground-glass opacities	Concept
+air trapping	Concept
+disease exacerbations	Concept
+testing	Concept
+different levels	Concept
+severe pulmonary hypertension	Concept
+right ventricular wall mass	Concept
+mild	Concept
+group	Concept
+appetite suppressant exposure	Concept
+transverse diameter	Concept
+strain	Concept
+media	Concept
+elastosis	Concept
+thickness	Concept
+collagen deposition	Concept
+relationship	Concept
+pressure	Concept
+gas trapping	Concept
+blood viscosity	Concept
+endothelial production	Concept
+maintenance	Concept
+permeability	Concept
+vascular remodeling	Concept
+small group	Concept
+inhaled therapies	Concept
+cultured human endothelial cells	Concept
+chronic obstructive pulmonary disease form	Concept
+pulmonary artery pressures	Concept
+muscular pulmonary arteries	Concept
+vascular smooth muscle	Concept
+myocardial scintigraphy	Concept
+secondary pulmonary hypertension	Concept
+ventilatory failure	Concept
+flow occurring	Concept
+smooth muscle hypertrophy	Concept
+exercise limitation	Concept
+pleural pressure	Concept
+expiratory flow	Concept
+expiratory	Concept
+trans-diaphragmatic pressure	Concept
+excessive expiratory muscle recruitment	Concept
+lung volume reduction surgery	Concept
+dose-dependent fashion	Concept
+peak exercise	Concept
+end-inspiratory lung volume/TLC	Concept
+maximal airflows	Concept
+familiarity	Concept
+ability	Concept
+sensation	Concept
+exercise endurance time	Concept
+regards	Concept
+breathing pattern	Concept
+forced expiratory flow	Concept
+rates	Concept
+oxygen-supplemented air	Concept
+measured indices	Concept
+patient discomfort	Concept
+exclusion	Concept
+procedure	Concept
+surgical group	Concept
+total mortality rate	Concept
+hyperexpansion	Concept
+collapse	Concept
+total	Concept
+staging	Concept
+airways tone	Concept
+expiratory volume	Concept
+subject	Concept
+work rate	Concept
+asthmatic patients	Concept
+modern respiratory physiology	Concept
+prescription	Concept
+emergent treatment	Concept
+clinical exercise	Concept
+quadriplegia	Concept
+subjective limitation	Concept
+expiratory flows	Concept
+ventilatory	Concept
+endurance training	Concept
+chronic airflow obstruction	Concept
+cardiopulmonary function	Concept
+large population	Concept
+multicentre trials	Concept
+expiratory	Concept
+ventilator-dependent patients	Concept
+normal males	Concept
+normal blood gases	Concept
+static lung volumes	Concept
+plethysmography	Concept
+small groups	Concept

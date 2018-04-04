@@ -2,7 +2,10 @@ from Scoring import build_score_file as score
 
 class Scoring:
 
-    def __init__(self, predictionFileName, goldFileName):
+    def __init__(self, predictionFileName=None, goldFileName=None):
+        if predictionFileName is None or goldFileName is None:
+            print('Filenames cannot be None')
+            return
         self.predictionFileName = predictionFileName
         self.goldFileName = goldFileName
         self.predictions = None
@@ -22,14 +25,20 @@ class Scoring:
     def recall(self):
         correct = 0
         tot = 0
+        count = 0
         for i in range(len(self.gold)):
+
+            pred = self.predictions[i]
+
+            if self.predictions[i].replace('\n', '') == 'None':
+                count += 1
+                continue
 
             gold = self.gold[i].replace('\n', '').split('\t')
             predicted = self.predictions[i].replace('\n', '').split('\t')
 
             for j in range(len(gold)):
-
-                if j < len(predicted) and predicted[j] in gold: #gold[j] == predicted[j]:
+                if gold[j] in predicted:
                     correct += 1
                 tot += 1
         self.rec = correct / tot
@@ -73,9 +82,10 @@ def get_scores(data_file):
 
 if __name__ == '__main__':
 
-    score.get_file('../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt', 'predictions.txt')
+    # score.get_file('../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt', 'predictions.txt')
 
-    s = Scoring('../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt', 'predictions.txt')
+    s = Scoring(predictionFileName='predictions.txt',
+                goldFileName='../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
 
     # s = Scoring('../Misc/test.pred.txt',
     #             '../Misc/test.gold.txt')
@@ -83,6 +93,6 @@ if __name__ == '__main__':
     # s = Scoring('../Data/Model/hypernyms.txt',
     #             '../SemEval2018-Task9/training/gold/2B.music.training.gold.txt')
 
-    print(s.recall())
+    print('recall: {0}'.format(s.recall()))
     print(s.precision())
     print(s.fScore())

@@ -1,5 +1,5 @@
 # from HypernymMining import HypernymMining
-from patternMining import PatternMining
+from .patternMining import PatternMining
 import sys
 
 def main():

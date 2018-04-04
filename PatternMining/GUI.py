@@ -6,10 +6,13 @@ import multiprocessing
 # from HypernymMining import HypernymMining
 # from patternMining import PatternMining
 # import sys
-from Scoring import scorer
-from Misc import downloadData
 from HypernymMiningPhase2 import HypernymMining
 import threading
+
+import sys
+sys.path.append('../')
+from Scoring import scorer
+from Misc import downloadData
 
 class Dialog:
 

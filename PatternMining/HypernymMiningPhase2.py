@@ -519,7 +519,8 @@ class HyperNode:
         self.visited_rank = False
 
 if __name__ == '__main__':
-    music(5)
+    # music(5)
+    medical(5)
     # main()
 
     # pattern_filename = "../MinedData/medical_patterns.json"

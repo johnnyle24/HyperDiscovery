@@ -42,19 +42,19 @@ def unzip(path_to_zip_file, directory_to_extract_to):
 
 def download(datasetName):
 
-    try:
-        file_id = files_ids[datasetName]
+    # try:
+    file_id = files_ids[datasetName]
 
-        targetDir = '../Data/'
-        tempZipFile = '../Data/data.zip'
+    targetDir = '../Data/'
+    tempZipFile = '../Data/data.zip'
 
-        download_file_from_google_drive(file_id, tempZipFile)
+    download_file_from_google_drive(file_id, tempZipFile)
 
-        unzip(tempZipFile, targetDir)
-        os.remove(tempZipFile)
-    except e:
-        print(e)
-        return False
+    unzip(tempZipFile, targetDir)
+    os.remove(tempZipFile)
+    # except e:
+    #     print(e)
+    #     return False
     return True
 
 
