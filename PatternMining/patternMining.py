@@ -105,7 +105,7 @@ class PatternMining2:
                         left = Item([item[0] for item in frmToken])
                         direction = concepts2.getHypernimDirection(str(left), str(right))
 
-                        if w is not None and direction is not None:
+                        if w is not None: #and direction is not None:
                             if w not in pats:
                                 pats[w] = {'direction' : direction, 'freq': 0}
                             pats[w]['freq'] += 1
@@ -175,7 +175,15 @@ def formatTuples(tuples):
         s.add(tuple(t[1].split()))
     return s
 
-def getPatterns(trainingFileName, goldFileName, corpusName, outputFileName, numberOfFiles = 368):
+def filterByLength(list_, num):
+    result = list()
+    for val in list_:
+        if len(val['pattern'].split()) >= num:
+            result.append(val)
+    return result
+
+
+def getPatterns(trainingFileName, goldFileName, corpusName, outputFileName, numberOfFiles = 368, topN=-1, patternLength=-1):
     pm = PatternMining2()
 
     concepts = pm.readTrainingData(trainingFileName,goldFileName)
@@ -202,21 +210,33 @@ def getPatterns(trainingFileName, goldFileName, corpusName, outputFileName, numb
     for key, value in pts.items():
         pattern_direction_freq.append({"pattern" : str(key), "direction" : value['direction'], "freq":value['freq']})
 
-    with open('{0}.json'.format(corpusName), 'w') as df:
-        json.dump(pattern_direction_freq, df)
+    sort_on = 'freq'
+    decorated = [(dict_[sort_on], dict_) for dict_ in pattern_direction_freq]
+    decorated.sort(key=lambda x: -x[0])
+    result = [dict_ for (key, dict_) in decorated]
 
-def getMedPatterns():
+    if patternLength >=0:
+        result = filterByLength(result, patternLength)
+
+    if topN >= 0:
+        result = result[:topN]
+
+    with open(outputFileName, 'w') as df:
+        json.dump(result, df)
+
+
+def getMedPatterns(numOfFiles = 368, topN=-1, patternLength=-1):
     getPatterns('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
                 '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt',
                 '../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized',
-                '../MinedData/medical_patterns.json')
+                '../MinedData/medical_patterns.json', numOfFiles, topN, patternLength)
 
 
-def getMusicPatterns():
+def getMusicPatterns(numOfFiles = 368, topN=-1, patternLength=-1):
     getPatterns('../SemEval2018-Task9/training/data/2B.music.training.data.txt',
                 '../SemEval2018-Task9/training/gold/2B.music.training.gold.txt',
                 '../Data/2B_music_bioreviews_tokenized/2B_music_bioreviews_tokenized',
-                '../MinedData/music_patterns.json')
+                '../MinedData/music_patterns.json', numOfFiles, topN, patternLength)
 
 
 if __name__ == '__main__':
@@ -266,4 +286,5 @@ if __name__ == '__main__':
     # with open('../MinedData/patternUsingTokens.json', 'w') as df:
     #     json.dump(pattern_direction_freq, df)
 
-    getMusicPatterns()
+    # getMusicPatterns()
+    getMedPatterns(topN=20, patternLength=2)
