@@ -89,7 +89,7 @@ class HypernymMining:
         for pat in patterns:
             self.patterns.add(pat["pattern"])
 
-    def discover(self, corpus_filename):
+    def discover(self, corpus_filename, greediness):
         # iterate through tokens until a pattern is found. Then check if there is a concept to left or right of it.
         # add the other value if found
 
@@ -100,6 +100,11 @@ class HypernymMining:
                 tokens = json.load(file)
 
                 tokens_iter = iter(tokens)
+
+                nps = list()
+
+                for i in range(0, greediness):
+                    nps.append("")
 
                 first_np = ""
                 # pattern = ""
@@ -120,68 +125,92 @@ class HypernymMining:
 
                         second_np = second_np.rstrip()
 
+                        nps[len(nps)-1] = second_np
+
                         # old
                         # pattern = pattern.rstrip()
 
-                        # if (first_np in self.concepts and second_np in self.test_hypernyms[first_np]) or (second_np in self.concepts and first_np in self.test_hypernyms[second_np]):
-                        #     if pattern in self.true_patterns:
-                        #         self.true_patterns[pattern] += 1
-                        #     else:
-                        #         self.true_patterns[pattern] = 1
-                        #     print("Found")
+                        for i in range(1, len(nps)):
+                            self.collect(nps[i-1], nps[i], pattern)
 
-                        # old
-                        # if (len(first_np)>0 and len(second_np) > 0 and pattern in self.patterns and first_np != second_np and
-                        #         (first_np in self.concepts or second_np in self.concepts)):
-                        valid = False
+                        # first_np = second_np
 
-                        for pt in self.patterns:
-                            if pt in pattern:
-                                valid = True
+                        # shift elements
 
+                        for i in range(1, len(nps)):
+                            nps[i-1] = nps[i]
 
-                        if (len(first_np)>0 and len(second_np) > 0 and valid and first_np != second_np and
-                                (first_np in self.concepts or second_np in self.concepts)):
-                            if first_np in self.concepts and second_np not in self.hypernyms:
-                                self.concepts[first_np].add(second_np)
-                                if second_np in self.hypernyms:
-                                    self.hypernyms[second_np].add(first_np)
-                                else:
-                                    self.hypernyms[second_np] = set()
-                                    self.hypernyms[second_np].add(first_np)
-                            else:
-                                if second_np in self.concepts and first_np not in self.hypernyms:
-                                    self.concepts[second_np].add(first_np)
-                                    if first_np in self.hypernyms:
-                                        self.hypernyms[first_np].add(second_np)
-                                    else:
-                                        self.hypernyms[first_np] = set()
-                                        self.hypernyms[first_np].add(second_np)
-                                else:
-                                    pass
-                        # else:
-                        #     if ((first_np in self.hypernyms and second_np not in self.hypernyms) or
-                        #             (first_np not in self.hypernyms and second_np in self.hypernyms)):
-                        #         if(len(first_np) > 0 and len(second_np) > 0):
-                        #             # check which one is the more general hypernym
-                        #
-                        #             if first_np not in self.hypernyms:
-                        #                 self.hypernyms[first_np] = set()
-                        #
-                        #                 for s in self.hypernyms[second_np]:
-                        #                     self.hypernyms[first_np].add(s)
-                        #                     self.concepts[s].add(first_np)
-                        #
-                        #             if second_np not in self.hypernyms:
-                        #                 self.hypernyms[second_np] = set()
-                        #
-                        #                 for s in self.hypernyms[first_np]:
-                        #                     self.hypernyms[second_np].add(s)
-                        #                     self.concepts[s].add(second_np)
-
-                        first_np = second_np
                         # pattern = "" # old
                         pattern = set()
+
+
+    def collect(self, first_np, second_np, pattern):
+
+        # Using all data
+
+        # if (first_np in self.concepts and second_np in self.test_hypernyms[first_np]) or (
+        #         second_np in self.concepts and first_np in self.test_hypernyms[second_np]):
+        #     if first_np in self.concepts:
+        #         self.concepts[first_np].add(second_np)
+        #     if second_np in self.concepts:
+        #         self.concepts[second_np].add(first_np)
+
+        # if pattern in self.true_patterns:
+        #         self.true_patterns[pattern] += 1
+        #     else:
+        #         self.true_patterns[pattern] = 1
+        #     print("Found")
+
+
+
+
+        # old
+        # if (len(first_np)>0 and len(second_np) > 0 and pattern in self.patterns and first_np != second_np and
+        #         (first_np in self.concepts or second_np in self.concepts)):
+        valid = False
+
+        for pt in self.patterns:
+            if pt in pattern:
+                valid = True
+
+        if (len(first_np) > 0 and len(second_np) > 0 and valid and first_np != second_np and
+                (first_np in self.concepts or second_np in self.concepts)):
+            if first_np in self.concepts and second_np not in self.hypernyms:
+                self.concepts[first_np].add(second_np)
+                if second_np in self.hypernyms:
+                    self.hypernyms[second_np].add(first_np)
+                else:
+                    self.hypernyms[second_np] = set()
+                    self.hypernyms[second_np].add(first_np)
+            else:
+                if second_np in self.concepts and first_np not in self.hypernyms:
+                    self.concepts[second_np].add(first_np)
+                    if first_np in self.hypernyms:
+                        self.hypernyms[first_np].add(second_np)
+                    else:
+                        self.hypernyms[first_np] = set()
+                        self.hypernyms[first_np].add(second_np)
+                else:
+                    pass
+        else:
+            if ((first_np in self.hypernyms and second_np not in self.hypernyms) or
+                    (first_np not in self.hypernyms and second_np in self.hypernyms)):
+                if (len(first_np) > 0 and len(second_np) > 0):
+                    # check which one is the more general hypernym
+
+                    if first_np not in self.hypernyms:
+                        self.hypernyms[first_np] = set()
+
+                        for s in self.hypernyms[second_np]:
+                            self.hypernyms[first_np].add(s)
+                            self.concepts[s].add(first_np)
+
+                    if second_np not in self.hypernyms:
+                        self.hypernyms[second_np] = set()
+
+                        for s in self.hypernyms[first_np]:
+                            self.hypernyms[second_np].add(s)
+                            self.concepts[s].add(second_np)
 
     def write_percentages(self, concept_file, results_file):
         concepts = list()
@@ -351,7 +380,7 @@ class HypernymMining:
 
         return words.rstrip()
 
-def run(pattern_filename, concept_filename, corpus_subname, test_hypernyms, results_file, percents_file, frange = (0, 369)):
+def run(pattern_filename, concept_filename, corpus_subname, test_hypernyms, results_file, percents_file, greediness, frange = (0, 369)):
     frequency = 0
 
     hyp = HypernymMining()
@@ -362,7 +391,8 @@ def run(pattern_filename, concept_filename, corpus_subname, test_hypernyms, resu
 
     for i in range(frange[0], frange[1]):
         corpus_filename = "{0}_{1}.txt".format(corpus_subname, i)
-        hyp.discover(corpus_filename)
+
+        hyp.discover(corpus_filename, greediness)
         print("Now serving file number: {0}".format(i))
 
     # hyp.write_true_patterns(1)
@@ -388,7 +418,9 @@ def music(r=369):
 
     percents_file = "../MinedData/musical_hypernym_percents.txt"
 
-    run(pattern_filename, concept_filename, corputSubName, test_hypernyms, results_file, percents_file, frange=(0, r))
+    greediness = 5
+
+    run(pattern_filename, concept_filename, corputSubName, test_hypernyms, results_file, percents_file, greediness, frange=(0, r))
 
 def medical(r=369):
     # pattern_filename = "../MinedData/medical_patterns_top20_len3.json"
@@ -404,7 +436,9 @@ def medical(r=369):
 
     results_file = "../MinedData/medical_hypernym_results.txt"
 
-    run(pattern_filename, concept_filename, corputSubName, test_hypernyms, results_file, percents_file, frange=(0, r))
+    greediness = 5
+
+    run(pattern_filename, concept_filename, corputSubName, test_hypernyms, results_file, percents_file, greediness, frange=(0, r))
 
 # Used for ranking hypernyms found in text
 class HyperNode:
