@@ -102,14 +102,15 @@ class HypernymMining:
                 tokens_iter = iter(tokens)
 
                 first_np = ""
-                pattern = ""
+                # pattern = ""
 
-                # pattern = set()
+                pattern = set()
 
                 for token in tokens_iter:
                     if type(token[0]) is str:
-                        pattern += token[0].lower().rstrip() + " "
-                        # pattern.add((token[0].lower()).rstrip())
+                        # old
+                        # pattern += token[0].lower().rstrip() + " "
+                        pattern.add((token[0].lower()).rstrip())
                         continue
                     else:
                         # check for a concept
@@ -119,26 +120,28 @@ class HypernymMining:
 
                         second_np = second_np.rstrip()
 
-                        pattern = pattern.rstrip()
+                        # old
+                        # pattern = pattern.rstrip()
 
-                        if (first_np in self.concepts and second_np in self.test_hypernyms[first_np]) or (second_np in self.concepts and first_np in self.test_hypernyms[second_np]):
-                            if pattern in self.true_patterns:
-                                self.true_patterns[pattern] += 1
-                            else:
-                                self.true_patterns[pattern] = 1
-                            print("Found")
+                        # if (first_np in self.concepts and second_np in self.test_hypernyms[first_np]) or (second_np in self.concepts and first_np in self.test_hypernyms[second_np]):
+                        #     if pattern in self.true_patterns:
+                        #         self.true_patterns[pattern] += 1
+                        #     else:
+                        #         self.true_patterns[pattern] = 1
+                        #     print("Found")
 
-                        if (len(first_np)>0 and len(second_np) > 0 and pattern in self.patterns and first_np != second_np and
-                                (first_np in self.concepts or second_np in self.concepts)):
-                        # valid = False
-                        #
-                        # for pt in self.patterns:
-                        #     if pt in pattern:
-                        #         valid = True
-
-
-                        # if (len(first_np)>0 and len(second_np) > 0 and valid and first_np != second_np and
+                        # old
+                        # if (len(first_np)>0 and len(second_np) > 0 and pattern in self.patterns and first_np != second_np and
                         #         (first_np in self.concepts or second_np in self.concepts)):
+                        valid = False
+
+                        for pt in self.patterns:
+                            if pt in pattern:
+                                valid = True
+
+
+                        if (len(first_np)>0 and len(second_np) > 0 and valid and first_np != second_np and
+                                (first_np in self.concepts or second_np in self.concepts)):
                             if first_np in self.concepts and second_np not in self.hypernyms:
                                 self.concepts[first_np].add(second_np)
                                 if second_np in self.hypernyms:
@@ -177,8 +180,8 @@ class HypernymMining:
                         #                     self.concepts[s].add(second_np)
 
                         first_np = second_np
-                        pattern = ""
-                        # pattern = set()
+                        # pattern = "" # old
+                        pattern = set()
 
     def write_percentages(self, concept_file, results_file):
         concepts = list()
