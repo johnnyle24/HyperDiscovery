@@ -17,14 +17,28 @@ class HypernymMining:
 
         self.true_patterns = dict()
 
+        self.frequencies = dict()
+
+        self.phrase_to_concept = dict()
+
     # Loads the test concepts and mined patterns
-    def load(self, concept_filename, pattern_filename):
+    def load(self, concept_filename, pattern_filename, capacity):
 
         with open(concept_filename, 'r') as concept_file:
             for concept_line in concept_file:
                 concept = concept_line.split("\t")
 
                 self.concepts[concept[0]] = set()
+
+        for conc in self.concepts:
+
+            freq = list()
+            for i in range(0, capacity):
+                npobj = NPObj("")
+
+                freq.append(npobj)
+
+            self.frequencies[conc] = freq
 
         self.parse_patterns(pattern_filename, 10)
 
@@ -89,6 +103,97 @@ class HypernymMining:
         for pat in patterns:
             self.patterns.add(pat["pattern"])
 
+    def codiscover(self, corpus_filename, threshold):
+        if len(self.patterns) == 0:
+            print("No patterns have been added.")
+        else:
+
+            with open(corpus_filename, 'r') as file:
+                tokens = json.load(file)
+
+                tokens_iter = iter(tokens)
+
+                nps = list()
+                # pattern = ""
+
+                found_concept = ""
+
+                for token in tokens_iter:
+                    if type(token[0]) is str:
+                        if token[0] == ".":
+
+                            if found_concept != "":
+
+                                for n in nps:
+                                    if len(n) < 3:
+                                        continue
+                                    n_exists = False
+                                    index = -1
+
+                                    # Tries to account for phrases that occur for multiple concepts
+                                    # if n in self.phrase_to_concept and self.phrase_to_concept[n] != found_concept:
+                                    #     self.phrase_to_concept[n] = found_concept
+                                    #     continue
+
+                                    for ind, f in enumerate(self.frequencies[found_concept]):
+                                        if n == "malady":
+                                            print("malady")
+                                        # if n == "dilatation" and found_concept == "aneurysm":
+                                        #     print("dilatation and aneurysm")
+                                        if f.phrase == n:
+
+                                            n_exists = True
+                                            f.freq += 1
+                                            break
+                                        if f.freq == 0 and index < 0:
+                                            index = ind
+                                    if not n_exists and index < 0:
+
+                                        for f in self.frequencies[found_concept]:
+                                            f.freq -= 1
+                                    if not n_exists and index >= 0:
+                                        self.frequencies[found_concept][index].phrase = n
+                                        self.frequencies[found_concept][index].freq = 1
+                                        self.phrase_to_concept[n] = found_concept
+
+                                # potentially move this one indent in for a wider pull
+                                found_concept = ""
+                            nps = list()
+                    else:
+
+                        np = ""
+                        for l in token:
+                            phr = l[0].lower().rstrip()
+
+                            if phr in self.concepts:
+                                np = phr
+                                break
+                            phr2 = phr[:-2]
+                            if phr2 in self.concepts:
+                                np = phr2
+                                break
+                            phr1 = phr[:-1]
+                            if phr1 in self.concepts:
+                                np = phr1
+                                break
+                            np += phr + " "
+
+                        np = np.rstrip()
+
+                        if np in self.concepts:
+                            found_concept = np
+                        else:
+                            nps.append(np)
+
+
+            for c_con in self.concepts:
+                for hyp in self.frequencies[c_con]:
+                    if hyp.freq > threshold:
+                        self.concepts[c_con].add(hyp.phrase)
+
+            pass
+
+
     def discover(self, corpus_filename, greediness):
         # iterate through tokens until a pattern is found. Then check if there is a concept to left or right of it.
         # add the other value if found
@@ -120,8 +225,16 @@ class HypernymMining:
                     else:
                         # check for a concept
                         second_np = ""
+
+
+                        # For full phrase
+
                         for l in token:
-                            second_np += l[0] + " "
+                            second_np += l[0].lower().rstrip() + " "
+
+                        # for end phrase
+
+                        # second_np = token[len(token)-1][0].lower()
 
                         second_np = second_np.rstrip()
 
@@ -143,11 +256,10 @@ class HypernymMining:
                         # pattern = "" # old
                         pattern = set()
 
-
     def collect(self, first_np, second_np, pattern):
 
         # Using all data
-
+        #
         # if (first_np in self.concepts and second_np in self.test_hypernyms[first_np]) or (
         #         second_np in self.concepts and first_np in self.test_hypernyms[second_np]):
         #     if first_np in self.concepts:
@@ -385,9 +497,17 @@ def run(pattern_filename, concept_filename, corpus_subname, test_hypernyms, resu
 
     hyp = HypernymMining()
 
-    hyp.load(concept_filename, pattern_filename)
+    hyp.load(concept_filename, pattern_filename, 1000)
 
     hyp.load_test(concept_filename, test_hypernyms)
+
+    threshold = 0 # only collect hypernyms with frequency above threshold
+
+    for i in range(frange[0], frange[1]):
+        corpus_filename = "{0}_{1}.txt".format(corpus_subname, i)
+
+        hyp.codiscover(corpus_filename, threshold)
+        print("Now serving file number: {0}".format(i))
 
     for i in range(frange[0], frange[1]):
         corpus_filename = "{0}_{1}.txt".format(corpus_subname, i)
@@ -397,8 +517,16 @@ def run(pattern_filename, concept_filename, corpus_subname, test_hypernyms, resu
 
     # hyp.write_true_patterns(1)
 
-    hyp.write_hypernyms(concept_filename, results_file)
+    # for phrase in hyp.frequencies["aneurysm"]:
+    #     if phrase.phrase in hyp.test_hypernyms["aneurysm"]:
+    #         print("Phrase: " + phrase.phrase + ", Frequency: " + str(phrase.freq) + "\n")
+    #
+    # for phrase in hyp.frequencies["aneurysm"]:
+    #     if phrase.freq > 2:
+    #         print("Phrase: " + phrase.phrase + ", Frequency: " + str(phrase.freq) + "\n")
 
+    hyp.write_hypernyms(concept_filename, results_file)
+    #
     hyp.write_percentages(concept_filename, percents_file)
 
     # # hyp.test()
@@ -418,9 +546,18 @@ def music(r=369):
 
     percents_file = "../MinedData/musical_hypernym_percents.txt"
 
-    greediness = 5
+    greediness = 20
 
     run(pattern_filename, concept_filename, corputSubName, test_hypernyms, results_file, percents_file, greediness, frange=(0, r))
+
+    sum = 0
+
+    with open("../MinedData/musical_hypernym_percents.txt", "r") as f:
+        for l in f:
+            sum += float(l)
+
+        print(sum)
+        print(sum/500)
 
 def medical(r=369):
     # pattern_filename = "../MinedData/medical_patterns_top20_len3.json"
@@ -436,26 +573,34 @@ def medical(r=369):
 
     results_file = "../MinedData/medical_hypernym_results.txt"
 
-    greediness = 5
+    greediness = 20
 
     run(pattern_filename, concept_filename, corputSubName, test_hypernyms, results_file, percents_file, greediness, frange=(0, r))
 
-# Used for ranking hypernyms found in text
-class HyperNode:
+    sum = 0
 
-    def __init__(self, phrase, parent):
-        self.freq = 1
+    with open("../MinedData/medical_hypernym_percents.txt", "r") as f:
+        for l in f:
+            sum += float(l)
+
+        print(sum)
+        print(sum/500)
+
+# Used for ranking hypernyms found in text
+class NPObj:
+
+    def __init__(self, phrase):
+        self.freq = 0
         self.phrase = phrase
-        self.parent = parent
-        self.has_children = False
-        self.visited_rank = False
 
 if __name__ == '__main__':
+
     # music(5)
-    medical()
+    # medical()
+    music()
     # main()
 
-    # pattern_filename = "../MinedData/medical_patterns.json"
+    pattern_filename = "../MinedData/medical_patterns.json"
     #
     # concept_filename = "../SemEval2018-Task9/training/data/2A.medical.training.data.txt"
     # gold_filename = "../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt"
