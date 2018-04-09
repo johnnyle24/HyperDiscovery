@@ -46,9 +46,31 @@ def print_concept_sentences(concept_file):
                             isValid = True
                             sentence = np + " "
 
-def main():
-    print_concept_sentences("../SemEval2018-Task9/training/data/2A.medical.training.data.txt")
+def count_zeroes(file):
+    sum = 0
 
+    with open(file, "r") as f:
+        for l in f:
+            if float(l) < 0.0001:
+                sum += 1
+        print(sum)
+
+def find_percents_over(file, threshold):
+
+    with open(file, "r") as f:
+        for ind, l in enumerate(f):
+            if float(l) > threshold:
+                print("Index: " + str(ind+1) + ", Percent: " + l)
+
+def main():
+    # print_concept_sentences("../SemEval2018-Task9/training/data/2A.medical.training.data.txt")
+
+    medical = "../MinedData/medical_hypernym_percents.txt"
+
+    musical = "../MinedData/musical_hypernym_percents.txt"
+
+    count_zeroes(musical)
+    find_percents_over(musical, 0.5)
 
 if __name__ == '__main__':
     main()
