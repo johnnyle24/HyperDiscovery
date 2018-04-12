@@ -1,5 +1,63 @@
 import json
 import random
+from nltk.stem.porter import *
+
+class score:
+    def __init__(self, pred_dict, gold_dict):
+        self.pred_dict = pred_dict
+        self.gold_dict = gold_dict
+
+    def recall(self):
+        stemmer = PorterStemmer()
+
+        correct = 0
+        tot = 0
+        for key_gold, val_gold in self.gold_dict.items():
+
+            if key_gold in self.pred_dict:
+
+                for pred_val in self.pred_dict[key_gold]:
+
+                    for gold_val in self.gold_dict[key_gold]:
+                        for t in pred_val.split():
+
+                            if stemmer.stem(t) in gold_val:
+                                correct += 1
+
+                tot += len(val_gold)
+
+        if tot == 0:
+            return 0
+        return correct/tot
+
+    def precision(self):
+        stemmer = PorterStemmer()
+
+        correct = 0
+        for key_gold, val_gold in self.gold_dict.items():
+
+            if key_gold in self.pred_dict:
+
+                for pred_val in self.pred_dict[key_gold]:
+
+                    for gold_val in self.gold_dict[key_gold]:
+                        for t in pred_val.split():
+
+                            if stemmer.stem(t) in gold_val:
+                                correct += 1
+
+        sum_ = sum([len(p) for p in self.pred_dict.values()])
+        if sum_ == 0:
+            return 0
+        return correct/ sum_
+
+    def fscore(self):
+
+        denom = (self.precision() + self.recall())
+        if denom == 0:
+            return 0
+        return 2 * ((self.precision() * self.recall()) / denom)
+
 
 def readConcepts(fileName):
     result = list()
@@ -88,7 +146,8 @@ def discoverTokens(concepts, items, patterns):
     # results = set()
     results = dict()
     for file_id in items:
-        corpus_filename = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt".format(file_id)
+        # corpus_filename = "../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt".format(file_id)
+        corpus_filename = file_id
         print(corpus_filename)
 
         tokens = loadJson(corpus_filename)
@@ -100,7 +159,7 @@ def discoverTokens(concepts, items, patterns):
                     for word in token:
                         if word[0].lower() == r.lower() and len(token) == 1:
                             res = matchesPattern(patterns, tokens, i)
-                            if res is not None:
+                            if res is not None and res[1] is not None:
                                 lst = [item[0] for item in res[1]]
 
                                 if word[0] not in results:
@@ -141,33 +200,10 @@ def shouldHaveFound(fileNameList, hypernymsConceptMap):
         pairs[key] = list(val)
     return pairs
 
-def recall(pred_dict, gold_dict):
+def randomFiles(num=10, seed=-1, type='medical'):
+    if seed >= 0:
+        random.seed(seed)
 
-    correct = 0
-    tot = 0
-    for key_gold, val_gold in gold_dict.items():
-        # for key_pred, val_pred in pred_dict:
-
-        if key_gold in pred_dict:
-
-            # pred_val =
-            # gold_val =
-            for pred_val in pred_dict[key_gold]:
-
-                # if pred_val in gold_dict[key_gold]:
-                #     correct += 1
-                for gold_val in gold_dict[key_gold]:
-                    for t in pred_val.split():
-
-                        if t in gold_val:
-                            correct += 1
-
-            tot += len(val_gold)
-
-    return correct/tot
-
-def randomFiles(num=10, seed=1, type='medical'):
-    random.seed(seed)
     items = [random.randrange(0, 368) for rand in range(num)]
     fileList = list()
     if type == 'music':
@@ -178,6 +214,35 @@ def randomFiles(num=10, seed=1, type='medical'):
             fileList.append("../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt".format(file_id))
     return fileList
 
+def getPossibilities(consideredFileList, hypernymsConceptMap, possibilitiesFile = 'possibilities.json', loadFile=False):
+
+    if not loadFile:
+        possibilities = shouldHaveFound(consideredFileList, hypernymsConceptMap)
+
+        with open(possibilitiesFile, 'w') as df:
+            json.dump(possibilities, df)
+        return possibilities
+    else:
+        return loadJson(possibilitiesFile)
+
+def getDiscoveredHypernyms(concepts, consideredFileList, patterns, discoveredHypernymsFile='discoveredHypernyms.json', loadFile=False):
+
+    if not loadFile:
+        dict_ = dict()
+
+        dicovered = discoverTokens(concepts, consideredFileList, patterns)
+        for key, val in dicovered.items():
+            if key not in dict_:
+                dict_[key] = list()
+            dict_[key].extend(list(val))
+
+        with open(discoveredHypernymsFile, 'w') as df:
+            json.dump(dict_, df)
+
+        return dict_
+    else:
+        return loadJson(discoveredHypernymsFile)
+
 if __name__ == '__main__':
 
     concepts = readConcepts('../SemEval2018-Task9/training/data/2A.medical.training.data.txt')
@@ -187,23 +252,44 @@ if __name__ == '__main__':
     hypernymsConceptMap = readConceptAndHypernyms('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
         '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
 
-    consideredFileList = randomFiles(5, 10)
-    # possibilities = shouldHaveFound(consideredFileList, hypernymsConceptMap)
-    #
-    # with open('possibilities.json', 'w') as df:
-    #     json.dump(possibilities, df)
 
-    dict_ = dict()
-    # for seed in range(10):
-    dicovered = discoverTokens(concepts, consideredFileList, patterns)
-    for key, val in dicovered.items():
-        if key not in dict_:
-            dict_[key] = list()
-        dict_[key].extend(list(val))
+    loadPossibilities = False
+    loadHypernyms = False
+    NSamples = 3
+    seeds = [67, 10]
 
-    print(recall(dict_, hypernymsConceptMap))
+    with open('../Scoring/ScoringData/scoringResults.txt', 'w') as scoringFile:
+        for instance, seed in enumerate(seeds):
+            consideredFileList = randomFiles(NSamples, seed=seed)
 
-    with open('justatesthere.json', 'w') as df:
-        json.dump(dict_, df)
+            possibilities = getPossibilities(consideredFileList, hypernymsConceptMap,
+                                             '../Scoring/ScoringData/possibilities{0}.json'.format(instance),
+                                             loadFile=loadPossibilities)
 
+            dict_ = getDiscoveredHypernyms(concepts, consideredFileList, patterns,
+                                           '../Scoring/ScoringData/discoveredHypernyms{0}.json'.format(instance),
+                                           loadFile=loadHypernyms)
+
+            print('Considered Files:')
+            for f in consideredFileList:
+                scoringFile.write(f + '\n')
+                print(f)
+
+            print()
+            scoringFile.write('\n'*2)
+
+            scoring = score(dict_, possibilities)
+            recall = 'Recall: {0}'.format(scoring.recall())
+            precision = 'Precision: {0}'.format(scoring.precision())
+            fscore = 'F score: {0}'.format(scoring.fscore())
+
+            print(recall)
+            print(precision)
+            print(fscore)
+
+            scoringFile.write(recall + '\n')
+            scoringFile.write(precision + '\n')
+            scoringFile.write(fscore + '\n')
+            scoringFile.write('-'*80)
+            scoringFile.write('\n'*2)
 
