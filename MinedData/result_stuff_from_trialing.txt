@@ -1,0 +1,74 @@
+172 0.3846
+178 0.3333
+186 0.3333
+253 0.4286
+
+2000 with subtraction
+
+Phrase: dilatation, Frequency: 3
+
+Phrase: disease, Frequency: 9
+
+Phrase: cardiovascular disease, Frequency: 3
+
+Phrase: pathology, Frequency: 1
+
+
+
+2000 without subtraction
+
+Phrase: dilatation, Frequency: 4
+
+Phrase: disease, Frequency: 10
+
+Phrase: cardiovascular disease, Frequency: 4
+
+Phrase: enlargement, Frequency: 1
+
+Phrase: pathology, Frequency: 2
+
+
+
+1000 with filtering
+
+Phrase: disease, Frequency: 84
+
+Phrase: dilatation, Frequency: 4
+
+
+2500 with replacement and filtering but no blocking
+
+Medical
+8.186798332959322
+0.016373596665918644
+
+Musical
+Sum = 6.538942542155352
+Average % = 0.013077885084310705
+
+
+1000 with replacement and filtering with frequency above 0
+
+Med with Freq Above 0
+29.853884206054577
+0.059707768412109154
+
+Med with Freq Above 0 and Patterns
+30.41638420605458
+0.06083276841210916
+
+High on index 56 (cystic fibrosis): 0.84375
+
+
+Music with Freq Above 0
+25.440604075824996
+0.050881208151649995
+
+Music with Freq Above 0 and Patterns
+26.091397726618645
+0.05218279545323729
+
+
+High on index 258 (irish folk): 0.667
+
+Music Count: 2073 hypernyms on a single concept (saxophone had 6970)
