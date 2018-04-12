@@ -222,8 +222,8 @@ def randomFiles(num=10, seed=-1, type='medical'):
         for file_id in items:
             fileList.append("../Data/2B_music_bioreviews_tokenized/2B_music_bioreviews_tokenized_{0}.txt".format(file_id))
     else:
-        # items = [random.randrange(0, 368) for rand in range(num)]
-        items = [55]
+        items = [random.randrange(0, 368) for rand in range(num)]
+        # items = [55]
         for file_id in items:
             fileList.append("../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt".format(file_id))
     return fileList
@@ -272,11 +272,11 @@ def runScoring(trainingFilename, goldFilename, patternFileName, dataType_):
 
     hypernymsConceptMap = readConceptAndHypernyms(trainingFilename,goldFilename)
 
-    loadPossibilities = True
-    loadHypernyms = True
+    loadPossibilities = False
+    loadHypernyms = False
     NSamples = 5
-    # seeds = [random.randrange(0, 368) for rand in range(5)]
-    seeds = [55]
+    seeds = [random.randrange(0, 368) for rand in range(5)]
+    # seeds = [55]
 
     with open('../Scoring/ScoringData/scoringResults.txt', 'w') as scoringFile:
         for instance, seed in enumerate(seeds):
@@ -326,50 +326,3 @@ def runMedical():
 
 if __name__ == '__main__':
     runMedical()
-    # concepts = readConcepts('../SemEval2018-Task9/training/data/2A.medical.training.data.txt')
-    #
-    # patterns = readPatterns('../MinedData/medical_patterns_top20_len2.json')#['and']
-    #
-    # hypernymsConceptMap = readConceptAndHypernyms('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
-    #     '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
-    #
-    #
-    # loadPossibilities = False
-    # loadHypernyms = False
-    # NSamples = 5
-    # seeds = [random.randrange(0, 368) for rand in range(5)]
-    #
-    # with open('../Scoring/ScoringData/scoringResults.txt', 'w') as scoringFile:
-    #     for instance, seed in enumerate(seeds):
-    #         consideredFileList = randomFiles(NSamples, seed=seed)
-    #
-    #         possibilities = getPossibilities(consideredFileList, hypernymsConceptMap,
-    #                                          '../Scoring/ScoringData/possibilities{0}.json'.format(instance),
-    #                                          loadFile=loadPossibilities)
-    #
-    #         dict_ = getDiscoveredHypernyms(concepts, consideredFileList, patterns,
-    #                                        '../Scoring/ScoringData/discoveredHypernyms{0}.json'.format(instance),
-    #                                        loadFile=loadHypernyms)
-    #
-    #         print('Considered Files:')
-    #         for f in consideredFileList:
-    #             scoringFile.write(f + '\n')
-    #             print(f)
-    #
-    #         print()
-    #         scoringFile.write('\n'*2)
-    #
-    #         scoring = score(dict_, possibilities)
-    #         recall = 'Recall: {0}'.format(scoring.recall())
-    #         precision = 'Precision: {0}'.format(scoring.precision())
-    #         fscore = 'F score: {0}'.format(scoring.fscore())
-    #
-    #         print(recall)
-    #         print(precision)
-    #         print(fscore)
-    #
-    #         scoringFile.write(recall + '\n')
-    #         scoringFile.write(precision + '\n')
-    #         scoringFile.write(fscore + '\n')
-    #         scoringFile.write('-'*80)
-    #         scoringFile.write('\n'*2)
