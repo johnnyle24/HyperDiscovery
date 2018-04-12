@@ -4,7 +4,16 @@ from nltk.stem.porter import *
 
 class score:
     def __init__(self, pred_dict, gold_dict):
-        self.pred_dict = pred_dict
+        # self.pred_dict = pred_dict
+        self.pred_dict = dict()
+
+        stemmer = PorterStemmer()
+        for key, val in pred_dict.items():
+            self.pred_dict[key] = set()
+            for item in val:
+                clean = ' '.join([stemmer.stem(t) for t in item.split()])
+                self.pred_dict[key].add(clean)
+
         self.gold_dict = gold_dict
 
     def recall(self):
@@ -12,6 +21,7 @@ class score:
 
         correct = 0
         tot = 0
+        visited = set()
         for key_gold, val_gold in self.gold_dict.items():
 
             if key_gold in self.pred_dict:
@@ -21,7 +31,8 @@ class score:
                     for gold_val in self.gold_dict[key_gold]:
                         for t in pred_val.split():
 
-                            if stemmer.stem(t) in gold_val:
+                            if stemmer.stem(t) in gold_val and t not in visited:
+                                visited.add(t)
                                 correct += 1
 
                 tot += len(val_gold)
@@ -193,7 +204,7 @@ def shouldHaveFound(fileNameList, hypernymsConceptMap):
                     pairs[concept_] = set()
 
                 for p in pairResults:
-                    pairs[concept_].add(p)
+                    pairs[concept_].add(p.lower())
 
                 # print('concept: {0} -> {1}'.format(concept_, pairs))
     for key, val in pairs.items():
@@ -211,7 +222,8 @@ def randomFiles(num=10, seed=-1, type='medical'):
         for file_id in items:
             fileList.append("../Data/2B_music_bioreviews_tokenized/2B_music_bioreviews_tokenized_{0}.txt".format(file_id))
     else:
-        items = [random.randrange(0, 368) for rand in range(num)]
+        # items = [random.randrange(0, 368) for rand in range(num)]
+        items = [55]
         for file_id in items:
             fileList.append("../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt".format(file_id))
     return fileList
@@ -245,24 +257,30 @@ def getDiscoveredHypernyms(concepts, consideredFileList, patterns, discoveredHyp
     else:
         return loadJson(discoveredHypernymsFile)
 
-if __name__ == '__main__':
+def runScoring(trainingFilename, goldFilename, patternFileName, dataType_):
+    '''
+    The Results will be written in the Scoring/ScoringData subdirectory
 
-    concepts = readConcepts('../SemEval2018-Task9/training/data/2A.medical.training.data.txt')
+    :param trainingFilename:
+    :param goldFilename:
+    :param patternFileName:
+    :return:
+    '''
+    concepts = readConcepts(trainingFilename)
 
-    patterns = readPatterns('../MinedData/medical_patterns_top20_len2.json')#['and']
+    patterns = readPatterns(patternFileName)
 
-    hypernymsConceptMap = readConceptAndHypernyms('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
-        '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+    hypernymsConceptMap = readConceptAndHypernyms(trainingFilename,goldFilename)
 
-
-    loadPossibilities = False
-    loadHypernyms = False
+    loadPossibilities = True
+    loadHypernyms = True
     NSamples = 5
-    seeds = [random.randrange(0, 368) for rand in range(5)]
+    # seeds = [random.randrange(0, 368) for rand in range(5)]
+    seeds = [55]
 
     with open('../Scoring/ScoringData/scoringResults.txt', 'w') as scoringFile:
         for instance, seed in enumerate(seeds):
-            consideredFileList = randomFiles(NSamples, seed=seed)
+            consideredFileList = randomFiles(NSamples, seed=seed, type=dataType_)
 
             possibilities = getPossibilities(consideredFileList, hypernymsConceptMap,
                                              '../Scoring/ScoringData/possibilities{0}.json'.format(instance),
@@ -295,3 +313,63 @@ if __name__ == '__main__':
             scoringFile.write('-'*80)
             scoringFile.write('\n'*2)
 
+def runMusic():
+    runScoring('../SemEval2018-Task9/training/data/2B.music.training.data.txt',
+               '../SemEval2018-Task9/training/gold/2B.music.training.gold.txt',
+               '../MinedData/medical_patterns_top20_len2.json', 'music')
+
+def runMedical():
+    runScoring('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
+               '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt',
+               '../MinedData/medical_patterns_top20_len2.json', 'medical')
+
+
+if __name__ == '__main__':
+    runMedical()
+    # concepts = readConcepts('../SemEval2018-Task9/training/data/2A.medical.training.data.txt')
+    #
+    # patterns = readPatterns('../MinedData/medical_patterns_top20_len2.json')#['and']
+    #
+    # hypernymsConceptMap = readConceptAndHypernyms('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
+    #     '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+    #
+    #
+    # loadPossibilities = False
+    # loadHypernyms = False
+    # NSamples = 5
+    # seeds = [random.randrange(0, 368) for rand in range(5)]
+    #
+    # with open('../Scoring/ScoringData/scoringResults.txt', 'w') as scoringFile:
+    #     for instance, seed in enumerate(seeds):
+    #         consideredFileList = randomFiles(NSamples, seed=seed)
+    #
+    #         possibilities = getPossibilities(consideredFileList, hypernymsConceptMap,
+    #                                          '../Scoring/ScoringData/possibilities{0}.json'.format(instance),
+    #                                          loadFile=loadPossibilities)
+    #
+    #         dict_ = getDiscoveredHypernyms(concepts, consideredFileList, patterns,
+    #                                        '../Scoring/ScoringData/discoveredHypernyms{0}.json'.format(instance),
+    #                                        loadFile=loadHypernyms)
+    #
+    #         print('Considered Files:')
+    #         for f in consideredFileList:
+    #             scoringFile.write(f + '\n')
+    #             print(f)
+    #
+    #         print()
+    #         scoringFile.write('\n'*2)
+    #
+    #         scoring = score(dict_, possibilities)
+    #         recall = 'Recall: {0}'.format(scoring.recall())
+    #         precision = 'Precision: {0}'.format(scoring.precision())
+    #         fscore = 'F score: {0}'.format(scoring.fscore())
+    #
+    #         print(recall)
+    #         print(precision)
+    #         print(fscore)
+    #
+    #         scoringFile.write(recall + '\n')
+    #         scoringFile.write(precision + '\n')
+    #         scoringFile.write(fscore + '\n')
+    #         scoringFile.write('-'*80)
+    #         scoringFile.write('\n'*2)
