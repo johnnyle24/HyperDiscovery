@@ -80,11 +80,11 @@ def containsHypernymsInToken(hypernyms, token):
     return None
 
 
-def discoverTokens(concepts, seed, patterns):
+def discoverTokens(concepts, items, patterns):
     concepts = list(filter(lambda x: len(x.split()) == 1, concepts))
 
-    random.seed(seed)
-    items = [random.randrange(0, 368) for rand in range(5)]
+    # random.seed(seed)
+    # items = [random.randrange(0, 368) for rand in range(5)]
     # results = set()
     results = dict()
     for file_id in items:
@@ -180,7 +180,7 @@ def randomFiles(num=10, seed=1, type='medical'):
 
 if __name__ == '__main__':
 
-    concepts = ['cancer']#readConcepts('../SemEval2018-Task9/training/data/2A.medical.training.data.txt')
+    concepts = readConcepts('../SemEval2018-Task9/training/data/2A.medical.training.data.txt')
 
     patterns = readPatterns('../MinedData/medical_patterns_top20_len2.json')#['and']
 
@@ -194,12 +194,12 @@ if __name__ == '__main__':
     #     json.dump(possibilities, df)
 
     dict_ = dict()
-    for seed in range(10):
-        dicovered = discoverTokens(concepts, seed, patterns)
-        for key, val in dicovered.items():
-            if key not in dict_:
-                dict_[key] = list()
-            dict_[key].extend(list(val))
+    # for seed in range(10):
+    dicovered = discoverTokens(concepts, consideredFileList, patterns)
+    for key, val in dicovered.items():
+        if key not in dict_:
+            dict_[key] = list()
+        dict_[key].extend(list(val))
 
     print(recall(dict_, hypernymsConceptMap))
 
