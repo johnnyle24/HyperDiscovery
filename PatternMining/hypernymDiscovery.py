@@ -257,8 +257,8 @@ if __name__ == '__main__':
 
     loadPossibilities = False
     loadHypernyms = False
-    NSamples = 3
-    seeds = [67, 10]
+    NSamples = 5
+    seeds = [67, 10, 22, 5, 11]
 
     with open('../Scoring/ScoringData/scoringResults.txt', 'w') as scoringFile:
         for instance, seed in enumerate(seeds):
