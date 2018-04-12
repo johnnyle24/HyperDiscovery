@@ -258,7 +258,7 @@ if __name__ == '__main__':
     loadPossibilities = False
     loadHypernyms = False
     NSamples = 5
-    seeds = [67, 10, 22, 5, 11]
+    seeds = [random.randrange(0, 368) for rand in range(5)]
 
     with open('../Scoring/ScoringData/scoringResults.txt', 'w') as scoringFile:
         for instance, seed in enumerate(seeds):
