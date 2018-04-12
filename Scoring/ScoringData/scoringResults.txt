@@ -1,0 +1,20 @@
+../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_38.txt
+../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_59.txt
+../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_209.txt
+
+
+Recall: 0.2
+Precision: 0.1111111111111111
+F score: 0.14285714285714285
+--------------------------------------------------------------------------------
+
+../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_292.txt
+../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_16.txt
+../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_219.txt
+
+
+Recall: 0.0
+Precision: 0.0
+F score: 0
+--------------------------------------------------------------------------------
+

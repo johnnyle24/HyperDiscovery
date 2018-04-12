@@ -204,12 +204,14 @@ def randomFiles(num=10, seed=-1, type='medical'):
     if seed >= 0:
         random.seed(seed)
 
-    items = [random.randrange(0, 368) for rand in range(num)]
+
     fileList = list()
     if type == 'music':
+        items = [random.randrange(0, 438) for rand in range(num)]
         for file_id in items:
             fileList.append("../Data/2B_music_bioreviews_tokenized/2B_music_bioreviews_tokenized_{0}.txt".format(file_id))
     else:
+        items = [random.randrange(0, 368) for rand in range(num)]
         for file_id in items:
             fileList.append("../Data/2A_med_pubmed_tokenized/2A_med_pubmed_tokenized_{0}.txt".format(file_id))
     return fileList
