@@ -286,5 +286,5 @@ if __name__ == '__main__':
     # with open('../MinedData/patternUsingTokens.json', 'w') as df:
     #     json.dump(pattern_direction_freq, df)
 
-    # getMusicPatterns()
-    getMedPatterns(topN=20, patternLength=2)
+    getMusicPatterns(topN=20, patternLength=2)
+    # getMedPatterns(topN=20, patternLength=2)

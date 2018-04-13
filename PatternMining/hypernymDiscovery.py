@@ -273,12 +273,12 @@ def runScoring(trainingFilename, goldFilename, patternFileName, dataType_, numOf
     hypernymsConceptMap = readConceptAndHypernyms(trainingFilename,goldFilename)
 
     # Uncomment to load data
-    # loadPossibilities = True
-    # loadHypernyms = True
+    loadPossibilities = True
+    loadHypernyms = True
 
     # Uncomment to rerun data
-    loadPossibilities = False
-    loadHypernyms = False
+    # loadPossibilities = False
+    # loadHypernyms = False
 
     seeds = [random.randrange(0, 368) for rand in range(numOfFiles)]
     # seeds = [55]
@@ -321,7 +321,7 @@ def runScoring(trainingFilename, goldFilename, patternFileName, dataType_, numOf
 def runMusic(nunOfSamples=5, numOfFiles=5):
     runScoring('../SemEval2018-Task9/training/data/2B.music.training.data.txt',
                '../SemEval2018-Task9/training/gold/2B.music.training.gold.txt',
-               '../MinedData/medical_patterns_top20_len2.json', 'music',
+               '../MinedData/music_patterns.json', 'music',
                numOfFiles=numOfFiles,NSamples=nunOfSamples)
 
 def runMedical(nunOfSamples=5, numOfFiles=5):
