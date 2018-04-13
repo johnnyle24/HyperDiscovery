@@ -21,6 +21,28 @@ class HypernymMining:
 
         self.phrase_to_concept = dict()
 
+    def check(self, concept):
+
+        if concept in self.test_hypernyms:
+
+            found = list()
+
+            notfound = list()
+
+            for hyp in self.test_hypernyms[concept]:
+                if hyp in self.concepts[concept]:
+                    found.append(hyp)
+                else:
+                    notfound.append(hyp)
+
+            return found, notfound
+
+        else:
+
+            return list(), list()
+
+
+
     # Loads the test concepts and mined patterns
     def load(self, concept_filename, pattern_filename, capacity):
 
@@ -40,7 +62,37 @@ class HypernymMining:
 
             self.frequencies[conc] = freq
 
-        self.parse_patterns(pattern_filename, 10)
+        self.parse_patterns(pattern_filename)
+
+    def load_results(self, concept_filename, hypernym_results, test_filename):
+
+        concs = list()
+
+        with open(concept_filename, 'r') as concept_file:
+            for concept_line in concept_file:
+                concept = concept_line.split("\t")
+
+                self.concepts[concept[0]] = set()
+
+                concs.append(concept[0])
+
+        with open(hypernym_results, 'r') as hyp_file:
+            for index, l in enumerate(hyp_file):
+                hyps = l.split("\t")
+                for hyp in hyps:
+                    self.concepts[concs[index]].add(hyp)
+                    if hyp not in self.hypernyms:
+                        self.hypernyms[hyp] = set()
+                    self.hypernyms[hyp].add(concs[index])
+
+        with open(test_filename, 'r') as test_file:
+            for index, l in enumerate(test_file):
+                hyps = l.split("\t")
+
+                for hyp in hyps:
+                    if concs[index] not in self.test_hypernyms:
+                        self.test_hypernyms[concs[index]] = set()
+                    self.test_hypernyms[concs[index]].add(hyp)
 
     # Loads the test concepts and mined patterns
     def load_test(self, concept_filename, test_hypernyms):
@@ -89,7 +141,7 @@ class HypernymMining:
 
         self.parse_patterns(pattern_filename)
 
-    def parse_patterns(self, pattern_filename, frequency):
+    def parse_patterns(self, pattern_filename):
 
         with open(pattern_filename, 'r') as token_file:
             patterns = json.load(token_file)
@@ -515,26 +567,13 @@ def run(pattern_filename, concept_filename, corpus_subname, test_hypernyms, resu
         hyp.discover(corpus_filename, greediness)
         print("Now serving file number: {0}".format(i))
 
-    # hyp.write_true_patterns(1)
-
-    # for phrase in hyp.frequencies["aneurysm"]:
-    #     if phrase.phrase in hyp.test_hypernyms["aneurysm"]:
-    #         print("Phrase: " + phrase.phrase + ", Frequency: " + str(phrase.freq) + "\n")
-    #
-    # for phrase in hyp.frequencies["aneurysm"]:
-    #     if phrase.freq > 2:
-    #         print("Phrase: " + phrase.phrase + ", Frequency: " + str(phrase.freq) + "\n")
-
     hyp.write_hypernyms(concept_filename, results_file)
     #
     hyp.write_percentages(concept_filename, percents_file)
 
-    # # hyp.test()
-    # hyp.write_model()
-
     pass
 
-def music(r=369):
+def music(r=469):
     pattern_filename = "../MinedData/music_patterns.json"
 
     concept_filename = "../SemEval2018-Task9/training/data/2B.music.training.data.txt"
@@ -596,8 +635,8 @@ class NPObj:
 if __name__ == '__main__':
 
     # music(5)
-    # medical()
-    music()
+    medical()
+    # music()
     # main()
 
     pattern_filename = "../MinedData/medical_patterns.json"
