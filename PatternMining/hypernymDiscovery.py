@@ -273,12 +273,12 @@ def runScoring(trainingFilename, goldFilename, patternFileName, dataType_, numOf
     hypernymsConceptMap = readConceptAndHypernyms(trainingFilename,goldFilename)
 
     # Uncomment to load data
-    loadPossibilities = True
-    loadHypernyms = True
+    # loadPossibilities = True
+    # loadHypernyms = True
 
     # Uncomment to rerun data
-    # loadPossibilities = False
-    # loadHypernyms = False
+    loadPossibilities = False
+    loadHypernyms = False
 
     seeds = [random.randrange(0, 368) for rand in range(numOfFiles)]
     # seeds = [55]
