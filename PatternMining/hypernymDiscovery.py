@@ -31,7 +31,7 @@ class score:
                     for gold_val in self.gold_dict[key_gold]:
                         for t in pred_val.split():
 
-                            if stemmer.stem(t) in gold_val and t not in visited:
+                            if stemmer.stem(t).lower() in gold_val and t not in visited:
                                 visited.add(t)
                                 correct += 1
 
@@ -257,7 +257,7 @@ def getDiscoveredHypernyms(concepts, consideredFileList, patterns, discoveredHyp
     else:
         return loadJson(discoveredHypernymsFile)
 
-def runScoring(trainingFilename, goldFilename, patternFileName, dataType_):
+def runScoring(trainingFilename, goldFilename, patternFileName, dataType_, numOfFiles=5, NSamples=5):
     '''
     The Results will be written in the Scoring/ScoringData subdirectory
 
@@ -272,10 +272,15 @@ def runScoring(trainingFilename, goldFilename, patternFileName, dataType_):
 
     hypernymsConceptMap = readConceptAndHypernyms(trainingFilename,goldFilename)
 
+    # Uncomment to load data
+    # loadPossibilities = True
+    # loadHypernyms = True
+
+    # Uncomment to rerun data
     loadPossibilities = False
     loadHypernyms = False
-    NSamples = 5
-    seeds = [random.randrange(0, 368) for rand in range(5)]
+
+    seeds = [random.randrange(0, 368) for rand in range(numOfFiles)]
     # seeds = [55]
 
     with open('../Scoring/ScoringData/scoringResults.txt', 'w') as scoringFile:
@@ -313,16 +318,19 @@ def runScoring(trainingFilename, goldFilename, patternFileName, dataType_):
             scoringFile.write('-'*80)
             scoringFile.write('\n'*2)
 
-def runMusic():
+def runMusic(nunOfSamples=5, numOfFiles=5):
     runScoring('../SemEval2018-Task9/training/data/2B.music.training.data.txt',
                '../SemEval2018-Task9/training/gold/2B.music.training.gold.txt',
-               '../MinedData/medical_patterns_top20_len2.json', 'music')
+               '../MinedData/medical_patterns_top20_len2.json', 'music',
+               numOfFiles=numOfFiles,NSamples=nunOfSamples)
 
-def runMedical():
+def runMedical(nunOfSamples=5, numOfFiles=5):
     runScoring('../SemEval2018-Task9/training/data/2A.medical.training.data.txt',
                '../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt',
-               '../MinedData/medical_patterns_top20_len2.json', 'medical')
+               '../MinedData/medical_patterns_top20_len2.json', 'medical',
+               numOfFiles=numOfFiles, NSamples=nunOfSamples)
 
 
 if __name__ == '__main__':
-    runMedical()
+    # runMedical()
+    runMusic()
