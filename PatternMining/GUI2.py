@@ -14,6 +14,9 @@ sys.path.append('../')
 from Scoring import scorer
 from Misc import downloadData
 
+import os
+print(os.getcwd())
+
 class Dialog:
 
     def __init__(self):
@@ -266,13 +269,9 @@ class Dialog:
 
         self.hyp.load_test(self.concept_filename.get(), self.gold_filename.get())
 
-        self.hyp.write_hypernyms(self.concept_filename.get(), self.results_file.get())
-
-        self.hyp.write_percentages(self.concept_filename.get(), self.percents_file.get())
-
         total = float(self.total_files)
 
-        # self.total_files = 10 # For debugging purposes, uncomment when done
+        self.total_files = 10 # For debugging purposes, uncomment when done
 
         threshold = 0  # only collect hypernyms with frequency above threshold
 
@@ -303,6 +302,10 @@ class Dialog:
             self.fscore.set(scores['fscore'])
             self.recall.set(scores['recall'])
             self.precision.set(scores['precision'])
+
+            self.hyp.write_hypernyms(self.concept_filename.get(), self.results_file.get())
+
+            self.hyp.write_percentages(self.concept_filename.get(), self.percents_file.get())
 
         t = threading.Thread(target=callback)
         t.start()
