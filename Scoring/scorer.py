@@ -1,4 +1,5 @@
 from Scoring import build_score_file as score
+from nltk.stem.porter import *
 
 class Scoring:
 
@@ -12,6 +13,8 @@ class Scoring:
         self.gold = None
         self.rec = None
         self.prec = None
+        self.stemmer = PorterStemmer()
+
 
         with open(self.predictionFileName, 'r') as f:
                 self.predictions = f.readlines()
@@ -26,6 +29,7 @@ class Scoring:
         correct = 0
         tot = 0
         count = 0
+        visited = set()
         for i in range(len(self.gold)):
 
             pred = self.predictions[i]
@@ -37,28 +41,69 @@ class Scoring:
             gold = self.gold[i].replace('\n', '').split('\t')
             predicted = self.predictions[i].replace('\n', '').split('\t')
 
-            for j in range(len(gold)):
-                if gold[j] in predicted:
-                    correct += 1
-                tot += 1
+            gold_tokenized = []
+
+            for g in gold:
+                r = [self.stemmer.stem(t).lower() for t in g.split()]
+                gold_tokenized.append(set(r))
+
+            predicted_tokenized = []
+            for p in predicted:
+                r = [self.stemmer.stem(t).lower() for t in p.split()]
+                predicted_tokenized.append(set(r))
+
+
+            for pred in predicted_tokenized:
+
+                for gold_val in gold_tokenized:
+
+                    for g in gold_val:
+                        if g in pred and g not in visited:
+                            visited.add(g)
+                            correct += 1
+
+            tot += len(gold)
+
+        if tot == 0:
+            return 0
+
         self.rec = correct / tot
         return self.rec
-
-
 
     def precision(self):
         correct = 0
         tot = 0
+        visited = set()
         for i in range(len(self.gold)):
 
             gold = self.gold[i].replace('\n', '').split('\t')
             predicted = self.predictions[i].replace('\n', '').split('\t')
 
-            for j in range(len(predicted)):
+            gold_tokenized = []
 
-                if predicted[j] in gold: #gold[j] == predicted[j]:
-                    correct += 1
-                tot += 1
+            for g in gold:
+                r = [self.stemmer.stem(t).lower() for t in g.split()]
+                gold_tokenized.append(set(r))
+
+            predicted_tokenized = []
+            for p in predicted:
+                r = [self.stemmer.stem(t).lower() for t in p.split()]
+                predicted_tokenized.append(set(r))
+
+
+            for pred in predicted_tokenized:
+
+                for gold_val in gold_tokenized:
+
+                    for g in gold_val:
+                        if g in pred and g not in visited:
+                            visited.add(g)
+                            correct += 1
+
+            tot += sum([len(p) for p in predicted])
+
+        if tot == 0:
+            return 0
 
         self.prec = correct / tot
         return self.prec
@@ -69,12 +114,17 @@ class Scoring:
         if self.prec is None:
             self.precision()
 
-        return 2 * (self.prec * self.rec) / (self.prec + self.rec)
+        num = (self.prec * self.rec)
+        denom = (self.prec + self.rec)
+
+        return 0 if denom == 0 else 2 *  num / denom
 
 def get_scores(data_file):
-    score.get_file(data_file, 'predictions.txt')
+    # score.get_file(data_file, 'predictions.txt')
 
-    s = Scoring(data_file, 'predictions.txt')
+    # s = Scoring(data_file, 'predictions.txt')
+    s = Scoring(predictionFileName='../MinedData/medical_hypernym_results_match.txt',
+                goldFileName=data_file)
 
     return {'recall' : s.recall(),
             'precision' : s.precision(),
@@ -84,8 +134,15 @@ if __name__ == '__main__':
 
     # score.get_file('../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt', 'predictions.txt')
 
-    s = Scoring(predictionFileName='predictions.txt',
-                goldFileName='../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+    # s = Scoring(predictionFileName='predictions.txt',
+    #             goldFileName='../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+
+
+    # s = Scoring(predictionFileName='../MinedData/medical_hypernym_results_match.txt',
+    #             goldFileName='../SemEval2018-Task9/training/gold/2A.medical.training.gold.txt')
+
+    s = Scoring(predictionFileName='../MinedData/medical_hypernym_results_match.txt',
+                goldFileName='../SemEval2018-Task9/test/gold/2A.medical.test.gold.txt')
 
     # s = Scoring('../Misc/test.pred.txt',
     #             '../Misc/test.gold.txt')
@@ -93,6 +150,6 @@ if __name__ == '__main__':
     # s = Scoring('../Data/Model/hypernyms.txt',
     #             '../SemEval2018-Task9/training/gold/2B.music.training.gold.txt')
 
-    print('recall: {0}'.format(s.recall()))
-    print(s.precision())
-    print(s.fScore())
+    print('Recall: {0}'.format(s.recall()))
+    print('Precision: {0}'.format(s.precision()))
+    print('F Score: {0}'.format(s.fScore()))
