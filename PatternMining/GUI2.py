@@ -266,10 +266,6 @@ class Dialog:
 
         self.hyp.load_test(self.concept_filename.get(), self.gold_filename.get())
 
-        self.hyp.write_hypernyms(self.concept_filename.get(), self.results_file.get())
-
-        self.hyp.write_percentages(self.concept_filename.get(), self.percents_file.get())
-
         total = float(self.total_files)
 
         # self.total_files = 10 # For debugging purposes, uncomment when done
@@ -303,6 +299,10 @@ class Dialog:
             self.fscore.set(scores['fscore'])
             self.recall.set(scores['recall'])
             self.precision.set(scores['precision'])
+
+            self.hyp.write_hypernyms(self.concept_filename.get(), self.results_file.get())
+
+            self.hyp.write_percentages(self.concept_filename.get(), self.percents_file.get())
 
         t = threading.Thread(target=callback)
         t.start()
