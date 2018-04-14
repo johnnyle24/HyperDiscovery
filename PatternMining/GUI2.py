@@ -271,7 +271,7 @@ class Dialog:
 
         total = float(self.total_files)
 
-        self.total_files = 10 # For debugging purposes, uncomment when done
+        # self.total_files = 10 # For debugging purposes, uncomment when done
 
         threshold = 0  # only collect hypernyms with frequency above threshold
 
